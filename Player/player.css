@@ -1,6 +1,7 @@
 
 body{
 	background-color: #eeeeee;
+  	vertical-align: middle; 
 }
 
 .all {
@@ -9,11 +10,11 @@ body{
 
 
 
-.contributionPanel { 
+.contributionPanel {
 	float: right; padding: 15px; 
 }
 
-.gapTypeButton{
+.Button{
 	height:40px;width:300px;
 }
 

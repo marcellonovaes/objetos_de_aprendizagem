@@ -9,7 +9,7 @@
 <body> 
 <center>
 <div class="all">
-<p align="center"><h1>Identifique no vídeo os pontos que não conseguiu compreender</h1></p>
+	<h1><spam id="banner" align="center"></spam></h1>
 	<div class="player">
 	 <p>
 	  <video poster='../Images/poster.png' id="video" width="600">
@@ -24,22 +24,18 @@
 	 </p>
 	</div>
 
-	<div class="contributionPanel">
 
- 	<div class="contributionPanel">
-	  <p><button  class="gapTypeButton"  onclick="gapType(1)">Não entendi o significado da palavra ou expressão.</button></p>
-	  <p><button  class="gapTypeButton"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button></p>
- 	  <p><button  class="gapTypeButton"  onclick="gapType(3)">Não entendi o contexto de uma afirmação.</button></p>
-
-	<div class="contribution">
-	  <p align="center"><label id="question">O que gerou dúvida?</label></p>
-	  <p align="center"><textarea id="answer" class="answer"></textarea></p>	
-	  <p align="center"><button onclick="sendContribution()">Enviar Dúvida</button></p>
-	</div>
+ 	<div id="contributionPanel" class="contributionPanel">
+	  <button id="btGapFound" class="Button"  onclick="gapFound()">Encontrei um problema de comunicação!!!</button>
+	  <button id="btType1" class="Button"  onclick="gapType(1)">Não entendi o significado da palavra ou expressão.</button>
+	  <button id="btType2" class="Button"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button>
+	  <span align="center" id="question"></span>
+	  <textarea align="center" id="answer" class="answer"></textarea>
+	  <button align="center" id="btSend" onclick="sendContribution()">Enviar Dúvida</button>
+	  <button align="center" id="btCancel" onclick="seekGap()">Cancelar</button>
 
 	</div>
 
-	</div>
 
 
 </div>
