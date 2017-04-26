@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+
+body{
+	background-color: #eeeeee;
+}
+
+.all {
+	display:table; padding: 35px;align-content:center;background-color: #ffffff; 
+}
+
+
+
+.contributionPanel { 
+	float: right; padding: 15px; 
+}
+
+.gapTypeButton{
+	height:40px;width:300px;
+}
+
+.answer{
+	height:80px;width:300px;
+}
+
+.player { 
+	float: left;padding: 15px;
+}
+
+
+h1{
+float: center;
+
+}
+
+
+
+</style>
+
+</head>
+
+ 
+<body> 
+<center>
+<div class="all">
+<p align="center"><h1>Identifique no vídeo os pontos que não conseguiu compreender</h1></p>
+	<div class="player">
+	 <p>
+	  <video poster='../Images/poster.png' id="video1" width="600">
+	    <source src="../Videos/video001.mp4" type="video/mp4">
+ 	   Your browser does not support HTML5 video.
+	  </video>
+	 </p>
+ 	 <p align="center">
+	  <button onclick="timeStep(-1)">- 1 seg</button>
+	  <button onclick="playPause()">Play/Pause</button> 
+	  <button onclick="timeStep(1)">+ 1 seg</button>
+	 </p>
+	</div>
+
+	<div class="contributionPanel">
+
+ 	<div class="contributionPanel">
+	  <p><button  class="gapTypeButton"  onclick="gapType(1)">Não compreendi um termo ou expressão.</button></p>
+	  <p><button  class="gapTypeButton"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button></p>
+ 	  <p><button  class="gapTypeButton"  onclick="gapType(3)">Não entendi o contexto de uma afirmação.</button></p>
+
+	<div class="contribution">
+	  <p align="center"><label id="question">O que gerou dúvida?</label></p>
+	  <p align="center"><textarea id="answer" class="answer"></textarea></p>	
+	  <p align="center"><button onclick="sendContribution()">Enviar Dúvida</button></p>
+	</div>
+
+	</div>
+
+	</div>
+
+
+</div>
+</center>
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+    if (myVideo.paused) 
+        myVideo.play(); 
+    else 
+        myVideo.pause(); 
+} 
+
+function timeStep(delta){
+	myVideo.currentTime += delta;
+}
+
+function gapType(op){
+
+}
+
+</script> 
+
+</body> 
+</html>
+
