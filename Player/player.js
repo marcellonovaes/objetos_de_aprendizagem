@@ -1,13 +1,15 @@
 
-var myVideo, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type;
+var myVideo, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
+
 init();
 
 
 function init(){
 	myVideo = document.getElementById("video");
-
 	contributionPanel = document.getElementById("contributionPanel");
- 
+	panelFound = document.getElementById("panelFound");
+	panelType = document.getElementById("panelType");
+	panelQuestion = document.getElementById("panelQuestion");
 	question = document.getElementById("question");
 	answer = document.getElementById("answer");
 	btGapFound = document.getElementById("btGapFound");
@@ -25,15 +27,10 @@ function seekGap(){
 	banner.textContent = "Identifique no vídeo os problemas de comunicação";
 	answer.value = "";
 
-	btGapFound.remove();
-	btType1.remove();
-	btType2.remove();
-	question.remove();
-	answer.remove();
-	btSend.remove();
-	btCancel.remove();
-
-	contributionPanel.append(btGapFound);
+	panelQuestion.remove();
+	panelType.remove();
+	
+	contributionPanel.append(panelFound);
 
 
 }
@@ -54,13 +51,9 @@ function gapType(op){
 
 	banner.textContent = "Posicione o vídeo no momento onde o problema ocorre";
 
-	btType1.remove();
-	btType2.remove();
+	panelType.remove();
 
-	contributionPanel.append(question);
-	contributionPanel.append(answer);
-	contributionPanel.append(btSend);
-	contributionPanel.append(btCancel);
+	contributionPanel.append(panelQuestion);
 
 
 	switch(op){
@@ -80,9 +73,9 @@ function gapType(op){
 
 function gapFound(){
 	banner.textContent = "Nos diga qual problema encontrou";
-	btGapFound.remove();
-	contributionPanel.appendChild(btType1);
-	contributionPanel.appendChild(btType2);
+	panelFound.remove();
+	contributionPanel.append(panelType);
+
 }
 
 function sendContribution(){

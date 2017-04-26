@@ -26,13 +26,22 @@
 
 
  	<div id="contributionPanel" class="contributionPanel">
-	  <button id="btGapFound" class="Button"  onclick="gapFound()">Encontrei um problema de comunicação!!!</button>
-	  <button id="btType1" class="Button"  onclick="gapType(1)">Não entendi o significado da palavra ou expressão.</button>
-	  <button id="btType2" class="Button"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button>
-	  <span align="center" id="question"></span>
-	  <textarea align="center" id="answer" class="answer"></textarea>
-	  <button align="center" id="btSend" onclick="sendContribution()">Enviar Dúvida</button>
-	  <button align="center" id="btCancel" onclick="seekGap()">Cancelar</button>
+
+		<div id="panelFound">
+	  		<p><button id="btGapFound" class="Button"  onclick="gapFound()">Encontrei um problema de comunicação!!!</button></p>
+		</div>
+
+		<div id="panelType">
+		  <p><button id="btType1" class="Button"  onclick="gapType(1)">Não entendi o significado da palavra ou expressão.</button><p>
+		  <p><button id="btType2" class="Button"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button></p>
+		</div>
+
+		<div id="panelQuestion">
+		  <p><span align="center" id="question"></span></p>
+		  <p><textarea align="center" id="answer" class="answer"></textarea></p>
+		  <p><button align="center" id="btSend" onclick="sendContribution()">Enviar Dúvida</button></p>
+		  <p><button align="center" id="btCancel" onclick="seekGap()">Cancelar</button></p>
+		</div>
 
 	</div>
 
