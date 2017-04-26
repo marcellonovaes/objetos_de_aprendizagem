@@ -79,9 +79,21 @@ function gapFound(){
 }
 
 function sendContribution(){
-	console.log(type);
-	console.log(answer.value);
-	console.log(myVideo.currentTime);
+	var jsonObj, jsonStr;
+	var user = '001';
+	var video = '001';
+	jsonObj = {'user' : user, 'video' : video, 'type' : type, 'answer' : answer.value, 'position' : myVideo.currentTime};
+	storeContribution(jsonObj);
+}
+
+
+function storeContribution(data){
+	jsonString = JSON.stringify(data);
+	$.ajax({
+	    url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
+	    data : {'jsonString':jsonString},
+	    type: 'POST'
+	});
 	seekGap();
 }
 
