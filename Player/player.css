@@ -1,0 +1,34 @@
+
+body{
+	background-color: #eeeeee;
+}
+
+.all {
+	display:table; padding: 35px;align-content:center;background-color: #ffffff; 
+}
+
+
+
+.contributionPanel { 
+	float: right; padding: 15px; 
+}
+
+.gapTypeButton{
+	height:40px;width:300px;
+}
+
+.answer{
+	height:80px;width:300px;
+}
+
+.player { 
+	float: left;padding: 15px;
+}
+
+
+h1{
+float: center;
+
+}
+
+

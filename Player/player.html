@@ -1,62 +1,18 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style>
-
-
-
-.all {
-	display:table;
-}
-
-
-
-.gapTypes { 
-	float: left; padding: 45px; 
-}
-
-.gapTypeButton{
-	height:40px;width:300px;
-}
-
-.player { 
-	float: left;
-}
-
-.form{
-	float: right;padding: 45px; 
-}
-
-.sendButton{
-	height:40px;width:300px;
-}
-
-.answer{
-	height:100px;width:300px;
-}
-
-
-</style>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="player.css" rel="stylesheet">
 </head>
 
  
 <body> 
-
-<div align="center"><h1>Identifique no vídeo os pontos que não conseguiu compreender</h1></div>
-
+<center>
 <div class="all">
-
-	<div class="gapTypes">
-	  <p><button  class="gapTypeButton"  onclick="gapType(1)">Não compreendi um termo ou expressão.</button></p>
-	  <p><button  class="gapTypeButton"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button></p>
- 	  <p><button  class="gapTypeButton"  onclick="gapType(3)">Não entendi o contexto de uma afirmação.</button></p>
-	</div> 
-
+<p align="center"><h1>Identifique no vídeo os pontos que não conseguiu compreender</h1></p>
 	<div class="player">
 	 <p>
-	  <video poster='../Images/poster.png' id="video1" width="600">
+	  <video poster='../Images/poster.png' id="video" width="600">
 	    <source src="../Videos/video001.mp4" type="video/mp4">
  	   Your browser does not support HTML5 video.
 	  </video>
@@ -68,37 +24,28 @@
 	 </p>
 	</div>
 
+	<div class="contributionPanel">
 
+ 	<div class="contributionPanel">
+	  <p><button  class="gapTypeButton"  onclick="gapType(1)">Não entendi o significado da palavra ou expressão.</button></p>
+	  <p><button  class="gapTypeButton"  onclick="gapType(2)">Preciso de mais explicações sobre algo.</button></p>
+ 	  <p><button  class="gapTypeButton"  onclick="gapType(3)">Não entendi o contexto de uma afirmação.</button></p>
 
-	<div class="form">
+	<div class="contribution">
 	  <p align="center"><label id="question">O que gerou dúvida?</label></p>
 	  <p align="center"><textarea id="answer" class="answer"></textarea></p>	
 	  <p align="center"><button onclick="sendContribution()">Enviar Dúvida</button></p>
 	</div>
 
+	</div>
+
+	</div>
+
 
 </div>
+</center>
 
-<script> 
-var myVideo = document.getElementById("video1"); 
-
-function playPause() { 
-    if (myVideo.paused) 
-        myVideo.play(); 
-    else 
-        myVideo.pause(); 
-} 
-
-function timeStep(delta){
-	myVideo.currentTime += delta;
-}
-
-function gapType(op){
-
-}
-
-</script> 
-
+<script src="player.js"></script>
 </body> 
 </html>
 
