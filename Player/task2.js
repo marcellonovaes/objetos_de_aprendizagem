@@ -1,8 +1,9 @@
 
 var myVideo, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
-
-init();
-
+var gaps={};
+//init();
+listGaps();
+console.log(gaps);
 
 function init(){
 	myVideo = document.getElementById("video");
@@ -19,12 +20,14 @@ function init(){
 	btCancel = document.getElementById("btCancel");
 	banner = document.getElementById("banner");
 
-	seekGap();
+	handleGap();
 }
 
 
-function seekGap(){
+function handleGap(){
 	banner.textContent = "Identifique no vídeo os problemas de comunicação";
+	
+	/*
 	answer.value = "";
 
 	panelQuestion.remove();
@@ -32,7 +35,7 @@ function seekGap(){
 	
 	contributionPanel.append(panelFound);
 
-
+*/
 }
 
 function playPause() { 
@@ -46,55 +49,28 @@ function timeStep(delta){
 	myVideo.currentTime += delta;
 }
 
-function gapType(op){
 
 
-	banner.textContent = "Posicione o vídeo no momento onde o problema ocorre";
-
-	panelType.remove();
-
-	contributionPanel.append(panelQuestion);
 
 
-	switch(op){
-		case 1:
-			question.textContent = "Qual foi a palavra ou expressão?";
-			type = 1;
-			break
+function listGaps(){
 
-		case 2:
-			question.textContent = "Precisa de mais explicações sobre o quê?";
-			type = 2;
+		//var URL = "http://localhost/objetos_de_aprendizagem/Service/list.php";
 
-	}
+		var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/list.php";
 
 
-}
+		var result = $.getJSON(URL, function(data){
+			
 
-function gapFound(){
-	banner.textContent = "Nos diga qual problema encontrou";
-	panelFound.remove();
-	contributionPanel.append(panelType);
-
-}
-
-function sendContribution(){
-	var jsonObj, jsonStr;
-	var user = '001';
-	var video = '001';
-	jsonObj = {'user' : user, 'video' : video, 'type' : type, 'answer' : answer.value, 'position' : myVideo.currentTime};
-	storeContribution(jsonObj);
-}
+			for(i=0; i<data.length; i++){
+				gaps[i] = data[i];
+			}
 
 
-function storeContribution(data){
-	jsonString = JSON.stringify(data);
-	$.ajax({
-	    url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
-	    data : {'jsonString':jsonString},
-	    type: 'POST'
-	});
-	seekGap();
+
+		})
+
 }
 
 
