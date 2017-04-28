@@ -47,7 +47,7 @@ function timeStep(delta){
 }
 
 function gapType(op){
-
+        myVideo.pause(); 
 
 	banner.textContent = "Posicione o vídeo no momento onde o problema ocorre";
 

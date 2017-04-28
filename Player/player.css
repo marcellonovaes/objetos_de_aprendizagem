@@ -8,34 +8,36 @@ body{
 	display:table; padding: 35px;align-content:center;background-color: #ffffff; 
 }
 
-
+.panel_send{
+	float: center; 
+}
 
 .contributionPanel {
 	float: right; padding: 15px; 
 }
 
 .Button{
-	height:40px;width:300px;
+	height:40px;width:260px;
 }
 
 .answer{
-	height:80px;width:294px;
+	height:80px;width:260px;
 }
 
 .definition{
-	height:80px;width:294px;
+	height:80px;width:260px;
 }
 
 .synonymous{
-	height:30px;width:294px;
+	height:30px;width:260px;
 }
 
 .hyperlink{
-	height:30px;width:294px;
+	height:30px;width:260px;
 }
 
 .explanation{
-	height:80px;width:294px;
+	height:80px;width:260px;
 }
 
 
@@ -64,5 +66,25 @@ float: center;
 h2{
 float: center;
 font-style: italic;
+width:294px;
 }
+
+/* Esconde o input */
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+label {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+
+
+
 
