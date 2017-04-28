@@ -9,12 +9,19 @@
  
 <body> 
 <center>
+
+
+
 <div class="all">
-	<h1><spam id="banner" align="center"></spam></h1>
+	<h1><span id="banner" align="center"></span></h1>
+
+	<p><textarea align="center" id="answer_text" class="answer_text"></textarea></p>
+
+
 	<div class="player">
 	 <p>
 	  <video poster='../Images/poster.png' id="video" width="600">
-	    <source src="../Videos/video001.mp4" type="video/mp4">
+	    <source src="../Videos/video002.webm" type="video/webm">
  	   Your browser does not support HTML5 video.
 	  </video>
 	 </p>
@@ -27,15 +34,34 @@
 
 
  	<div id="contributionPanel" class="contributionPanel">
+		<h2>Contribua sugerindo:</h2>
+		<p><div id="sugestion_type_1" class="Radio">
+			<p><form action="" >
+  				<input class="option"  type="radio" name="sugestion_type" value="1">Definição</input>
+  				<input class="option"  type="radio" name="sugestion_type" value="2">Imagem</input>
+  				<input class="option" type="radio" name="sugestion_type" value="3">Sinônimo</input>
+			</form></p>
+			<p><textarea class="definition" id="definition"></textarea></p>
+			<p><input class='image1' type="file" id="fileinput" label='Escolha a imagem' accept="image/*" /></p>
+			<p><textarea class="synonymous" id="synonymous"></textarea></p>
+		</div></p>
 
-		<div id="gapList" class='gapList'>
-			
-		</div>
+		<p><div id="sugestion_type_2" class="Radio">
+			<p><form action="" >
+  				<input class="option"  type="radio" name="sugestion_type" value="4">Imagem</input>
+  				<input class="option"  type="radio" name="sugestion_type" value="5">Explicação</input>
+  				<input class="option"  type="radio" name="sugestion_type" value="6">Página WEB</input>
 
-		<div id="sugestion" class='sugestion'>
-			
-			
-		</div>
+			</form></p>
+			<p><textarea class="explanation" id="explanation"></textarea></p>
+			<p><input class='image2' type="file" id="fileinput" label='Escolha a imagem' accept="image/*" /></p>
+			<p><textarea class="hyperlink" id="hyperlink"></textarea></p>
+		</div></p>
+
+		<p><div id="panel_send">
+		  <p><button align="center" id="btSend" onclick="sendSegestion()">Enviar Sugestão</button></p>
+		  <p><button align="center" id="btCancel" onclick="getSugestion()">Cancelar</button></p>
+		</div></p>
 
 
 	</div>

@@ -90,8 +90,8 @@ function sendContribution(){
 function storeContribution(data){
 	jsonString = JSON.stringify(data);
 	$.ajax({
-	    //url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
-	    url: 'https://cs-oa-sbie-novaes.c9users.io/Service/store.php',
+	    url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
+	    //url: 'https://cs-oa-sbie-novaes.c9users.io/Service/store.php',
 	    data : {'jsonString':jsonString},
 	    type: 'POST'
 	});

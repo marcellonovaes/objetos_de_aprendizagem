@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="jquery-3.2.1.js"></script>
+</head>
+
+
+<script>
+
+
+  var source = [
+       "Affogato",
+       "Americano",
+       "Bicerin",
+       "Breve",
+       "Café Bombón",
+       "Café au lait",
+       "Caffé Corretto",
+       "Café Crema",
+ "Caffé Latte"];
+
+   // Create a jqxListBox
+   $("#jqxListBox").jqxListBox({
+       source: source,
+       theme: 'energyblue',
+       width: '200px',
+       height: '250px',
+       selectedIndex:0
+   });
+   $("#jqxButton").jqxButton({
+       theme: 'energyblue'
+   });
+  $('#jqxButton').on('click', function () {
+       var index = $("#jqxListBox").jqxListBox('getSelectedIndex');
+       alert("Selected Index: " + index);
+   });
+
+
+
+</script>
+
+<body>
+<div id='jqxListBox'></div>
+<div>
+    <input style="margin-top: 20px;" type="button" id='jqxButton' value="Show the selected index" />
+</div>
+</body>

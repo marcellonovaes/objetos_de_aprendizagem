@@ -16,7 +16,7 @@
 	$json = json_decode($data);
 
 
-	$sql = "INSERT INTO `cs-oa-sbie`.`task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`) VALUES (NULL, CURRENT_TIMESTAMP, '001', '001', '$json->type', '$json->answer', $json->position)";
+	$sql = "INSERT INTO `cs-oa-sbie`.`task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`) VALUES (NULL, CURRENT_TIMESTAMP, '001', '002', '$json->type', '$json->answer', $json->position)";
 
 
 

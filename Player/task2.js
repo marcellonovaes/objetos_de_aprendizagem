@@ -1,31 +1,38 @@
 
-var myVideo, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
-var gaps={};
-//init();
-listGaps();
-console.log(gaps);
+var myVideo, banner, id, position, type, answer,answer_text;
+init();
+
+
 
 function init(){
-	myVideo = document.getElementById("video");
-	contributionPanel = document.getElementById("contributionPanel");
-	panelFound = document.getElementById("panelFound");
-	panelType = document.getElementById("panelType");
-	panelQuestion = document.getElementById("panelQuestion");
-	question = document.getElementById("question");
-	answer = document.getElementById("answer");
-	btGapFound = document.getElementById("btGapFound");
-	btType1 = document.getElementById("btType1");
-	btType2 = document.getElementById("btType2");
-	btSend = document.getElementById("btSend");
-	btCancel = document.getElementById("btCancel");
 	banner = document.getElementById("banner");
+	answer_text = document.getElementById("answer_text");
+	myVideo = document.getElementById("video");
+	getSugestion();
+}
 
-	handleGap();
+function getSugestion(){
+	getRandomGap();
 }
 
 
-function handleGap(){
-	banner.textContent = "Identifique no vídeo os problemas de comunicação";
+function handleGap(gap){
+	type = gap.type;
+	answer = gap.answer;
+	position = gap.position;
+	id = gap.id;	
+
+	myVideo.currentTime = position - 1;
+
+
+	switch(type){
+		case '1': banner.textContent = "Ajude a compreender o termo ou expressão:";
+			break;
+
+		case '2': banner.textContent = "Ajude a explicar esta dúvida:";
+	}
+
+	answer_text.textContent = answer;
 	
 	/*
 	answer.value = "";
@@ -53,23 +60,20 @@ function timeStep(delta){
 
 
 
-function listGaps(){
+function getRandomGap(){
 
-		//var URL = "http://localhost/objetos_de_aprendizagem/Service/list.php";
+	var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
 
-		var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/list.php";
+	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/list.php";
 
+	$.ajax({
+	    url: URL,
+	    dataType: 'application/json',
+	    complete: function(data){
+        		handleGap(JSON.parse(data.responseText)[0]);
+    	    }
+	})
 
-		var result = $.getJSON(URL, function(data){
-			
-
-			for(i=0; i<data.length; i++){
-				gaps[i] = data[i];
-			}
-
-
-
-		})
 
 }
 

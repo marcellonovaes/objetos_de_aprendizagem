@@ -22,14 +22,47 @@ body{
 	height:80px;width:294px;
 }
 
+.definition{
+	height:80px;width:294px;
+}
+
+.synonymous{
+	height:30px;width:294px;
+}
+
+.hyperlink{
+	height:30px;width:294px;
+}
+
+.explanation{
+	height:80px;width:294px;
+}
+
+
+
+.answer_text{
+	float: center;
+	height:40px;width:600px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size:16px
+}
+
 .player { 
 	float: left;padding: 15px;
 }
 
+.Radio{
+	float: left;padding: 10px;
+	vertical-align: middle
+}
 
 h1{
 float: center;
 
 }
 
+h2{
+float: center;
+font-style: italic;
+}
 
