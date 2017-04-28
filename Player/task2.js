@@ -19,6 +19,20 @@ function init(){
 	image2 = document.getElementById("image2");
 	hyperlink = document.getElementById("hyperlink");
 	myVideo = document.getElementById("video");
+
+
+image1.addEventListener('change', function(){
+	var str = this.value;
+	labelIm1.innerHTML = str.substring(str.length - 30, str.length);
+});
+
+image2.addEventListener('change', function(){
+	var str = this.value;
+	labelIm2.innerHTML = str.substring(str.length - 30, str.length);
+});
+
+
+
 	getSugestion();
 }
 
