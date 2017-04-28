@@ -1,5 +1,5 @@
 
-var myVideo, banner, id, position, type, answer,answer_text,definition,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2;
+var myVideo, banner, id, position, type, answer,answer_text,definition,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
 init();
 
 
@@ -24,11 +24,13 @@ function init(){
 image1.addEventListener('change', function(){
 	var str = this.value;
 	labelIm1.innerHTML = str.substring(str.length - 30, str.length);
+	sugestion = str;
 });
 
 image2.addEventListener('change', function(){
 	var str = this.value;
 	labelIm2.innerHTML = str.substring(str.length - 30, str.length);
+	sugestion = str;
 });
 
 
@@ -112,7 +114,7 @@ function getRandomGap(){
 }
 
 
-function getOption(op){
+function getOption(o){
 	definition.remove();
 	image1.remove();
 	synonymous.remove();
@@ -121,7 +123,8 @@ function getOption(op){
 	hyperlink.remove();
 	labelIm1.remove();
 	labelIm2.remove();	
-	switch(op){
+	op = o;
+	switch(o){
 		case 1: sugestion_type_1.append(labelIm1);
 			sugestion_type_1.append(image1);
 			break;	
@@ -139,5 +142,25 @@ function getOption(op){
 	}
 	contributionPanel.append(panel_send);
 }
+
+
+function sendSugestion(){
+	switch(op){
+		case 2: sugestion = definition.value;
+			break;	
+		case 3: sugestion = synonymous.value;
+			break;	
+		case 5: sugestion = explanation.value;
+			break;	
+		case 6: sugestion = hyperlink.value;
+			break;	
+	}
+
+	console.log(sugestion);
+
+}
+
+
+
 
 
