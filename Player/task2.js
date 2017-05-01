@@ -154,18 +154,22 @@ function sendSugestion(){
 			encodeImageFileAsURL(image);
 			break;
 		case 2: sugestion = definition.value;
+			save();
 			break;	
 		case 3: sugestion = synonymous.value;
+			save();
 			break;	
 		case 5: sugestion = explanation.value;
+			save();
 			break;	
 		case 6: sugestion = hyperlink.value;
+			save();
 			break;	
 	}
 
 }
 
-function saveToFile(op){
+function save(){
     var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
     var form_data = new FormData();
     form_data.append('id', id);
@@ -185,9 +189,8 @@ function saveToFile(op){
             alert(xhr.responseText);
         }
     });
-    return false;
-
-
+    
+	getSugestion();
 }
 
 function encodeImageFileAsURL(element) {
@@ -195,7 +198,7 @@ function encodeImageFileAsURL(element) {
   var reader = new FileReader();
   reader.onloadend = function() {
 	sugestion = reader.result;
-	saveToFile(op, sugestion);
+	save();
   }
   reader.readAsDataURL(file);
 }
