@@ -1,10 +1,11 @@
 
-var myVideo, banner, id, position, type, answer,answer_text,definition,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
+var myVideo, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
 init();
 
 
 
 function init(){
+	formContribution = document.getElementById("formContribution");
 	banner = document.getElementById("banner");
 	panel_send = document.getElementById("panel_send");
 	labelIm1 = document.getElementById("labelIm1");
@@ -25,12 +26,14 @@ image1.addEventListener('change', function(){
 	var str = this.value;
 	labelIm1.innerHTML = str.substring(str.length - 30, str.length);
 	sugestion = str;
+	image=image1;
 });
 
 image2.addEventListener('change', function(){
 	var str = this.value;
 	labelIm2.innerHTML = str.substring(str.length - 30, str.length);
 	sugestion = str;
+	image=image2;
 });
 
 
@@ -146,6 +149,10 @@ function getOption(o){
 
 function sendSugestion(){
 	switch(op){
+		case 1:
+		case 4:
+			encodeImageFileAsURL(image);
+			break;
 		case 2: sugestion = definition.value;
 			break;	
 		case 3: sugestion = synonymous.value;
@@ -156,9 +163,43 @@ function sendSugestion(){
 			break;	
 	}
 
-	console.log(sugestion);
+}
+
+function saveToFile(op){
+    var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
+    var form_data = new FormData();
+    form_data.append('id', id);
+    form_data.append('sugestion', sugestion);
+    form_data.append('sugestion_type', op);
+    $.ajax({
+        url: url, 
+        type: 'POST',
+        data: form_data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            $('.resp').html(response);
+        },
+        error: function(xhr, status, error) {
+            alert(xhr.responseText);
+        }
+    });
+    return false;
+
 
 }
+
+function encodeImageFileAsURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+	sugestion = reader.result;
+	saveToFile(op, sugestion);
+  }
+  reader.readAsDataURL(file);
+}
+
 
 
 
