@@ -172,9 +172,9 @@ function getSugestions(){
 
 function vote(gap_id,user_id,sugestion_id){
 
-	console.log('USER_ID: '+user_id);
-	console.log('GAP_ID: '+gap_id);
-	console.log('SUGESTION_ID: '+sugestion_id);
+//	console.log('USER_ID: '+user_id);
+//	console.log('GAP_ID: '+gap_id);
+//	console.log('SUGESTION_ID: '+sugestion_id);
 
 
 
