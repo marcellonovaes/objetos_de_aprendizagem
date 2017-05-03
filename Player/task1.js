@@ -1,5 +1,5 @@
 
-var myVideo, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
+var myVideo, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 init();
 
@@ -19,9 +19,21 @@ function init(){
 	btCancel = document.getElementById("btCancel");
 	banner = document.getElementById("banner");
 
-	seekGap();
+	getSegment();
+
 }
 
+
+function handleSegment(segment){
+
+	start = segment.start;
+	stop = segment.stop;
+	myVideo.src = "../Videos/video002.webm#t="+start+','+stop;
+
+	seekGap();
+
+
+}
 
 function seekGap(){
 	banner.textContent = "Identifique no vídeo os problemas de comunicação";
@@ -36,14 +48,27 @@ function seekGap(){
 }
 
 function playPause() { 
-    if (myVideo.paused) 
-        myVideo.play(); 
-    else 
+    if (myVideo.paused){ 
+	if(myVideo.currentTime < stop){
+        	myVideo.play(); 
+	}else{
+		myVideo.currentTime = start;
+	}
+    }else{
         myVideo.pause(); 
+    }
 } 
 
 function timeStep(delta){
-	myVideo.currentTime += delta;
+	if(delta > 0){
+		if(myVideo.currentTime < stop){
+			myVideo.currentTime += delta;
+		}
+	}else{
+		if(myVideo.currentTime > start){
+			myVideo.currentTime += delta;
+		}
+	}
 }
 
 function gapType(op){
@@ -72,6 +97,8 @@ function gapType(op){
 }
 
 function gapFound(){
+
+        myVideo.pause(); 
 	banner.textContent = "Nos diga qual problema encontrou";
 	panelFound.remove();
 	contributionPanel.append(panelType);
@@ -97,6 +124,21 @@ function storeContribution(data){
 	});
 	seekGap();
 }
+
+function getSegment(){
+
+	var URL = "http://localhost/objetos_de_aprendizagem/Service/segment.php";
+
+
+	$.ajax({
+	    url: URL,
+	    dataType: 'application/json',
+	    complete: function(data){
+        		handleSegment(JSON.parse(data.responseText)[0]);
+    	    }
+	})
+}
+
 
 
 
