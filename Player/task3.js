@@ -119,9 +119,9 @@ function previousSugestion(){
 }
 
 function chooseSugestion(){
-	console.log('GAP_ID: '+gap_id);
-	console.log('USER_ID: '+user_id);
-	console.log(sugestions[index]);
+//	console.log(sugestions[index]);
+
+	vote(gap_id,user_id,sugestions[index].id);
 }
 
 function playPause() { 
@@ -168,4 +168,41 @@ function getSugestions(){
     	    }
 	})
 }
+
+
+function vote(gap_id,user_id,sugestion_id){
+
+	console.log('USER_ID: '+user_id);
+	console.log('GAP_ID: '+gap_id);
+	console.log('SUGESTION_ID: '+sugestion_id);
+
+
+
+    var url = 'http://localhost/objetos_de_aprendizagem/Service/vote.php';
+    var form_data = new FormData();
+    form_data.append('user_id', user_id);
+    form_data.append('gap_id', gap_id);
+    form_data.append('sugestion_id', sugestion_id);
+    $.ajax({
+        url: url, 
+        type: 'POST',
+        data: form_data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            $('.resp').html(response);
+        },
+        error: function(xhr, status, error) {
+            alert(xhr.responseText);
+        }
+    });
+    
+    clear();
+}
+
+
+
+
+
 
