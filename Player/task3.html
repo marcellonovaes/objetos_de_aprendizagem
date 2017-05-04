@@ -2,9 +2,68 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="bIcY3_3JNqUVRAQQRNVteQ.ttf">
 	<link href="player.css" rel="stylesheet">
 	<script src="jquery.min.js"  type="text/javascript"></script>
-    	<script src="jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {	
+
+	$('a[name=modal]').click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+
+
+		zoomItem.height = original_height;
+		zoomItem.width = original_width;
+
+
+		sugestion_txt.cols = 37;
+		sugestion_txt.rows = 2;
+
+
+
+
+
+	contributionPanel.append(zoomItem);
+
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+});
+
+</script>
 
 
 
@@ -17,7 +76,7 @@
 
 
 
-<div class="all">
+<div class="w3-card-4 w3-margin w3-white">
 	<h1><span id="banner" align="center">Qual sugestão você acha mais adequada?</span></h1>
 	<p>
 		<textarea cols="60" id="problem"></textarea>
@@ -45,12 +104,15 @@
 	  	<button onclick="chooseSugestion()">Escolher esta Sugestão</button>
 	  	<button onclick="nextSugestion()">Próxima</button>
 		</p>
-	
-		<textarea cols="39"  class="sugestion" id="sugestion_txt"></textarea>
+		<p>
+	  	<button onclick="zoomIn()">Zoom</button>
+		</p>
 
-		<img width="280" src=""  class="sugestion" id="sugestion_img">
+		<textarea cols="37"  class="sugestion" id="sugestion_txt"></textarea>
+
+		<img width="350"  src=""  class="sugestion" id="sugestion_img">
 		
-		<iframe width="280"  src=""  class="sugestion" id="sugestion_url"></iframe>
+		<iframe width="350"  src=""  class="sugestion" id="sugestion_url"></iframe>
 
 	</div>
 
@@ -59,6 +121,24 @@
 </div>
 
 
+
+<div id="boxes">
+
+<div id="dialog" class="window">
+<a href="#" class="close">Fechar [X]</a><br />
+</div>
+  
+ 
+
+
+
+
+
+<!-- Máscara para cobrir a tela -->
+  <div id="mask"></div>
+  
+
+</div>
 
 </center>
 <script src="task3.js"></script>

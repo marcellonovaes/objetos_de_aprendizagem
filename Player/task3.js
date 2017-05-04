@@ -1,5 +1,5 @@
 
-var myVideo, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
+var myVideo, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
 var sugestions = [], index;
 
 
@@ -8,6 +8,7 @@ init();
 
 function init(){
 	index = 0;
+	dialog = document.getElementById("dialog");
 	problem = document.getElementById("problem");
 	msg = document.getElementById("msg");
 	banner = document.getElementById("banner");
@@ -73,32 +74,22 @@ function displaySugestion(){
 		case '4': 
 			img_src = 'http://localhost/objetos_de_aprendizagem/Images/Sugestions/002/'+sugestions[index].sugestion;
 			sugestion_img.src = img_src;
-//			sugestion_img.onclick = function() { alert("OK"); };
-
-			sugestion_img.onclick = function() {
- 
-
-						 };
-
-			contributionPanel.append(sugestion_img);
+			zoomItem = sugestion_img; 
 			break;	
 		case '2': 
-			sugestion_txt.textContent = sugestions[index].sugestion;
-			contributionPanel.append(sugestion_txt);
-			break;	
 		case '3': 
-			sugestion_txt.textContent = sugestions[index].sugestion;
-			contributionPanel.append(sugestion_txt);
-			break;	
 		case '5': 
 			sugestion_txt.textContent = sugestions[index].sugestion;
-			contributionPanel.append(sugestion_txt);
+			zoomItem = sugestion_txt; 
 			break;	
 		case '6': 
 			sugestion_url.src = sugestions[index].sugestion;	
-			contributionPanel.append(sugestion_url);
+			zoomItem = sugestion_url; 
 			break;	
 	}
+			
+	contributionPanel.append(zoomItem);
+
 
 
 }
@@ -199,6 +190,54 @@ function vote(gap_id,user_id,sugestion_id){
     });
     
     clear();
+}
+
+function zoomIn(){
+		//e.preventDefault();
+		
+		var id = '#dialog';//$(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+
+	
+		original_width = zoomItem.width;
+		original_height = zoomItem.height;
+
+		var ratio = original_height / original_width;
+
+
+		sugestion_img.width =  maskWidth * 0.6;
+
+		if(ratio*maskWidth*0.6 > maskHeight * 0.55){
+			sugestion_img.height = maskHeight * 0.55;
+			sugestion_img.width = maskHeight * 0.55 / ratio;
+		}
+
+		sugestion_url.width = maskWidth * 0.6;
+		sugestion_url.height = maskHeight * 0.55;
+
+		sugestion_txt.cols = 100;
+		sugestion_txt.rows = 20;
+
+
+		dialog.append(zoomItem);
+
+
+
+		$(id).fadeIn(2000); 
 }
 
 
