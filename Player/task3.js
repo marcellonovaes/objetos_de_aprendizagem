@@ -224,12 +224,15 @@ function zoomIn(){
 		if(ratio*maskWidth*0.6 > maskHeight * 0.55){
 			sugestion_img.height = maskHeight * 0.55;
 			sugestion_img.width = maskHeight * 0.55 / ratio;
+		}else{
+			sugestion_img.height = ratio*maskWidth*0.6 ;
 		}
+
 
 		sugestion_url.width = maskWidth * 0.6;
 		sugestion_url.height = maskHeight * 0.55;
 
-		sugestion_txt.cols = 100;
+		sugestion_txt.cols = 60;
 		sugestion_txt.rows = 20;
 
 
