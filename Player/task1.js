@@ -1,5 +1,5 @@
 
-var myVideo, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
+var myVideo,video, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 init();
 
@@ -28,7 +28,9 @@ function handleSegment(segment){
 
 	start = segment.start;
 	stop = segment.stop;
-	myVideo.src = "../Videos/video002.webm#t="+start+','+stop;
+	video = segment.video;
+
+	myVideo.src = "../Videos/"+video+".mp4#t="+start+','+stop;
 
 	seekGap();
 
@@ -108,7 +110,7 @@ function gapFound(){
 function sendContribution(){
 	var jsonObj, jsonStr;
 	var user = '001';
-	var video = '001';
+	//var video = '001';
 	jsonObj = {'user' : user, 'video' : video, 'type' : type, 'answer' : answer.value, 'position' : myVideo.currentTime};
 	storeContribution(jsonObj);
 }
@@ -116,6 +118,7 @@ function sendContribution(){
 
 function storeContribution(data){
 	jsonString = JSON.stringify(data);
+
 	$.ajax({
 	    url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
 	    //url: 'https://cs-oa-sbie-novaes.c9users.io/Service/store.php',

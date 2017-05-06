@@ -6,6 +6,7 @@ $date = new DateTime();
 $gap_id = $_POST['id'];
 $type = $_POST['sugestion_type'];
 $sugestion = $_POST['sugestion'];
+$video = $_POST['video'];
 
 $name = $gap_id.'_'.$type.'_'.$date->getTimestamp();
 
@@ -36,7 +37,7 @@ if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `cs-oa-sbie`.`task2` (`id`, `time`, `user`, `gap_id`, `type`, `sugestion` , `ranking`) VALUES (NULL, CURRENT_TIMESTAMP, '001', '$gap_id', '$type', '$sugestion', '0')";
+$sql = "INSERT INTO `cs-oa-sbie`.`task2` (`id`, `video`, `time`, `user`, `gap_id`, `type`, `sugestion`) VALUES (NULL, '$video', CURRENT_TIMESTAMP, '001', '$gap_id', '$type', '$sugestion')";
 
 if (mysqli_query($conn, $sql)) {
  	echo "New record created successfully";

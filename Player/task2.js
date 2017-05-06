@@ -1,5 +1,5 @@
 
-var myVideo, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
+var myVideo,video, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
 init();
 
 
@@ -68,6 +68,9 @@ function handleGap(gap){
 	answer = gap.answer;
 	position = gap.position;
 	id = gap.id;	
+	video = gap.video;
+
+	myVideo.src = "../Videos/"+video+".mp4";
 
 	myVideo.currentTime = position - 1;
 
@@ -173,6 +176,7 @@ function save(){
     var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
     var form_data = new FormData();
     form_data.append('id', id);
+    form_data.append('video', video);
     form_data.append('sugestion', sugestion);
     form_data.append('sugestion_type', op);
     $.ajax({

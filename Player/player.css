@@ -8,6 +8,10 @@ body{
 	display:table; padding: 35px;align-content:center;background-color: #ffffff; 
 }
 
+.video {
+	width:600px;
+}
+
 .panel_send{
 	float: center; 
 }

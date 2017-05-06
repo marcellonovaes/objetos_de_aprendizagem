@@ -17,7 +17,7 @@
 
 //	$json = json_decode($data);
 //	$video = $json->video;
-	$video = '002';
+//	$video = '002';
 
 //	$sql = "SELECT * FROM `task1` WHERE `video` = $video ORDER BY  `position` ASC ";
 	$sql = "SELECT *\n"
@@ -30,11 +30,14 @@
     . " ORDER BY r1.id ASC\n"
     . " LIMIT 1";
 
+
+
+
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
 	$contributions = array();
 	while($contribution = mysqli_fetch_array($result)) {
-		$contributions[] = array('id'=>$contribution['id'],'start'=>$contribution['start'], 'stop'=>$contribution['stop']);
+		$contributions[] = array('id'=>$contribution['id'],'video'=>$contribution['video'], 'start'=>$contribution['start'], 'stop'=>$contribution['stop']);
 	}
 
 	$json = json_encode($contributions);

@@ -1,5 +1,5 @@
 
-var myVideo, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
+var myVideo,video, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
 var sugestions = [], index;
 
 
@@ -37,6 +37,9 @@ function handleGap(gap){
 	gap_problem = gap.answer;
 	gap_id = gap.id;
 		
+	video = gap.video;
+
+	myVideo.src = "../Videos/"+video+".mp4";
 
 	if(gap_type == 1){
 		banner.textContent = "Qual o melhor sinônimo ou definição para a expressão abaixo ?";

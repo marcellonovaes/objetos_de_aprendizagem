@@ -17,7 +17,7 @@
 
 //	$json = json_decode($data);
 //	$video = $json->video;
-	$video = '002';
+//	$video = '002';
 
 //	$sql = "SELECT * FROM `task1` WHERE `video` = $video ORDER BY  `position` ASC ";
 	$sql = "SELECT *\n"
@@ -26,7 +26,7 @@
     . " (SELECT MAX(id)\n"
     . " FROM task1)) AS id)\n"
     . " AS r2\n"
-    . " WHERE r1.id >= r2.id   AND `video` = $video \n"
+    . " WHERE r1.id >= r2.id  \n"
     . " ORDER BY r1.id ASC\n"
     . " LIMIT 1";
 
@@ -34,7 +34,7 @@
 
 	$contributions = array();
 	while($contribution = mysqli_fetch_array($result)) {
-		$contributions[] = array('id'=>$contribution['id'],'type'=>$contribution['type'], 'answer'=>$contribution['answer'],'position'=>$contribution['position']);
+		$contributions[] = array('id'=>$contribution['id'] ,'video'=>$contribution['video'] ,'type'=>$contribution['type'], 'answer'=>$contribution['answer'],'position'=>$contribution['position']);
 	}
 
 	$json = json_encode($contributions);

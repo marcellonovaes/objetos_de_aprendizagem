@@ -15,8 +15,11 @@
 
 	$json = json_decode($data);
 
+//$json = {"user":"001","video":"2","type":1,"answer":"dasdadas","position":28}
 
-	$sql = "INSERT INTO `cs-oa-sbie`.`task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`) VALUES (NULL, CURRENT_TIMESTAMP, '001', '002', '$json->type', '$json->answer', $json->position)";
+//	$sql = "INSERT INTO `cs-oa-sbie`.`task1` (`id`,`video`,  `time`, `user`, `type`, `answer`, `position`) VALUES (NULL, '$json->video' CURRENT_TIMESTAMP, '001', '$json->type', '$json->answer', $json->position)";
+
+	$sql = " INSERT INTO `cs-oa-sbie`.`task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`) VALUES (NULL, CURRENT_TIMESTAMP, '$json->user', '$json->video', '$json->type', '$json->answer', '$json->position') ";
 
 
 
