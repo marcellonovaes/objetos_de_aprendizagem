@@ -76,7 +76,9 @@ function displaySugestion(){
 	switch(sugestions[index].type){
 		case '1': 
 		case '4': 
-			img_src = 'http://localhost/objetos_de_aprendizagem/Images/Sugestions/002/'+sugestions[index].sugestion;
+			//img_src = 'https://videos-novaes.c9users.io/Images/Sugestions/'+video+'/sugestions[index].sugestion;
+			//img_src = 'http://localhost/objetos_de_aprendizagem/Images/Sugestions/002/'+sugestions[index].sugestion;
+			img_src = 'https://videos-novaes.c9users.io/Images/Sugestions/'+video+'/'+sugestions[index].sugestion;
 			sugestion_img.src = img_src;
 			zoomItem = sugestion_img; 
 			break;	
@@ -136,7 +138,8 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/random_with_contrib.php";
+	var URL = "https://videos-novaes.c9users.io/Service/random_with_contrib.php";
+	//var URL = "http://localhost/objetos_de_aprendizagem/Service/random_with_contrib.php";
 
 
 	$.ajax({
@@ -154,7 +157,7 @@ function getRandomGap(){
 
 function getSugestions(){
 
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/sugestions.php?gap="+gap_id;
+	var URL = "https://videos-novaes.c9users.io/Service/sugestions.php?gap="+gap_id;
 
 
 	$.ajax({
@@ -175,7 +178,7 @@ function vote(gap_id,user_id,sugestion_id){
 
 
 
-    var url = 'http://localhost/objetos_de_aprendizagem/Service/vote.php';
+    var url = 'https://videos-novaes.c9users.io/Service/vote.php';
     var form_data = new FormData();
     form_data.append('user_id', user_id);
     form_data.append('gap_id', gap_id);

@@ -120,7 +120,8 @@ function storeContribution(data){
 	jsonString = JSON.stringify(data);
 
 	$.ajax({
-	    url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
+	    url: 'https://videos-novaes.c9users.io/Service/store.php',
+	    //url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
 	    //url: 'https://cs-oa-sbie-novaes.c9users.io/Service/store.php',
 	    data : {'jsonString':jsonString},
 	    type: 'POST'
@@ -130,7 +131,8 @@ function storeContribution(data){
 
 function getSegment(){
 
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/segment.php";
+	var URL = "https://videos-novaes.c9users.io/Service/segment.php";
+	//var URL = "http://localhost/objetos_de_aprendizagem/Service/segment.php";
 
 
 	$.ajax({

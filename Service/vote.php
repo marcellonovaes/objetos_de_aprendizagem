@@ -1,6 +1,6 @@
 <?php
-$video = '002';
-$uploads_dir = '../Images/Sugestions/'.$video;
+//$video = '002';
+//$uploads_dir = '../Images/Sugestions/'.$video;
 $date = new DateTime();
 
 $gap_id = $_POST['gap_id'];

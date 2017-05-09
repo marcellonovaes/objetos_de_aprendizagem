@@ -1,12 +1,13 @@
 <?php
-$video = '002';
-$uploads_dir = '../Images/Sugestions/'.$video;
+//$video = '002';
 $date = new DateTime();
 
 $gap_id = $_POST['id'];
 $type = $_POST['sugestion_type'];
 $sugestion = $_POST['sugestion'];
 $video = $_POST['video'];
+
+$uploads_dir = '../Images/Sugestions/'.$video;
 
 $name = $gap_id.'_'.$type.'_'.$date->getTimestamp();
 

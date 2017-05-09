@@ -106,7 +106,8 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
+	var URL = "https://videos-novaes.c9users.io/Service/random.php";
+	//var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
 
 	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/list.php";
 
@@ -151,6 +152,7 @@ function getOption(o){
 
 
 function sendSugestion(){
+	
 	switch(op){
 		case 1:
 		case 4:
@@ -173,12 +175,16 @@ function sendSugestion(){
 }
 
 function save(){
-    var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
+    var url = 'https://videos-novaes.c9users.io/Service/save.php';
+    //var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
     var form_data = new FormData();
     form_data.append('id', id);
     form_data.append('video', video);
     form_data.append('sugestion', sugestion);
     form_data.append('sugestion_type', op);
+    
+    
+    
     $.ajax({
         url: url, 
         type: 'POST',

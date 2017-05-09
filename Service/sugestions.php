@@ -19,7 +19,7 @@
 
 //	$json = json_decode($data);
 //	$video = $json->video;
-	$video = '001';
+//	$video = '001';
 
 	$sql = "SELECT * FROM `task2` WHERE `gap_id` = $gap_id ORDER BY  `gap_id` ASC ";
 
