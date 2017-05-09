@@ -72,7 +72,7 @@ function handleGap(gap){
 
 	myVideo.src = "../Videos/"+video+".mp4";
 
-	myVideo.currentTime = position - 1;
+	myVideo.currentTime = position - 2;
 
 	switch(type){
 		case '1': 	banner.textContent = "Ajude a compreender o termo ou expressão:";

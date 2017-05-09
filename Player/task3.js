@@ -89,7 +89,21 @@ function displaySugestion(){
 			zoomItem = sugestion_txt; 
 			break;	
 		case '6': 
-			sugestion_url.src = sugestions[index].sugestion;	
+			var page = sugestions[index].sugestion;	
+			
+			if(page.substring(0, 23) == 'https://www.youtube.com'){
+				
+				var act = page.substring(24, 32);
+				
+				if(act == 'watch?v='){
+				
+					var obj = page.substring(32, 44);
+				
+					page = 'https://www.youtube.com/embed/'+obj;
+				}
+			}
+			
+			sugestion_url.src = page;	
 			zoomItem = sugestion_url; 
 			break;	
 	}
