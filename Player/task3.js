@@ -31,6 +31,7 @@ function clear(){
 
 
 function handleGap(gap){
+
 	position = gap.position;
 
 	gap_type = gap.type;
@@ -135,15 +136,18 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
+	var URL = "http://localhost/objetos_de_aprendizagem/Service/random_with_contrib.php";
 
-	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/random.php";
 
 	$.ajax({
 	    url: URL,
 	    dataType: 'application/json',
 	    complete: function(data){
-        		handleGap(JSON.parse(data.responseText)[0]);
+			if(data.responseText.length < 10){
+				clear();
+			}else{
+        			handleGap(JSON.parse(data.responseText)[0]);
+			}
     	    }
 	})
 }
@@ -152,7 +156,6 @@ function getSugestions(){
 
 	var URL = "http://localhost/objetos_de_aprendizagem/Service/sugestions.php?gap="+gap_id;
 
-	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/random.php";
 
 	$.ajax({
 	    url: URL,
