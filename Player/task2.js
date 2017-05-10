@@ -1,5 +1,5 @@
 
-var myVideo,video, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
+var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
 init();
 
 
@@ -42,6 +42,12 @@ image2.addEventListener('change', function(){
 }
 
 function clear(){
+definition.value="";
+synonymous.value="";
+explanation.value="";
+hyperlink.value="";
+	
+	
 	sugestion_type_1.remove();
 	sugestion_type_2.remove();
 	labelIm1.remove();
@@ -89,11 +95,21 @@ function handleGap(gap){
 
 }
 
+function volta(){
+	myVideo.currentTime = position -2;
+}
+
 function playPause() { 
-    if (myVideo.paused) 
-        myVideo.play(); 
-    else 
+    if (myVideo.paused){
+    	
+	//	if(myVideo.currentTime < stop){
+        	myVideo.play(); 
+	//	}else{
+	//		myVideo.currentTime = start;
+	//	}
+    }else{
         myVideo.pause(); 
+    }
 } 
 
 function timeStep(delta){

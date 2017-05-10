@@ -1,250 +1,183 @@
 
-var myVideo, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
-var sugestions = [], index;
-
-
+var myVideo, video, banner, content, gap_field, content_field, pos,cp;
+var contents = {}, gaps = {}, types={}, ctrl=[];
+//, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 init();
 
+
 function init(){
-	index = 0;
-	dialog = document.getElementById("dialog");
-	problem = document.getElementById("problem");
-	msg = document.getElementById("msg");
-	banner = document.getElementById("banner");
-	contributionPanel = document.getElementById("contributionPanel");
-	sugestion_txt = document.getElementById("sugestion_txt");
-	sugestion_img = document.getElementById("sugestion_img");
-	sugestion_url = document.getElementById("sugestion_url");
 	myVideo = document.getElementById("video");
-	clear();
+	content = document.getElementById("content");
+	banner = document.getElementById("banner");
+	gap_field = document.getElementById("gap_field");
+	content_field = document.getElementById("content_field");
+
+	video = 5;
+	banner.innerHTML = 'AILUROFOBIA'
+
+	//video = 2;
+	//banner.innerHTML = 'Peixe, cadê minha peita ?'
+
+
+	getContent();
 }
 
-function clear(){
-	sugestion_txt.remove();
-	sugestion_img.remove();
-	sugestion_url.remove();
-	selected_sugestion = 0;
-	getRandomGap();
-}
 
+function handleContent(content){
 
-
-function handleGap(gap){
-	position = gap.position;
-
-	gap_type = gap.type;
-	gap_problem = gap.answer;
-	gap_id = gap.id;
-		
-
-	if(gap_type == 1){
-		banner.textContent = "Qual o melhor sinônimo ou definição para a expressão abaixo ?";
-	}else{
-		banner.textContent = "Qual o melhor explicação para a questão abaixo ?";
-	}
-		
-	problem.textContent = gap_problem;
 	
-	myVideo.currentTime = position - 1;
-
-	getSugestions();
+	for(var i=0; i<content.length; i++){
+		var c = content[i];
+		gaps[c.position] = c.answer;
+		contents[c.position] = c.sugestion;
+		types[c.position] = c.type;
+		ctrl[i] = c.position;
+	}
+	
+	pos=0;
+	cp=0;
+	loadVideo();
+	
 }
 
-function handleSugestions(response){
+function loadVideo(){
+	var a,b;
+	
+	myVideo.src = "../Videos/"+video+".mp4";
 
 
-	if(response.length > 0){
-    		sugestions = response;
-		displaySugestion();
-	}else{
-		clear();
-	}
+	myVideo.play(); 
+ 
+	setInterval(function() {
+	
+		syncVideo();
+		
+	}, 1000);
+
+
+
 }
 
-function displaySugestion(){
-	sugestion_txt.remove();
-	sugestion_img.remove();
-	sugestion_url.remove();
-
-	user_id = sugestions[index].user;
-
-	switch(sugestions[index].type){
-		case '1': 
-		case '4': 
-			img_src = 'http://localhost/objetos_de_aprendizagem/Images/Sugestions/002/'+sugestions[index].sugestion;
-			sugestion_img.src = img_src;
-			zoomItem = sugestion_img; 
-			break;	
-		case '2': 
-		case '3': 
-		case '5': 
-			sugestion_txt.textContent = sugestions[index].sugestion;
-			zoomItem = sugestion_txt; 
-			break;	
-		case '6': 
-			sugestion_url.src = sugestions[index].sugestion;	
-			zoomItem = sugestion_url; 
-			break;	
-	}
+function syncVideo(){
 			
-	contributionPanel.append(zoomItem);
-
-
-
+		var p = Math.ceil(myVideo.currentTime);
+		
+		if(gaps[p]){
+			if(cp != p){
+				try{
+					a = decodeURIComponent(escape(gaps[p]));
+					b = decodeURIComponent(escape(contents[p]));
+				}catch(Err){
+					a = decodeURIComponent(gaps[p]);
+					b = decodeURIComponent(contents[p]);	
+				}
+			
+				switch(types[p]){
+					case '1':
+					case '4':
+						b = "<img width=200 src=https://videos-novaes.c9users.io/Images/Sugestions/"+video+"/"+b+">";
+						break;
+					case '2': 
+						b = "<textarea rows=10 cols=60>"+b+"</textarea>";
+						break;	
+					case '3': 
+						b = "<p>significa</p><textarea rows=7 cols=60>"+b+"</textarea>";
+						break;	
+					case '5': 
+						b = "<textarea rows=10 cols=60>"+b+"</textarea>";
+						break;	
+					case '6': 
+					
+						var page = a;	
+			
+						if(page.substring(0, 23) == 'https://www.youtube.com'){
+				
+							var act = page.substring(24, 32);
+				
+							if(act == 'watch?v='){
+				
+								var obj = page.substring(32, 44);
+				
+								page = 'https://www.youtube.com/embed/'+obj;
+							}
+						}
+					
+					
+						b = "<iframe width=600 height=400 src="+b+"></iframe>";
+						break;	
+				}
+			
+				gap_field.innerHTML = "<h2>"+a+"</h2>";
+				
+				content_field.innerHTML = b;
+				pos++;
+				cp = p;
+			}
+		}
 }
 
-
-function nextSugestion(){
-	if(index < sugestions.length-1){
-		index++;
-		displaySugestion();
-	}
-}
-
-function previousSugestion(){
-	if(index > 0){
-		index--;
-		displaySugestion();
-	}
-}
-
-function chooseSugestion(){
-//	console.log(sugestions[index]);
-
-	vote(gap_id,user_id,sugestions[index].id);
-}
 
 function playPause() { 
-    if (myVideo.paused) 
+    if (myVideo.paused){ 
+    	gap_field.innerHTML = "";
+		content_field.innerHTML = "";
         myVideo.play(); 
-    else 
+    }else{
         myVideo.pause(); 
+    }
 } 
 
 function timeStep(delta){
-	myVideo.currentTime += delta;
+	gap_field.innerHTML = "";
+	content_field.innerHTML = "";	
+	if(delta > 0){
+		myVideo.currentTime += delta;
+	}else{
+		myVideo.currentTime += delta;
+	}
 }
 
-
-
-
-
-function getRandomGap(){
-
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
-
-	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/random.php";
-
-	$.ajax({
-	    url: URL,
-	    dataType: 'application/json',
-	    complete: function(data){
-        		handleGap(JSON.parse(data.responseText)[0]);
-    	    }
-	})
-}
-
-function getSugestions(){
-
-	var URL = "http://localhost/objetos_de_aprendizagem/Service/sugestions.php?gap="+gap_id;
-
-	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/random.php";
-
-	$.ajax({
-	    url: URL,
-	    dataType: 'application/json',
-	    complete: function(data){
-        		handleSugestions(JSON.parse(data.responseText));
-    	    }
-	})
-}
-
-
-function vote(gap_id,user_id,sugestion_id){
-
-//	console.log('USER_ID: '+user_id);
-//	console.log('GAP_ID: '+gap_id);
-//	console.log('SUGESTION_ID: '+sugestion_id);
-
-
-
-    var url = 'http://localhost/objetos_de_aprendizagem/Service/vote.php';
-    var form_data = new FormData();
-    form_data.append('user_id', user_id);
-    form_data.append('gap_id', gap_id);
-    form_data.append('sugestion_id', sugestion_id);
-    $.ajax({
-        url: url, 
-        type: 'POST',
-        data: form_data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-            $('.resp').html(response);
-        },
-        error: function(xhr, status, error) {
-            alert(xhr.responseText);
-        }
-    });
-    
-    clear();
-}
-
-function zoomIn(){
-		//e.preventDefault();
+function gapStep(delta){
+	
+	
+	if(pos > 0){
+		pos--;
+	}
+	
+	if( (delta > 0 && pos < ctrl.length) || (delta < 0 && pos > 0) ){
 		
-		var id = '#dialog';//$(this).attr('href');
-	
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-	
-		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		pos += delta;
 
-		$('#mask').fadeIn(1000);	
-		$('#mask').fadeTo("slow",0.8);	
-	
-		//Get the window height and width
-		var winH = $(window).height();
-		var winW = $(window).width();
-              
-		$(id).css('top',  winH/2-$(id).height()/2);
-		$(id).css('left', winW/2-$(id).width()/2);
+		
+	console.log(pos);
+		
+		myVideo.currentTime = ctrl[pos];
+
+//		console.log(pos);
+//		console.log(ctrl[pos]);
+//		console.log(myVideo.currentTime);
 
 	
-		original_width = zoomItem.width;
-		original_height = zoomItem.height;
-
-		var ratio = original_height / original_width;
-
-
-		sugestion_img.width =  maskWidth * 0.6;
-
-		if(ratio*maskWidth*0.6 > maskHeight * 0.55){
-			sugestion_img.height = maskHeight * 0.55;
-			sugestion_img.width = maskHeight * 0.55 / ratio;
-		}else{
-			sugestion_img.height = ratio*maskWidth*0.6 ;
-		}
-
-
-		sugestion_url.width = maskWidth * 0.6;
-		sugestion_url.height = maskHeight * 0.55;
-
-		sugestion_txt.cols = 60;
-		sugestion_txt.rows = 20;
-
-
-		dialog.append(zoomItem);
-
-
-
-		$(id).fadeIn(2000); 
+		gap_field.innerHTML = "";
+		content_field.innerHTML = "";
+	
+		syncVideo();
+	}
 }
 
+function getContent(){
+
+	var URL = "https://videos-novaes.c9users.io/Service/contents.php?video="+video;
 
 
-
+	$.ajax({
+	    url: URL,
+	    dataType: 'application/json',
+	    complete: function(data){
+        		handleContent(JSON.parse(data.responseText));
+    	    }
+	})
+}
 
 

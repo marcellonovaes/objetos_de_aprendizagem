@@ -2,137 +2,51 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="bIcY3_3JNqUVRAQQRNVteQ.ttf">
+	<link rel="stylesheet" href="w3.css">
 	<link href="player.css" rel="stylesheet">
-	<script src="jquery.min.js"  type="text/javascript"></script>
-<script type="text/javascript">
-
-$(document).ready(function() {	
-
-	$('a[name=modal]').click(function(e) {
-		e.preventDefault();
-		
-		var id = $(this).attr('href');
-	
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-	
-		$('#mask').css({'width':maskWidth,'height':maskHeight});
-
-		$('#mask').fadeIn(1000);	
-		$('#mask').fadeTo("slow",0.8);	
-	
-		//Get the window height and width
-		var winH = $(window).height();
-		var winW = $(window).width();
-              
-		$(id).css('top',  winH/2-$(id).height()/2);
-		$(id).css('left', winW/2-$(id).width()/2);
-	
-		$(id).fadeIn(2000); 
-	
-	});
-	
-	$('.window .close').click(function (e) {
-		e.preventDefault();
-		
-		$('#mask').hide();
-		$('.window').hide();
-
-
-		zoomItem.height = original_height;
-		zoomItem.width = original_width;
-
-
-		sugestion_txt.cols = 37;
-		sugestion_txt.rows = 2;
-
-
-
-
-
-	contributionPanel.append(zoomItem);
-
-	});		
-	
-	$('#mask').click(function () {
-		$(this).hide();
-		$('.window').hide();
-	});			
-	
-});
-
-</script>
-
-
-
-
+	<script src="jquery.min.js"></script>
 </head>
 
  
 <body> 
 <center>
-
-
-
 <div class="w3-card-4 w3-margin w3-white">
-	<h1><span id="banner" align="center">Clique na lupa para ampliar a imagem ou texto.</span></h1>
-	<p>
-		<input class="bt_zoom" onclick="zoomIn()" type="image" src="ico_zoom.png" width=60>
-	</p>
+	<h1><spam id="banner" align="center"></spam></h1>
+
+<center>
 
 	<div class="player">
 	 <p>
 	  <video poster='../Images/poster.png' id="video" width="600">
-	    <source src="../Videos/video002.webm" type="video/webm">
+	    <source type="video/mp4">
  	   Your browser does not support HTML5 video.
 	  </video>
 	 </p>
  	 <p align="center">
-	  <button onclick="timeStep(-1)">- 1 seg</button>
+	  <button onclick="gapStep(-1)">Expressão Anterior</button>
 	  <button onclick="playPause()">Play/Pause</button> 
-	  <button onclick="timeStep(1)">+ 1 seg</button>
+	  <button onclick="gapStep(1)">Próxima Expressão</button>
 	 </p>
 	</div>
 
-
- 	<div id="contributionPanel" class="contributionPanel">
-
-		<textarea cols="37"  class="sugestion" id="sugestion_txt"></textarea>
-
-		<img width="350"  src=""  class="sugestion" id="sugestion_img">
-		
-		<iframe width="350"  src=""  class="sugestion" id="sugestion_url"></iframe>
-
+	<div class="player">
+	 <p>
+	 <div id="content"></div>
+	 	<p></p><span id='gap_field'></span></p>
+	 	<p></p><span id='content_field'></span></p>
+	 </p>
 	</div>
-
-
-
-</div>
-
-
-
-<div id="boxes">
-
-<div id="dialog" class="window">
-<a href="#" class="close">Fechar <img src="ico_close.png" width=30></a><br />
-</div>
-  
- 
-
-
-
-
-
-<!-- Máscara para cobrir a tela -->
-  <div id="mask"></div>
-  
+	
+</center>
 
 </div>
+
+
+
 
 </center>
-<script src="task3.js"></script>
+
+<script src="player.js"></script>
 </body> 
 </html>
 

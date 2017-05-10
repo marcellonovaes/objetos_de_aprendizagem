@@ -132,7 +132,7 @@ function previousSugestion(){
 function chooseSugestion(){
 //	console.log(sugestions[index]);
 
-	vote(gap_id,user_id,sugestions[index].id);
+	vote(gap_id,user_id,video, sugestions[index].id);
 }
 
 function playPause() { 
@@ -184,7 +184,7 @@ function getSugestions(){
 }
 
 
-function vote(gap_id,user_id,sugestion_id){
+function vote(gap_id,video_id, user_id,sugestion_id){
 
 //	console.log('USER_ID: '+user_id);
 //	console.log('GAP_ID: '+gap_id);
@@ -195,6 +195,7 @@ function vote(gap_id,user_id,sugestion_id){
     var url = 'https://videos-novaes.c9users.io/Service/vote.php';
     var form_data = new FormData();
     form_data.append('user_id', user_id);
+    form_data.append('video_id', video_id);
     form_data.append('gap_id', gap_id);
     form_data.append('sugestion_id', sugestion_id);
     $.ajax({
