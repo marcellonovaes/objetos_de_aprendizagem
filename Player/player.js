@@ -120,9 +120,10 @@ function syncVideo(){
 
 function playPause() { 
     if (myVideo.paused){ 
-    	gap_field.innerHTML = "";
-		content_field.innerHTML = "";
+    	//gap_field.innerHTML = "";
+		//content_field.innerHTML = "";
         myVideo.play(); 
+        myVideo.currentTime -= 1;
     }else{
         myVideo.pause(); 
     }
@@ -150,9 +151,9 @@ function gapStep(delta){
 		pos += delta;
 
 		
-	console.log(pos);
+	//console.log(pos);
 		
-		myVideo.currentTime = ctrl[pos];
+		myVideo.currentTime = ctrl[pos] ;
 
 //		console.log(pos);
 //		console.log(ctrl[pos]);
@@ -163,6 +164,8 @@ function gapStep(delta){
 		content_field.innerHTML = "";
 	
 		syncVideo();
+		
+		myVideo.pause(); 
 	}
 }
 
