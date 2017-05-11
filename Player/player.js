@@ -14,11 +14,13 @@ init();
 function init(){
 	myVideo = document.getElementById("video");
 	dialog = document.getElementById("dialog");
-	zoomContent = document.getElementById("zoomContent");
+
 	content = document.getElementById("content");
 	banner = document.getElementById("banner");
 	gap_field = document.getElementById("gap_field");
 	content_field = document.getElementById("content_field");
+
+	zoomContent = document.createElement('div');
 
 	video = 5;
 	title = 'AILUROFOBIA'
@@ -67,7 +69,7 @@ function loadVideo(){
 }
 
 function syncVideo(){
-			
+		var z;
 		var p = Math.ceil(myVideo.currentTime);
 		
 		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
@@ -90,11 +92,34 @@ function syncVideo(){
 				switch(types[p]){
 					case '1':
 					case '4':
+						var h,w;
+						var maskHeight = $(document).height();
+						var maskWidth = $(window).width();
+
+						var image = new Image();
+    						image.src=host+'/Images/Sugestions/'+video+'/'+b;
+
+						var original_width = image.width;
+						var original_height = image.height;
+						var ratio = original_height / original_width;
+
+						if(ratio*maskWidth*0.6 > maskHeight * 0.55){
+							h = maskHeight * 0.55;
+							w = maskHeight * 0.55 / ratio;
+						}else{
+							w =  maskWidth * 0.6;
+							h =  w * ratio;
+						}
+					
+
+
+						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
 						b = '<img height=340 src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
 						break;
 					case '2': 
 					case '3': 
 					case '5': 
+						z = "<textarea rows=20 cols=60>"+b+"</textarea>";
 						b = "<textarea rows=15 cols=60>"+b+"</textarea>";
 						break;	
 					case '6': 
@@ -113,7 +138,9 @@ function syncVideo(){
 							}
 						}
 					
-					
+						var winH = $(window).height()*0.55;
+						var winW = $(window).width()*0.6;
+						z = "<iframe width="+winW+" height="+winH+" src="+page+"></iframe>";
 						b = "<iframe width=600 height=340 src="+page+"></iframe>";
 						break;	
 				}
@@ -121,6 +148,9 @@ function syncVideo(){
 				gap_field.innerHTML = "<h2>"+a+"</h2>";
 				
 				content_field.innerHTML = b;
+
+				zoomContent.innerHTML = z;
+
 				if(pos<ctrl.length)pos++;
 				cp = p;
 			}
@@ -214,7 +244,7 @@ function zoomIn(){
 
 	
 
-
+/*
 
 
 		switch(type){
@@ -248,9 +278,11 @@ function zoomIn(){
 				content_field.height = maskHeight * 0.55; 
 				break;
 		}
+*/
+	//	zoomContent.append(content_field)
 
 
-		dialog.append(content_field);
+		dialog.append(zoomContent);
 
 
 
