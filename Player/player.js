@@ -23,12 +23,13 @@ function init(){
 	zoomContent = document.createElement('div');
 
 	video = 5;
-	title = 'AILUROFOBIA'
+	title = 'Ailurofobia'
 
 	//video = 2;
 	//title = 'Peixe, cadê minha peita ?'
 
 	gap_field.innerHTML = title;
+	content_field.innerHTML = "<textarea rows=10 cols=44  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
 
 	getContent();
 }
@@ -92,7 +93,7 @@ function syncVideo(){
 				switch(types[p]){
 					case '1':
 					case '4':
-						var h,w;
+						var h,w,hx,wx;
 						var maskHeight = $(document).height();
 						var maskWidth = $(window).width();
 
@@ -103,24 +104,25 @@ function syncVideo(){
 						var original_height = image.height;
 						var ratio = original_height / original_width;
 
-						if(ratio*maskWidth*0.6 > maskHeight * 0.55){
+						if(ratio*maskWidth*0.6 > maskHeight * 0.45){
 							h = maskHeight * 0.55;
 							w = maskHeight * 0.55 / ratio;
 						}else{
 							w =  maskWidth * 0.6;
 							h =  w * ratio;
 						}
-					
 
+						hx = 293;
+						wx = hx / ratio;
 
 						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
-						b = '<img height=340 src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
+						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
 						break;
 					case '2': 
 					case '3': 
 					case '5': 
-						z = "<textarea rows=20 cols=60>"+b+"</textarea>";
-						b = "<textarea rows=15 cols=60>"+b+"</textarea>";
+						z = "<textarea rows=12 cols=60  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;' readonly>"+b+"</textarea>";
+						b = "<textarea rows=10 cols=44  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly>"+b+"</textarea>";
 						break;	
 					case '6': 
 					
@@ -141,7 +143,7 @@ function syncVideo(){
 						var winH = $(window).height()*0.55;
 						var winW = $(window).width()*0.6;
 						z = "<iframe width="+winW+" height="+winH+" src="+page+"></iframe>";
-						b = "<iframe width=600 height=340 src="+page+"></iframe>";
+						b = "<iframe width=520 height=293 src="+page+"></iframe>";
 						break;	
 				}
 			
