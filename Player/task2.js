@@ -2,7 +2,8 @@
 var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
 init();
 
-
+var host ='http://localhost/objetos_de_aprendizagem';
+//var host ='https://videos-novaes.c9users.io';
 
 function init(){
 	formContribution = document.getElementById("formContribution");
@@ -101,12 +102,7 @@ function volta(){
 
 function playPause() { 
     if (myVideo.paused){
-    	
-	//	if(myVideo.currentTime < stop){
-        	myVideo.play(); 
-	//	}else{
-	//		myVideo.currentTime = start;
-	//	}
+       	myVideo.play(); 
     }else{
         myVideo.pause(); 
     }
@@ -122,10 +118,7 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = "https://videos-novaes.c9users.io/Service/random.php";
-	//var URL = "http://localhost/objetos_de_aprendizagem/Service/random.php";
-
-	//var URL = "https://cs-oa-sbie-novaes.c9users.io/Service/list.php";
+	var URL = host+'/Service/random.php';
 
 	$.ajax({
 	    url: URL,
@@ -191,8 +184,7 @@ function sendSugestion(){
 }
 
 function save(){
-    var url = 'https://videos-novaes.c9users.io/Service/save.php';
-    //var url = 'http://localhost/objetos_de_aprendizagem/Service/save.php';
+    var url =  host+'/Service/save.php';
     var form_data = new FormData();
     form_data.append('id', id);
     form_data.append('video', video);
