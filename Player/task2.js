@@ -1,9 +1,11 @@
 
 var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion;
-init();
 
 var host ='http://localhost/objetos_de_aprendizagem';
 //var host ='https://videos-novaes.c9users.io';
+
+
+init();
 
 function init(){
 	formContribution = document.getElementById("formContribution");
@@ -119,6 +121,7 @@ function timeStep(delta){
 function getRandomGap(){
 
 	var URL = host+'/Service/random.php';
+
 
 	$.ajax({
 	    url: URL,
