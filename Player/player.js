@@ -10,12 +10,18 @@ var host ='http://localhost/objetos_de_aprendizagem';
 
 init();
 
+function isMobile(){
+	var userAgent = navigator.userAgent.toLowerCase();
+	if( userAgent.search(/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i)!= -1 )
+		return true;
+
+	return false;
+}
 
 function init(){
 	myVideo = document.getElementById("video");
 
-	if(hvideo < 420) hvideo *=2;
-
+	if(hvideo < 420 || isMobile()==true ) hvideo *=2;
 	myVideo.width = hvideo;
 	myVideo.height = hvideo/1.778;
 
