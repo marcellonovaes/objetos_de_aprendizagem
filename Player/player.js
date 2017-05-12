@@ -13,6 +13,12 @@ init();
 
 function init(){
 	myVideo = document.getElementById("video");
+
+	if(hvideo < 420) hvideo *=2;
+
+	myVideo.width = hvideo;
+	myVideo.height = hvideo/1.778;
+
 	dialog = document.getElementById("dialog");
 
 	content = document.getElementById("content");
@@ -29,7 +35,7 @@ function init(){
 	//title = 'Peixe, cadê minha peita ?'
 
 	gap_field.innerHTML = title;
-	content_field.innerHTML = "<textarea rows=10 cols=44  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
+	content_field.innerHTML = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
 
 	getContent();
 }
@@ -112,8 +118,14 @@ function syncVideo(){
 							h =  w * ratio;
 						}
 
-						hx = 293;
+						hx = myVideo.height;
 						wx = hx / ratio;
+
+						if(wx > myVideo.width){
+							wx = myVideo.width;
+							hx = wx * ratio;
+						}
+
 
 						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
 						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
@@ -122,7 +134,7 @@ function syncVideo(){
 					case '3': 
 					case '5': 
 						z = "<textarea rows=12 cols=60  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;' readonly>"+b+"</textarea>";
-						b = "<textarea rows=10 cols=44  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly>"+b+"</textarea>";
+						b = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly>"+b+"</textarea>";
 						break;	
 					case '6': 
 					
@@ -143,7 +155,7 @@ function syncVideo(){
 						var winH = $(window).height()*0.55;
 						var winW = $(window).width()*0.6;
 						z = "<iframe width="+winW+" height="+winH+" src="+page+"></iframe>";
-						b = "<iframe width=520 height=293 src="+page+"></iframe>";
+						b = "<iframe width="+myVideo.width+" height="+myVideo.width/1.778+" src="+page+"></iframe>";
 						break;	
 				}
 			
