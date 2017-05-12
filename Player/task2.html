@@ -22,7 +22,7 @@
 <div class="w3-card-4 w3-margin w3-white">
 	<h1><span id="banner" align="center"></span></h1>
 
-	<p><textarea align="center" id="answer_text" class="answer_text"></textarea></p>
+	<p><textarea align="center" id="answer_text" class="answer_text" readonly></textarea></p>
 
 
 	<div class="player">
@@ -35,7 +35,7 @@
  	 <p align="center">
 	  <button onclick="timeStep(-2)">- 2 seg</button>
 	  <button onclick="volta()">Inicio</button> 
-	  <button onclick="playPause()">Play/Pause</button> 
+	  <button id="playpause" onclick="playPause()">Play/Pause</button> 
 	  <button onclick="timeStep(2)">+ 2 seg</button>
 	 </p>
 	</div>

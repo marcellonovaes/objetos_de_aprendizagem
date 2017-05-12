@@ -1,5 +1,5 @@
 
-var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion,contrib;
+var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion,contrib,playpause;
 
 var host ='http://localhost/objetos_de_aprendizagem';
 //var host ='https://videos-novaes.c9users.io';
@@ -18,6 +18,7 @@ function isMobile(){
 function init(){
 	formContribution = document.getElementById("formContribution");
 	banner = document.getElementById("banner");
+	playpause = document.getElementById("playpause");
 	contrib = document.getElementById("contrib");
 	panel_send = document.getElementById("panel_send");
 	labelIm1 = document.getElementById("labelIm1");
@@ -33,6 +34,10 @@ function init(){
 	hyperlink = document.getElementById("hyperlink");
 	myVideo = document.getElementById("video");
 
+
+
+	answer_text.style = 'width:'+1.5*hvideo+'px;height:145px;background-color : #eeeeee;text-align: justify;font-size:16px;padding:11px;';
+
 	if(hvideo < 420 || isMobile()==true ) hvideo *=2;
 	myVideo.width = hvideo;
 	myVideo.height = hvideo/1.778;
@@ -40,10 +45,14 @@ function init(){
 
 	contributionPanel.style = "width:"+hvideo+"px; align-items:center; text-align:center;display:flex;" ;
 
+
 	definition.style = "width:"+hvideo/2+"px;";  
 	synonymous.style = "width:"+hvideo/2+"px;";   
 	explanation.style = "width:"+hvideo/2+"px;";   
 	hyperlink.style = "width:"+hvideo/2+"px;";  
+
+
+playpause.innerHTML = "Play";
 
 
 definition.value="";
@@ -126,16 +135,18 @@ function handleGap(gap){
 		case '1': 	banner.textContent = "Ajude a compreender o termo ou expressão:";
 				//contributionPanel.append(sugestion_type_1);
 				contrib.append(sugestion_type_1);
-
+				answer_text.textContent = "1. Ajude a explicar a expressão acima.\n2. O vídeo está na posição em onde a expressão é dita, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a expressão é dita.\n4. Você pode explicar a expressão escrevendo uma definição ou um sinônimo.\n5. Você pode ainda enviar uma imagem que ajude a entender a expressão.";
 			break;
 
 		case '2': 	banner.textContent = "Ajude a explicar esta dúvida:";
 				//contributionPanel.append(sugestion_type_2);
 				contrib.append(sugestion_type_2);
+				answer_text.textContent = "1. Ajude a explicar a dúvida acima.\n2. O vídeo está na posição em onde a dúvida aparece, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a dúvida aparece.\n4. Você pode escrever uma explicação ou enviar uma imagem.\n5. Você pode ainda colar um link para uma página Web (ex: Wikipédia, Youtube)";
 
 	}
 
-	answer_text.textContent = answer;
+	//answer_text.textContent = answer;
+	banner.textContent = answer;
 
 }
 
@@ -145,9 +156,11 @@ function volta(){
 
 function playPause() { 
     if (myVideo.paused){
-       	myVideo.play(); 
+       	myVideo.play();
+	playpause.innerHTML = "Pause";
     }else{
         myVideo.pause(); 
+	playpause.innerHTML = "Play";
     }
 } 
 
