@@ -1,6 +1,9 @@
 
 var myVideo,video, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
+var host ='http://localhost/objetos_de_aprendizagem';
+//var host ='https://videos-novaes.c9users.io';
+
 init();
 
 
@@ -110,7 +113,6 @@ function gapFound(){
 function sendContribution(){
 	var jsonObj, jsonStr;
 	var user = '001';
-	//var video = '001';
 	jsonObj = {'user' : user, 'video' : video, 'type' : type, 'answer' : answer.value, 'position' : myVideo.currentTime};
 	storeContribution(jsonObj);
 }
@@ -120,9 +122,7 @@ function storeContribution(data){
 	jsonString = JSON.stringify(data);
 
 	$.ajax({
-	    url: 'https://videos-novaes.c9users.io/Service/store.php',
-	    //url: 'http://localhost/objetos_de_aprendizagem/Service/store.php',
-	    //url: 'https://cs-oa-sbie-novaes.c9users.io/Service/store.php',
+	    url: host+'/Service/store.php',
 	    data : {'jsonString':jsonString},
 	    type: 'POST'
 	});
@@ -131,9 +131,7 @@ function storeContribution(data){
 
 function getSegment(){
 
-	var URL = "https://videos-novaes.c9users.io/Service/segment.php";
-	//var URL = "http://localhost/objetos_de_aprendizagem/Service/segment.php";
-
+	var URL = host+'/Service/segment.php';
 
 	$.ajax({
 	    url: URL,

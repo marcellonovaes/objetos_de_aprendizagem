@@ -2,7 +2,8 @@
 var myVideo,video, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, msg, banner, problem;
 var sugestions = [], index;
 
-
+var host ='http://localhost/objetos_de_aprendizagem';
+//var host ='https://videos-novaes.c9users.io';
 
 init();
 
@@ -21,10 +22,14 @@ function init(){
 }
 
 function clear(){
+	sugestion_txt.textContent="";
+	sugestion_img.textContent="";
+	sugestion_url.textContent="";
 	sugestion_txt.remove();
 	sugestion_img.remove();
 	sugestion_url.remove();
 	selected_sugestion = 0;
+	index=0;
 	getRandomGap();
 }
 
@@ -70,47 +75,47 @@ function displaySugestion(){
 	sugestion_txt.remove();
 	sugestion_img.remove();
 	sugestion_url.remove();
-
-	user_id = sugestions[index].user;
-
-	switch(sugestions[index].type){
-		case '1': 
-		case '4': 
-			//img_src = 'https://videos-novaes.c9users.io/Images/Sugestions/'+video+'/sugestions[index].sugestion;
-			//img_src = 'http://localhost/objetos_de_aprendizagem/Images/Sugestions/002/'+sugestions[index].sugestion;
-			img_src = 'https://videos-novaes.c9users.io/Images/Sugestions/'+video+'/'+sugestions[index].sugestion;
-			sugestion_img.src = img_src;
-			zoomItem = sugestion_img; 
-			break;	
-		case '2': 
-		case '3': 
-		case '5': 
-			sugestion_txt.textContent = sugestions[index].sugestion;
-			zoomItem = sugestion_txt; 
-			break;	
-		case '6': 
-			var page = sugestions[index].sugestion;	
+	
+	try{
+		user_id = sugestions[index].user;
+		switch(sugestions[index].type){
+			case '1': 
+			case '4': 
+				img_src = host+'/Images/Sugestions/'+video+'/'+sugestions[index].sugestion;
+				sugestion_img.src = img_src;
+				zoomItem = sugestion_img; 
+				break;	
+			case '2': 
+			case '3': 
+			case '5': 
+				sugestion_txt.textContent = sugestions[index].sugestion;
+				zoomItem = sugestion_txt; 
+				break;	
+			case '6': 
+				var page = sugestions[index].sugestion;	
 			
-			if(page.substring(0, 23) == 'https://www.youtube.com'){
+				if(page.substring(0, 23) == 'https://www.youtube.com'){
 				
-				var act = page.substring(24, 32);
+					var act = page.substring(24, 32);
 				
-				if(act == 'watch?v='){
+					if(act == 'watch?v='){
 				
-					var obj = page.substring(32, 44);
+						var obj = page.substring(32, 44);
 				
-					page = 'https://www.youtube.com/embed/'+obj;
+						page = 'https://www.youtube.com/embed/'+obj;
+					}
 				}
-			}
 			
-			sugestion_url.src = page;	
-			zoomItem = sugestion_url; 
-			break;	
+				sugestion_url.src = page;	
+				zoomItem = sugestion_url; 
+				break;	
+		}
+			
+		contributionPanel.append(zoomItem);
+
+	}catch(Err){
+		getSugestions();
 	}
-			
-	contributionPanel.append(zoomItem);
-
-
 
 }
 
@@ -130,9 +135,7 @@ function previousSugestion(){
 }
 
 function chooseSugestion(){
-//	console.log(sugestions[index]);
-
-	vote(gap_id,user_id,video, sugestions[index].id);
+	vote(gap_id,video,user_id,sugestions[index].id,sugestions[index].sugestion,sugestions[index].type,position,gap_problem);
 }
 
 function playPause() { 
@@ -152,9 +155,7 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = "https://videos-novaes.c9users.io/Service/random_with_contrib.php";
-	//var URL = "http://localhost/objetos_de_aprendizagem/Service/random_with_contrib.php";
-
+	var URL = host+'/Service/random_with_contrib.php';
 
 	$.ajax({
 	    url: URL,
@@ -171,7 +172,7 @@ function getRandomGap(){
 
 function getSugestions(){
 
-	var URL = "https://videos-novaes.c9users.io/Service/sugestions.php?gap="+gap_id;
+	var URL = host+'/Service/sugestions.php?gap='+gap_id;
 
 
 	$.ajax({
@@ -184,20 +185,18 @@ function getSugestions(){
 }
 
 
-function vote(gap_id,video_id, user_id,sugestion_id){
+function vote(gap_id,video_id,user_id,sugestion_id,sugestion_text,sugestion_type,gap_position, gap_answer){
 
-//	console.log('USER_ID: '+user_id);
-//	console.log('GAP_ID: '+gap_id);
-//	console.log('SUGESTION_ID: '+sugestion_id);
-
-
-
-    var url = 'https://videos-novaes.c9users.io/Service/vote.php';
+    var url = host+'/Service/vote.php';
     var form_data = new FormData();
-    form_data.append('user_id', user_id);
-    form_data.append('video_id', video_id);
     form_data.append('gap_id', gap_id);
+    form_data.append('video_id', video_id);
+    form_data.append('user_id', user_id);
     form_data.append('sugestion_id', sugestion_id);
+    form_data.append('sugestion_text', sugestion_text);
+    form_data.append('sugestion_type', sugestion_type);
+    form_data.append('gap_position', gap_position);
+    form_data.append('gap_answer', gap_answer);
     $.ajax({
         url: url, 
         type: 'POST',
@@ -217,9 +216,8 @@ function vote(gap_id,video_id, user_id,sugestion_id){
 }
 
 function zoomIn(){
-		//e.preventDefault();
 		
-		var id = '#dialog';//$(this).attr('href');
+		var id = '#dialog';
 	
 		var maskHeight = $(document).height();
 		var maskWidth = $(window).width();
@@ -229,7 +227,6 @@ function zoomIn(){
 		$('#mask').fadeIn(1000);	
 		$('#mask').fadeTo("slow",0.8);	
 	
-		//Get the window height and width
 		var winH = $(window).height();
 		var winW = $(window).width();
               

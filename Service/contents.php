@@ -23,7 +23,9 @@
 
 	//$sql = "SELECT * FROM `task2` WHERE `gap_id` = $gap_id ORDER BY  `gap_id` ASC ";
 
-	$sql = "SELECT  `task1`.`id` ,  `task2`.`type` ,  `answer`, `sugestion` ,  `position` FROM  `task1` ,  `task2` WHERE  `task1`.`id` =  `gap_id` AND  `task1`.`video` = ".$video." GROUP BY `gap_id` ORDER BY  `position`";
+//	$sql = "SELECT  `task1`.`id` ,  `task2`.`type` ,  `answer`, `sugestion` ,  `position` FROM  `task1` ,  `task2` WHERE  `task1`.`id` =  `gap_id` AND  `task1`.`video` = ".$video." GROUP BY `gap_id` ORDER BY  `position`";
+
+	$sql = "SELECT * FROM `task3`	 WHERE `video_id` = ".$video." ORDER BY `gap_position` ";
 
 //echo $sql;
 	mysqli_set_charset($conn,"utf8");
@@ -31,7 +33,7 @@
 
 	$contributions = array();
 	while($contribution = mysqli_fetch_array($result)) {
-		$line = array('id'=>$contribution['id'],'type'=>$contribution['type'], 'answer'=>$contribution['answer'], 'sugestion'=>$contribution['sugestion'],'position'=>$contribution['position']);
+		$line = array('id'=>$contribution['id'],'type'=>$contribution['sugestion_type'], 'answer'=>$contribution['gap_answer'], 'sugestion'=>$contribution['sugestion_text'],'position'=>$contribution['gap_position']);
 		$contributions[] = $line;
 		
 	}

@@ -5,6 +5,12 @@
 	<link rel="stylesheet" href="w3.css">
 	<link href="player.css" rel="stylesheet">
 	<script src="jquery.min.js"></script>
+	
+	<script>
+		var hvideo =  0.45 * $(window).width();
+	</script>
+
+
 </head>
 
  
@@ -16,7 +22,7 @@
 <div class="w3-card-4 w3-margin w3-white">
 	<h1><span id="banner" align="center"></span></h1>
 
-	<p><textarea align="center" id="answer_text" class="answer_text"></textarea></p>
+	<p><textarea align="center" id="answer_text" class="answer_text" readonly></textarea></p>
 
 
 	<div class="player">
@@ -29,42 +35,44 @@
  	 <p align="center">
 	  <button onclick="timeStep(-2)">- 2 seg</button>
 	  <button onclick="volta()">Inicio</button> 
-	  <button onclick="playPause()">Play/Pause</button> 
+	  <button id="playpause" onclick="playPause()">Play/Pause</button> 
 	  <button onclick="timeStep(2)">+ 2 seg</button>
 	 </p>
 	</div>
 
 
  	<div id="contributionPanel" class="contributionPanel">
-		<h2>Contribua sugerindo:</h2>
-		<p><div id="sugestion_type_1" class="Radio">
-			<p align= "center"><center>
-  				<input onChange="getOption(1)" class="option"  type="radio" name="sugestion_type" value="1">Imagem</input>
-  				<input onChange="getOption(2)" class="option"  type="radio" name="sugestion_type" value="2">Definição</input>
-  				<input onChange="getOption(3)" class="option"  type="radio" name="sugestion_type" value="3">Sinônimo</input>
-			</center></p>
-			<p><textarea class="definition" id="definition"></textarea></p>
-			<p><label  id='labelIm1'  for='image1'>Escolha a Imagem</label><input class='image1' type="file" id="image1" label='Escolha a imagem' accept="image/*"  value="Escolha a Imagem" /></p>
-			<p><textarea class="synonymous" id="synonymous"></textarea></p>
-		</div></p>
+	<span>
+		<p><div id="contrib" ></div></p>
+		<p><div id="control"></div></p>
 
-		<p><div id="sugestion_type_2" class="Radio">
-			<p align= "center"><center>
-  				<input onChange="getOption(4)" class="option"  type="radio" name="sugestion_type" value="4">Imagem</input>
-  				<input onChange="getOption(5)" class="option"  type="radio" name="sugestion_type" value="5">Explicação</input>
-  				<input onChange="getOption(6)" class="option"  type="radio" name="sugestion_type" value="6">Página WEB</input>
+			<div id="sugestion_type_1" class="Radio">
+				<p align= "center"><center>
+  					<input onChange="getOption(1)" class="option"  type="radio" name="sugestion_type" value="1">Imagem</input>
+  					<input onChange="getOption(2)" class="option"  type="radio" name="sugestion_type" value="2">Definição</input>
+  					<input onChange="getOption(3)" class="option"  type="radio" name="sugestion_type" value="3">Sinônimo</input>
+				</center></p>
+				<p><textarea class="definition" id="definition"></textarea></p>
+				<p><label  id='labelIm1'  for='image1'>Escolha a Imagem</label><input class='image1' type="file" id="image1" label='Escolha a imagem' accept="image/*"  value="Escolha a Imagem" /></p>
+				<p><textarea class="synonymous" id="synonymous"></textarea></p>
+			</div>
 
-			</center></p>
-			<p><textarea class="explanation" id="explanation"></textarea></p>
-			<p><label id='labelIm2' for='image2' >Escolha a Imagem</label><input class='image2' type="file" id="image2" label='Escolha a imagem' accept="image/*" value="Escolha a Imagem" /></p>
-			<p><textarea class="hyperlink" id="hyperlink"></textarea></p>
-		</div></p>
+			<div id="sugestion_type_2" class="Radio"><br>
+				<p align= "center"><center>
+  					<input onChange="getOption(4)" class="option"  type="radio" name="sugestion_type" value="4">Imagem</input>
+  					<input onChange="getOption(5)" class="option"  type="radio" name="sugestion_type" value="5">Explicação</input>
+  					<input onChange="getOption(6)" class="option"  type="radio" name="sugestion_type" value="6">Página WEB</input>
+				</center></p>
+				<p><textarea class="explanation" id="explanation"></textarea></p>
+				<p><label id='labelIm2' for='image2' >Escolha a Imagem</label><input class='image2' type="file" id="image2" label='Escolha a imagem' accept="image/*" value="Escolha a Imagem" /></p>
+				<p><textarea class="hyperlink" id="hyperlink"></textarea></p>
+			</div>
 
-		<p><div class="panel_send" id="panel_send">
-		  <p><button align="center" id="btSend" onclick="sendSugestion()">Enviar Sugestão</button></p>
-		  <p><button align="center" id="btCancel" onclick="location.reload();">Cancelar</button></p>
-		</div></p>
-	</div>
+			<div class="panel_send" id="panel_send">
+			  <p><button align="center" id="btSend" onclick="sendSugestion()">Enviar Sugestão</button></p>
+			  <p><button align="center" id="btCancel" onclick="location.reload();">Cancelar</button></p>
+			</div>
+	</span>
 
 
 
