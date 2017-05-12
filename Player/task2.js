@@ -1,8 +1,8 @@
 
 var myVideo,video, start, stop, formContribution,banner, id, position, type, answer,answer_text,definition,image,image1,synonymous,explanation,image2,hyperlink,panel_send,labelIm1,labelIm2, op, sugestion,contrib,playpause;
 
-var host ='http://localhost/objetos_de_aprendizagem';
-//var host ='https://videos-novaes.c9users.io';
+//var host ='http://localhost/objetos_de_aprendizagem';
+var host ='https://videos-novaes.c9users.io';
 
 
 init();
@@ -135,13 +135,13 @@ function handleGap(gap){
 		case '1': 	banner.textContent = "Ajude a compreender o termo ou expressão:";
 				//contributionPanel.append(sugestion_type_1);
 				contrib.append(sugestion_type_1);
-				answer_text.textContent = "1. Ajude a explicar a expressão acima.\n2. O vídeo está na posição em onde a expressão é dita, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a expressão é dita.\n4. Você pode explicar a expressão escrevendo uma definição ou um sinônimo.\n5. Você pode ainda enviar uma imagem que ajude a entender a expressão.";
+				answer_text.textContent = "1. Ajude a explicar a expressão acima.\n2. O vídeo está na posição onde a expressão é dita, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a expressão é dita.\n4. Você pode explicar a expressão escrevendo uma definição ou um sinônimo.\n5. Você pode ainda enviar uma imagem que ajude a entender a expressão.";
 			break;
 
 		case '2': 	banner.textContent = "Ajude a explicar esta dúvida:";
 				//contributionPanel.append(sugestion_type_2);
 				contrib.append(sugestion_type_2);
-				answer_text.textContent = "1. Ajude a explicar a dúvida acima.\n2. O vídeo está na posição em onde a dúvida aparece, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a dúvida aparece.\n4. Você pode escrever uma explicação ou enviar uma imagem.\n5. Você pode ainda colar um link para uma página Web (ex: Wikipédia, Youtube)";
+				answer_text.textContent = "1. Ajude a explicar a dúvida acima.\n2. O vídeo está na posição onde a dúvida aparece, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a dúvida aparece.\n4. Você pode escrever uma explicação ou enviar uma imagem.\n5. Você pode ainda colar um link para uma página Web (ex: Wikipédia, Youtube)";
 
 	}
 

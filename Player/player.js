@@ -4,8 +4,8 @@ var contents = {}, gaps = {}, types={}, ctrl=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 
-var host ='http://localhost/objetos_de_aprendizagem';
-//var host ='https://videos-novaes.c9users.io';
+//var host ='http://localhost/objetos_de_aprendizagem';
+var host ='https://videos-novaes.c9users.io';
 
 
 init();
