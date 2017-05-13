@@ -174,6 +174,8 @@ function getSugestions(){
 
 	var URL = host+'/Service/sugestions.php?gap='+gap_id;
 
+	console.log(URL);
+
 
 	$.ajax({
 	    url: URL,
