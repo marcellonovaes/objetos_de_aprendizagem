@@ -2,10 +2,15 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="w3.css">
+	<title>Ajude a entender o video</title>
+	<link rel="stylesheet" href="w3.css">
 	<link href="player.css" rel="stylesheet">
-	<script src="jquery.min.js"  type="text/javascript"></script>
+	<script src="jquery.min.js"></script>
+	
 <script type="text/javascript">
+
+var hvideo =  0.45 * $(window).width();
+
 
 $(document).ready(function() {	
 
@@ -38,20 +43,21 @@ $(document).ready(function() {
 		
 		$('#mask').hide();
 		$('.window').hide();
-
+/*
 
 		zoomItem.height = original_height;
 		zoomItem.width = original_width;
 
 
-		sugestion_txt.cols = 37;
-		sugestion_txt.rows = 2;
+		zoomItem.cols = 37;
+		zoomItem.rows = 2;
 
 
 
 
+*/
+	content.append(content_field);
 
-	contributionPanel.append(zoomItem);
 
 	});		
 	
@@ -64,9 +70,6 @@ $(document).ready(function() {
 
 </script>
 
-
-
-
 </head>
 
  
@@ -76,48 +79,48 @@ $(document).ready(function() {
 
 
 <div class="w3-card-4 w3-margin w3-white">
-	<h1><span id="banner" align="center">Qual sugestão você acha mais adequada?</span></h1>
-	<p>
-		<textarea cols="60" id="problem"></textarea>
-	</p>
+	<h1><span id="banner" align="center"></span></h1>
+
+	<p><textarea align="center" id="answer_text" class="answer_text" readonly></textarea></p>
+
 
 	<div class="player">
 	 <p>
-	  <video class="video" poster='../Images/poster.png' id="video" width="600">
-	    <source  type="video/mp4">
+	  <video poster='../Images/poster.png' id="video" width="600">
+	    <source type="video/mp4">
  	   Your browser does not support HTML5 video.
 	  </video>
 	 </p>
  	 <p align="center">
-	  <button onclick="timeStep(-1)">- 1 seg</button>
-	  <button onclick="playPause()">Play/Pause</button> 
-	  <button onclick="timeStep(1)">+ 1 seg</button>
+	  <button onclick="timeStep(-2)">- 2 seg</button>
+	  <button onclick="volta()">Inicio</button> 
+	  <button id="playpause" onclick="playPause()">Play/Pause</button> 
+	  <button onclick="timeStep(2)">+ 2 seg</button>
 	 </p>
 	</div>
 
 
- 	<div id="contributionPanel" class="contributionPanel">
-		<p><h2><span id="msg">Selecione a melhor sugestão:</span></h2></p>
-		<p>
-	  	<button onclick="previousSugestion()">Anterior</button>
-	  	<button onclick="chooseSugestion()">Escolher esta Sugestão</button>
-	  	<button onclick="nextSugestion()">Próxima</button>
-		</p>
+ 	<div id="contributionPanel" class="player">
+	<span>
+		<p><div id="contrib" >
+			<textarea cols="37"  class="sugestion" id="sugestion_txt" readonly></textarea>
+			<img width="350"  src=""  class="sugestion" id="sugestion_img">
+			<iframe width="350"  src=""  class="sugestion" id="sugestion_url"></iframe>
+			<span id='content_field'></span>
+		</div></p>
+		<p><div id="control">
+
+			<button onclick="previousSugestion()">Anterior</button>
+	  		<button onclick="chooseSugestion()">Escolher esta Sugestão</button>
+	  		<button onclick="nextSugestion()">Próxima</button>
+		</div></p>
+		<p><div>
+			<input onclick="zoomIn()" type="image" src="ico_zoom.png" width=30>
+		</div></p>
+
+	</span>
 
 
-		<textarea cols="37"  class="sugestion" id="sugestion_txt"></textarea>
-
-		<img width="350"  src=""  class="sugestion" id="sugestion_img">
-		
-		<iframe width="350"  src=""  class="sugestion" id="sugestion_url"></iframe>
-
-
-		<p><input onclick="zoomIn()" type="image" src="ico_zoom.png" width=30></p>
-	</div>
-
-
-
-</div>
 
 
 
@@ -134,4 +137,5 @@ $(document).ready(function() {
 <script src="task3.js"></script>
 </body> 
 </html>
+
 
