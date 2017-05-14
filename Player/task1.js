@@ -6,7 +6,6 @@ var host ='https://videos-novaes.c9users.io';
 
 init();
 
-
 function init(){
 	myVideo = document.getElementById("video");
 	contributionPanel = document.getElementById("contributionPanel");

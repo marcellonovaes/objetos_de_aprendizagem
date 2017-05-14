@@ -34,7 +34,8 @@ function init(){
 
 	zoomContent = document.createElement('div');
 
-	answer_text.style = 'width:'+1.5*hvideo+'px;height:145px;background-color : #eeeeee;text-align: justify;font-size:16px;padding:11px;';
+	answer_text.style = 'width:'+1.5*hvideo+'px;height:140px;background-color : #eeeeee;text-align: justify;font-size:13px;padding:1px;';
+
 
 
 	if(hvideo < 420 || isMobile()==true ) hvideo *=2;
@@ -89,10 +90,10 @@ function handleGap(gap){
 
 	if(gap_type == 1){
 		//banner.textContent = "Qual o melhor sinônimo ou definição para a expressão abaixo ?";
-		answer_text.textContent = "1. Ajude a explicar a expressão acima.\n2. O vídeo está na posição onde a expressão é dita, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a expressão é dita.\n4. Você pode explicar a expressão escrevendo uma definição ou um sinônimo.\n5. Você pode ainda enviar uma imagem que ajude a entender a expressão.";
+		answer_text.textContent = "1. Ajude a explicar a expressão acima.\n2. O vídeo está na posição onde a expressão é dita, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a expressão é dita.\n4. Escolha a sugestão (texto ou imagem) que melhor explica a expressão.\n5. Use os botões [Anterior] e [Próxima] para visualizar a sugestões.\n6. Quando encontrar a melhor sugestão, clique no botão [Escolher esta Sugestão].\n7. O icone com a lupa permite dar zoom na sugestão para você enxerga-la melhor.";
 	}else{
 		banner.textContent = "Qual o melhor explicação para a questão abaixo ?";
-		answer_text.textContent = "1. Ajude a explicar a dúvida acima.\n2. O vídeo está na posição onde a dúvida aparece, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a dúvida aparece.\n4. Você pode escrever uma explicação ou enviar uma imagem.\n5. Você pode ainda colar um link para uma página Web (ex: Wikipédia, Youtube)";
+		answer_text.textContent = "1. Ajude a explicar a dúvida acima.\n2. O vídeo está na posição onde a dúvida aparece, aperte o [Play].\n3. O botão [Inicio] volta para a parte onde a dúvida aparece.\n4. Escolha a sugestão (texto ou imagem) que melhor explica a dúvida.\n5. Use os botões [Anterior] e [Próxima] para visualizar a sugestões.\n6. Quando encontrar a melhor sugestão, clique no botão [Escolher esta Sugestão].\n7. O icone com a lupa permite dar zoom na sugestão para você enxerga-la melhor.";
 	}
 		
 	//answer_text.textContent = gap_problem;
