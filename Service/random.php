@@ -21,7 +21,7 @@
 
 //	$sql = "SELECT * FROM `task1` WHERE `video` = $video ORDER BY  `position` ASC ";
 	$sql = "SELECT *\n"
-    . " FROM task1 AS r1 JOIN\n"
+    . " FROM task1_aggregated AS r1 JOIN\n"
     . " (SELECT CEIL(RAND() *\n"
     . " (SELECT MAX(id)\n"
     . " FROM task1)) AS id)\n"

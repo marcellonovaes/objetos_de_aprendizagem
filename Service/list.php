@@ -19,7 +19,7 @@
 //	$video = $json->video;
 //	$video = '001';
 
-	$sql = "SELECT * FROM `task1`  ORDER BY  `video` ASC ";
+	$sql = "SELECT * FROM `task1_aggregated`  ORDER BY  `video` ASC ";
 
 
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);

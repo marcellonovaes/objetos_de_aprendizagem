@@ -173,7 +173,8 @@ function timeStep(delta){
 
 function getRandomGap(){
 
-	var URL = host+'/Service/random.php';
+	//var URL = host+'/Service/random.php';
+	var URL = host+'/Service/random_with_contrib.php';
 
 
 	$.ajax({
