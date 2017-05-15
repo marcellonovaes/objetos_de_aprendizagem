@@ -1,5 +1,5 @@
 
-var myVideo,video, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, banner, answer_text,contrib,playpause,control;
+var myVideo,video, fingerprint, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, banner, answer_text,contrib,playpause,control;
 var sugestions = [], index;
 
 //var host ='http://localhost/objetos_de_aprendizagem';
@@ -7,6 +7,7 @@ var host ='https://videos-novaes.c9users.io';
 
 init();
 
+	
 function isMobile(){
 	var userAgent = navigator.userAgent.toLowerCase();
 	if( userAgent.search(/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i)!= -1 )
@@ -17,6 +18,12 @@ function isMobile(){
 
 
 function init(){
+	
+	
+	
+	fingerprint = jQuery.fingerprint();
+    
+    
 	index = 0;
 	dialog = document.getElementById("dialog");
 	answer_text = document.getElementById("answer_text");
@@ -327,6 +334,7 @@ function vote(gap_id,video_id,user_id,sugestion_id,sugestion_text,sugestion_type
     form_data.append('sugestion_type', sugestion_type);
     form_data.append('gap_position', gap_position);
     form_data.append('gap_answer', gap_answer);
+    form_data.append('fingerprint', fingerprint);
     $.ajax({
         url: url, 
         type: 'POST',

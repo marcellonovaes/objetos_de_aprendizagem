@@ -11,7 +11,7 @@ $sugestion_text = $_POST['sugestion_text'];
 $sugestion_type = $_POST['sugestion_type'];
 $gap_position = $_POST['gap_position'];
 $gap_answer = $_POST['gap_answer'];
-
+$fingerprint = $_POST['fingerprint'];
 
 $servername =  "localhost";
 $username = "datauser";
@@ -26,7 +26,7 @@ if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `cs-oa-sbie`.`task3` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`) VALUES (NULL, CURRENT_TIMESTAMP, '$gap_id',  '$user_id','$video_id', '$sugestion_id', '$sugestion_text ', '$sugestion_type ', '$gap_position', '$gap_answer')";
+$sql = "INSERT INTO `cs-oa-sbie`.`task3` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`) VALUES (NULL, CURRENT_TIMESTAMP, '$gap_id',  '$user_id','$video_id', '$sugestion_id', '$sugestion_text ', '$sugestion_type ', '$gap_position', '$gap_answer', '$fingerprint')";
 
 
 

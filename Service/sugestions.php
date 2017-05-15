@@ -21,7 +21,7 @@
 //	$video = $json->video;
 //	$video = '001';
 
-	$sql = "SELECT * FROM `task2` WHERE `gap_id` = $gap_id ORDER BY  `gap_id` ASC ";
+	$sql = "SELECT * FROM `task2_aggregated` WHERE `gap_id` = $gap_id ORDER BY  `gap_id` ASC ";
 
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
