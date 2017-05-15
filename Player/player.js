@@ -1,5 +1,5 @@
 
-var myVideo, video, content, gap_field, content_field, pos,cp, type, zoomContent, dialog, title,playpause;
+var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause;
 var contents = {}, gaps = {}, types={}, ctrl=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
@@ -34,11 +34,8 @@ function init(){
 	playpause = document.getElementById("playpause");
 	zoomContent = document.createElement('div');
 
-	video = 5;
-	title = 'Ailurofobia'
 
-	//video = 2;
-	//title = 'Peixe, cadê minha peita ?'
+
 
 	gap_field.innerHTML = title;
 	content_field.innerHTML = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
