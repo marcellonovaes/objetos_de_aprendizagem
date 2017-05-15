@@ -7,6 +7,7 @@ var contents = {}, gaps = {}, types={}, ctrl=[];
 //var host ='http://localhost/objetos_de_aprendizagem';
 var host ='https://videos-novaes.c9users.io';
 
+
 init();
 
 function isMobile(){
@@ -179,11 +180,7 @@ function syncVideo(){
 
 function playPause() { 
     if (myVideo.paused){ 
-<<<<<<< HEAD
-    	//gap_field.innerHTML = "";
-		//content_field.innerHTML = "";
-=======
->>>>>>> dbcf7428e7eb218ea78fcbee8a753d1e44640fa3
+
         myVideo.play(); 
         myVideo.currentTime -= 1;
     }else{
@@ -204,14 +201,7 @@ function timeStep(delta){
 function gapStep(delta){
 	
 
-<<<<<<< HEAD
-		
-	//console.log(pos);
-		
-		myVideo.currentTime = ctrl[pos] ;
-=======
 	if( (delta > 0 && pos < ctrl.length) || (delta < 0 && pos >= 0) ){
->>>>>>> dbcf7428e7eb218ea78fcbee8a753d1e44640fa3
 
 		if(gap_field.innerHTML != title || pos != 0){
 
