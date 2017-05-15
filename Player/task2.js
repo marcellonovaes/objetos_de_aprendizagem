@@ -49,8 +49,9 @@ function init(){
 	synonymous.style = "width:"+hvideo/2+"px;";   
 	explanation.style = "width:"+hvideo/2+"px;";   
 	hyperlink.style = "width:"+hvideo/2+"px;";  
-
-
+	sugestion_type_1.style = "width:"+hvideo/2+"px;"; 
+	sugestion_type_2.style = "width:"+hvideo/2+"px;"; 
+	
 playpause.innerHTML = "Play";
 
 
@@ -153,10 +154,13 @@ function volta(){
 	myVideo.currentTime = position -2;
 }
 
+
 function playPause() { 
-    if (myVideo.paused){
-       	myVideo.play();
+    if (myVideo.paused){ 
+
+        myVideo.play(); 
 	playpause.innerHTML = "Pause";
+        myVideo.currentTime -= 1;
     }else{
         myVideo.pause(); 
 	playpause.innerHTML = "Play";

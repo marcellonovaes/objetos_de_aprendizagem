@@ -5,12 +5,21 @@
 	<link rel="stylesheet" href="w3.css">
 	<link href="player.css" rel="stylesheet">
 	<script src="jquery.min.js"></script>
+	
+		<script>
+		var hvideo =  0.45 * $(window).width();
+	</script>
+	
+	
 </head>
 
 <body> 
 <center>
 <div class="w3-card-4 w3-margin w3-white">
-	<h1><spam id="banner" align="center"></spam></h1>
+	<h1>Ajude a melhorar o vídeo</h1>	
+	<p><textarea align="center" id="banner" class="instructions" readonly></textarea></p>
+
+
 	<div class="player">
 	 <p>
 	  <video poster='../Images/poster.png' id="video" width="600">
@@ -19,17 +28,16 @@
 	  </video>
 	 </p>
  	 <p align="center">
-	  <button onclick="timeStep(-1)">- 1 seg</button>
-	  <button onclick="timeStep(-10)">- 10 seg</button>
-	  <button onclick="playPause()">Play/Pause</button> 
-	  <button onclick="timeStep(1)">+ 1 seg</button>
-	  <button onclick="timeStep(10)">+ 10 seg</button>
+	  <button onclick="timeStep(-2)">- 2 seg</button>
+	  <button id="playpause" onclick="playPause()">Play/Pause</button> 
+	  <button onclick="timeStep(2)">+ 2 seg</button>
 	 </p>
 	</div>
 
 
- 	<div id="contributionPanel" class="contributionPanel">
-
+ 	<div id="contributionPanel" class="player">
+	<span>
+		<p></p><div id="control"></div></p>
 		<div id="panelFound">
 	  		<p><button id="btGapFound" class="Button"  onclick="gapFound()">Encontrei um problema de comunicação!!!</button></p>
 		</div>
@@ -45,7 +53,7 @@
 		  <p><button align="center" id="btSend" onclick="sendContribution()">Enviar Problema Encontrado</button></p>
 		  <p><button align="center" id="btCancel" onclick="seekGap()">Cancelar</button></p>
 		</div>
-
+	</span>
 	</div>
 
 

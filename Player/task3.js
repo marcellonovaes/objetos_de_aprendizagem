@@ -270,10 +270,13 @@ function volta(){
 	myVideo.currentTime = position -2;
 }
 
+
 function playPause() { 
-    if (myVideo.paused){
-       	myVideo.play();
+    if (myVideo.paused){ 
+
+        myVideo.play(); 
 	playpause.innerHTML = "Pause";
+        myVideo.currentTime -= 1;
     }else{
         myVideo.pause(); 
 	playpause.innerHTML = "Play";

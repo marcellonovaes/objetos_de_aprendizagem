@@ -1,5 +1,5 @@
 
-var myVideo, video, content, gap_field, content_field, pos,cp, type, zoomContent, dialog, title;
+var myVideo, video, content, gap_field, content_field, pos,cp, type, zoomContent, dialog, title,playpause;
 var contents = {}, gaps = {}, types={}, ctrl=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
@@ -31,7 +31,7 @@ function init(){
 	banner = document.getElementById("banner");
 	gap_field = document.getElementById("gap_field");
 	content_field = document.getElementById("content_field");
-
+	playpause = document.getElementById("playpause");
 	zoomContent = document.createElement('div');
 
 	video = 5;
@@ -42,6 +42,8 @@ function init(){
 
 	gap_field.innerHTML = title;
 	content_field.innerHTML = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
+
+
 
 	getContent();
 }
@@ -60,6 +62,7 @@ function handleContent(content){
 	pos=0;
 	cp=0;
 	loadVideo();
+	playpause.innerHTML = "Pause";
 	
 }
 
@@ -178,13 +181,16 @@ function syncVideo(){
 }
 
 
+
 function playPause() { 
     if (myVideo.paused){ 
 
         myVideo.play(); 
+	playpause.innerHTML = "Pause";
         myVideo.currentTime -= 1;
     }else{
         myVideo.pause(); 
+	playpause.innerHTML = "Play";
     }
 } 
 
