@@ -25,7 +25,7 @@
 
 //	$sql = "SELECT  `task1`.`id` ,  `task2`.`type` ,  `answer`, `sugestion` ,  `position` FROM  `task1` ,  `task2` WHERE  `task1`.`id` =  `gap_id` AND  `task1`.`video` = ".$video." GROUP BY `gap_id` ORDER BY  `position`";
 
-	$sql = "SELECT * FROM `task3_agregated`	 WHERE `video_id` = ".$video." GROUP BY  `gap_id`  ORDER BY `gap_position` ";
+	$sql = "SELECT * FROM `task3_aggregated`	 WHERE `video_id` = ".$video." GROUP BY  `gap_id`  ORDER BY `gap_position` ";
 
 //echo $sql;
 	mysqli_set_charset($conn,"utf8");
