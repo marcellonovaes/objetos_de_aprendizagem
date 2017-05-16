@@ -42,11 +42,12 @@
 			if($current == $index) continue;
 		
 			if($contribution['gap_id'] == $contributions[$current]['gap_id']){
+				
 				if($contribution['weight'] > $contributions[$current]['weight']){
-					unset($contributions[$index]);
-				}else{
 					unset($contributions[$current]);
 					$current = $index;
+				}else{
+					unset($contributions[$index]);
 				}
 				
 			}else{
@@ -63,7 +64,7 @@
 	
 	
 	foreach($contributions as $contribution){
-		$sql = " INSERT INTO `cs-oa-sbie`.`task3_aggregated` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`,`sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`,  `weight`) VALUES (NULL, CURRENT_TIMESTAMP, '".$contribution['gap_id']."', '".$contribution['user_id']."', '".$contribution['video_id']."', '".$contribution['sugestion_id']."','".$contribution['sugestion_text']."', '".$contribution['sugestion_type']."', '".$contribution['gap_position']."', '".$contribution['gap_answer']."', '".$contribution['fingerprint']."', '".$contribution['weight']."') ";
+		$sql = " INSERT INTO `cs-oa-sbie`.`task3_aggregated` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`,`sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`,  `weight`) VALUES ('".$contribution['id']."', CURRENT_TIMESTAMP, '".$contribution['gap_id']."', '".$contribution['user_id']."', '".$contribution['video_id']."', '".$contribution['sugestion_id']."','".$contribution['sugestion_text']."', '".$contribution['sugestion_type']."', '".$contribution['gap_position']."', '".$contribution['gap_answer']."', '".$contribution['fingerprint']."', '".$contribution['weight']."') ";
 
 
 		if (mysqli_query($conn, $sql)) {

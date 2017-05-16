@@ -87,7 +87,7 @@
 	
 	
 	foreach($contributions as $contribution){
-		$sql = " INSERT INTO `cs-oa-sbie`.`task2_aggregated` (`id`, `time`, `user`, `video`, `type`, `gap_id`, `sugestion`, `weight`) VALUES (NULL, CURRENT_TIMESTAMP, '".$contribution['user']."', '".$contribution['video']."', '".$contribution['type']."', '".$contribution['gap_id']. "', '".$contribution['sugestion']."','".$contribution['weight']."') ";
+		$sql = " INSERT INTO `cs-oa-sbie`.`task2_aggregated` (`id`, `time`, `user`, `video`, `type`, `gap_id`, `sugestion`, `weight`) VALUES ('".$contribution['id']."', CURRENT_TIMESTAMP, '".$contribution['user']."', '".$contribution['video']."', '".$contribution['type']."', '".$contribution['gap_id']. "', '".$contribution['sugestion']."','".$contribution['weight']."') ";
 
 
 		if (mysqli_query($conn, $sql)) {

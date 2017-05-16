@@ -89,7 +89,7 @@
 	
 	
 	foreach($contributions as $contribution){
-		$sql = " INSERT INTO `cs-oa-sbie`.`task1_aggregated` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`, `weight`) VALUES (NULL, CURRENT_TIMESTAMP, '".$contribution['user']."', '".$contribution['video']."', '".$contribution['type']."', '".$contribution['answer']. "', '".$contribution['position']."','".$contribution['weight']."') ";
+		$sql = " INSERT INTO `cs-oa-sbie`.`task1_aggregated` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`, `weight`) VALUES ('".$contribution['id']."', CURRENT_TIMESTAMP, '".$contribution['user']."', '".$contribution['video']."', '".$contribution['type']."', '".$contribution['answer']. "', '".$contribution['position']."','".$contribution['weight']."') ";
 
 
 
