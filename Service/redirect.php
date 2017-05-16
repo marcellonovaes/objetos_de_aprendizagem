@@ -10,3 +10,4 @@ if (isset($_GET['url'])) {
     curl_close($ch);
     echo $data;
 }
+?>
