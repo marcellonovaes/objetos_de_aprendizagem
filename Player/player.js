@@ -86,10 +86,14 @@ function syncVideo(){
 		var p = Math.ceil(myVideo.currentTime);
 		
 		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
-		if(pos < 0)		{pos = 0;cp=-1;}
+		if(pos < 0)				{pos = 0;cp=-1;}
 
+
+				
 		if(gaps[p]){
+			
 			if(cp != p){
+
 
 
 				try{
@@ -171,7 +175,7 @@ function syncVideo(){
 
 				zoomContent.innerHTML = z;
 
-				if(pos<ctrl.length)pos++;
+				//if(pos<ctrl.length)pos++;
 				cp = p;
 			}
 		}
@@ -181,13 +185,12 @@ function syncVideo(){
 
 function playPause() { 
     if (myVideo.paused){ 
-
         myVideo.play(); 
-	playpause.innerHTML = "Pause";
+		playpause.innerHTML = "Pause";
         myVideo.currentTime -= 1;
     }else{
         myVideo.pause(); 
-	playpause.innerHTML = "Play";
+		playpause.innerHTML = "Play";
     }
 } 
 
@@ -204,33 +207,41 @@ function timeStep(delta){
 function gapStep(delta){
 	
 
-	if( (delta > 0 && pos < ctrl.length) || (delta < 0 && pos >= 0) ){
+//	if( (delta > 0 && pos < ctrl.length) || (delta < 0 && pos >= 0) ){
 
-		if(gap_field.innerHTML != title || pos != 0){
+//		if(gap_field.innerHTML != title || pos != 0){
 
-			if(pos > 0){
-				pos--;
-			}
+//			if(pos > 0){
+//				pos--;
+//			}
 	
 
 
-			if((delta>0 && pos+delta<ctrl.length) || (delta<0 && pos-delta>=0)){	
+//			if((delta>0 && pos+delta<ctrl.length) || (delta<0 && pos-delta>=0)){	
 				pos += delta;
-				gap_field.innerHTML = "";
-				content_field.innerHTML = "";
+			//	gap_field.innerHTML = "";
+			//	content_field.innerHTML = "";
+//			}
+
+//		}
+
+//		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
+//		if(pos < 0)		{pos = 0;cp=-1;}
+
+			//console.log(pos);
+		if(pos < 0){
+			pos=0;
+		}else{
+			if(pos >= ctrl.length){
+				pos = ctrl.length -1;
+			}else{
+				myVideo.currentTime = ctrl[pos] ;
+				syncVideo();
 			}
-
 		}
-
-		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
-		if(pos < 0)		{pos = 0;cp=-1;}
-
-		myVideo.currentTime = ctrl[pos] ;
-
-		syncVideo();
-		
-		myVideo.pause(); 
-	}
+		myVideo.pause();
+		playpause.innerHTML = "Play";
+//	}
 }
 
 function getContent(){

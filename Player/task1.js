@@ -51,7 +51,7 @@ function init(){
 	btType2.style = "width:"+hvideo/2+"px;";  
 	btSend.style = "width:"+hvideo/2+"px;"; 
 	
-playpause.innerHTML = "Play";
+	playpause.innerHTML = "Play";
 
 
 
@@ -88,14 +88,16 @@ function seekGap(){
 
 function playPause() { 
     if (myVideo.paused){ 
-	if(myVideo.currentTime < stop){
+		if(myVideo.currentTime < stop){
         	myVideo.currentTime -= 1;
         	myVideo.play(); 
-	}else{
-		myVideo.currentTime = start;
-	}
+		}else{
+			myVideo.currentTime = start;
+		}
+        playpause.innerHTML = "Pause";
     }else{
         myVideo.pause(); 
+        playpause.innerHTML = "Play";
     }
 } 
 
@@ -112,7 +114,8 @@ function timeStep(delta){
 }
 
 function gapType(op){
-        myVideo.pause(); 
+    myVideo.pause(); 
+    playpause.innerHTML = "Play";
 
 	banner.textContent = "Posicione o vídeo no momento onde o problema ocorre.\nUtilize os botões +2 e -2 para posicionar o vídeo no momento correto.";
 
@@ -138,7 +141,9 @@ function gapType(op){
 
 function gapFound(){
 
-        myVideo.pause(); 
+    myVideo.pause();
+        
+    playpause.innerHTML = "Play";
 	banner.textContent = "Nos diga qual problema encontrou.\nClique no primeiro botão caso não tenha entendido uma palarva ou expressão,\nou no segunda botão caso não tenha compreendido algo e queira mais informacões.";
 	panelFound.remove();
 	contributionPanel.append(panelType);
