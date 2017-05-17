@@ -1,5 +1,5 @@
 
-var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player,x, y;
+var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause;
 var contents = {}, gaps = {}, types={}, ctrl=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
@@ -21,15 +21,12 @@ function isMobile(){
 function init(){
 	myVideo = document.getElementById("video");
 
-/*
 	if(hvideo < 420 || isMobile()==true ) hvideo *=2;
 	myVideo.width = hvideo;
 	myVideo.height = hvideo/1.778;
-*/
 
-	player = document.getElementById("player");
-	zoomContent = document.getElementById("zoomContent");
 	dialog = document.getElementById("dialog");
+
 	content = document.getElementById("content");
 	banner = document.getElementById("banner");
 	gap_field = document.getElementById("gap_field");
@@ -37,13 +34,13 @@ function init(){
 	playpause = document.getElementById("playpause");
 	zoomContent = document.createElement('div');
 
-hvideo /= 3;
 
 
-	player.style.left = pad+'px';
-	content.style.left = (pad+15)+'px';
 
 	gap_field.innerHTML = title;
+	content_field.innerHTML = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly></textarea>";
+
+
 
 	getContent();
 }
@@ -59,10 +56,8 @@ function handleContent(content){
 		ctrl[i] = c.position;
 	}
 	
-	timeout=0;
-	pos=-1;
-	cp=-1;
-	p=0;
+	pos=0;
+	cp=0;
 	loadVideo();
 	playpause.innerHTML = "Pause";
 	
@@ -78,49 +73,27 @@ function loadVideo(){
  
 	setInterval(function() {
 	
-		syncVideo(1);
+		syncVideo();
 		
 	}, 1000);
 
+
+
 }
 
-function syncVideo(delta){
+function syncVideo(){
 		var z;
 		var p = Math.ceil(myVideo.currentTime);
 		
 		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
-		if(pos < 0)		{pos = 0;cp=-1;}
+		if(pos < 0)				{pos = 0;cp=-1;}
 
 
-		if(timeout > 1 && !myVideo.paused){
-			
-			content.innerHTML = "";
-
-			zoomContent.innerHTML = "";
-						
-			content.style.backgroundColor = "";
-		}else{
-			timeout++;
-		}
 				
 		if(gaps[p]){
 			
 			if(cp != p){
 
-				pos += delta;
-
-				timeout = 0;
-
-				content.innerHTML = "";
-
-				content.style.borderRadius = '8em';
-				content.style.fontSize = '20px';
-
-				
-
-				zoomContent.innerHTML = "";
-
-				content.style.backgroundColor = "";
 
 
 				try{
@@ -137,10 +110,8 @@ function syncVideo(delta){
 					case '1':
 					case '4':
 						var h,w,hx,wx;
-						//var maskHeight = myVideo.height * 1.5;
 						var maskHeight = $(document).height();
 						var maskWidth = $(window).width();
-						//var maskWidth = myVideo.width * 1.5;
 
 						var image = new Image();
     						image.src=host+'/Images/Sugestions/'+video+'/'+b;
@@ -148,54 +119,32 @@ function syncVideo(delta){
 						var original_width = image.width;
 						var original_height = image.height;
 						var ratio = original_height / original_width;
-			
 
-						h=maskHeight*0.55;
-						if( h/ratio > maskWidth*0.55  || isMobile()==true){
-							w=maskWidth*0.55;
-							h = ratio * w;
+						if(ratio*maskWidth*0.6 > maskHeight * 0.45){
+							h = maskHeight * 0.55;
+							w = maskHeight * 0.55 / ratio;
 						}else{
-							w = h/ratio;
+							w =  maskWidth * 0.6;
+							h =  w * ratio;
 						}
 
-						
+						hx = myVideo.height;
+						wx = hx / ratio;
 
-	
-						hx = hvideo * ratio;//myVideo.height/2;
-						wx = hvideo;//hx / ratio;
-
-						if(wx > hvideo){
-							wx = hvideo;
+						if(wx > myVideo.width){
+							wx = myVideo.width;
 							hx = wx * ratio;
 						}
 
 
 						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
 						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
-						content.style.backgroundColor = "";
-						x = 125;
-						content.style.top = x+'px';
-						content.style.left = (pad+10)+'px';
-						content.innerHTML   = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+b+"</a>";
 						break;
-					case '3':
-						content.style.backgroundColor = "red";
-						content.style.left = (pad+16)+'px';						
-						x = 300;
-						content.style.top = x+'px';
-						//content.style.fontSize = '18px';
-						content.style.borderRadius = '1em';
-						content.innerHTML = a+"<br>=<br>"+b;
-						break; 
 					case '2': 
+					case '3': 
 					case '5': 
-						z = "<textarea rows=12 cols=50  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;' readonly>"+b+"</textarea>";
-						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
-						content.style.backgroundColor = "red";
-						content.style.left = (pad+18)+'px';
-						x = 133;
-						content.style.top = x+'px';
-						content.innerHTML = b;
+						z = "<textarea rows=12 cols=60  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;' readonly>"+b+"</textarea>";
+						b = "<textarea rows=10 cols=44  style='width:"+myVideo.width+"px;height:"+myVideo.width/1.778+"px;background-color : #eeeeee;text-align: justify;font-size:18px;padding:11px;' readonly>"+b+"</textarea>";
 						break;	
 					case '6': 
 					
@@ -216,17 +165,17 @@ function syncVideo(delta){
 						var winH = $(window).height()*0.55;
 						var winW = $(window).width()*0.6;
 						z = "<iframe width="+winW+" height="+winH+" src="+page+"></iframe>";
-						//b = "<iframe width="+hvideo+" height="+hvideo/1.778+" src="+page+"></iframe>";
-						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
-						content.style.backgroundColor = "red";
-						x = 133;
-						content.style.top = x+'px';
-						content.innerHTML = b;
+						b = "<iframe width="+myVideo.width+" height="+myVideo.width/1.778+" src="+page+"></iframe>";
 						break;	
 				}
 			
+				gap_field.innerHTML = "<h2>"+a+"</h2>";
+				
+				content_field.innerHTML = b;
+
 				zoomContent.innerHTML = z;
 
+				//if(pos<ctrl.length)pos++;
 				cp = p;
 			}
 		}
@@ -245,27 +194,59 @@ function playPause() {
     }
 } 
 
-
+function timeStep(delta){
+	gap_field.innerHTML = "";
+	content_field.innerHTML = "";	
+	if(delta > 0){
+		myVideo.currentTime += delta;
+	}else{
+		myVideo.currentTime += delta;
+	}
+}
 
 function gapStep(delta){
-	pos += delta;
-	if(pos < 0){
-		pos=0;
-	}else{
-		if(pos >= ctrl.length){
-			pos = ctrl.length -1;
+	
+
+//	if( (delta > 0 && pos < ctrl.length) || (delta < 0 && pos >= 0) ){
+
+//		if(gap_field.innerHTML != title || pos != 0){
+
+//			if(pos > 0){
+//				pos--;
+//			}
+	
+
+
+//			if((delta>0 && pos+delta<ctrl.length) || (delta<0 && pos-delta>=0)){	
+				pos += delta;
+			//	gap_field.innerHTML = "";
+			//	content_field.innerHTML = "";
+//			}
+
+//		}
+
+//		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
+//		if(pos < 0)		{pos = 0;cp=-1;}
+
+			//console.log(pos);
+		if(pos < 0){
+			pos=0;
+		}else{
+			if(pos >= ctrl.length){
+				pos = ctrl.length -1;
+			}else{
+				myVideo.currentTime = ctrl[pos] ;
+				syncVideo();
+			}
 		}
-	}
-	myVideo.currentTime = ctrl[pos] ;
-	syncVideo(0);
-	myVideo.pause();
-	playpause.innerHTML = "Play";
-	timeout = 0;
+		myVideo.pause();
+		playpause.innerHTML = "Play";
+//	}
 }
 
 function getContent(){
 
-	var URL = host+'/Service/extra.php?video='+video;
+	var URL = host+'/Service/contents.php?video='+video;
 
 	$.ajax({
 	    url: URL,
@@ -296,9 +277,49 @@ function zoomIn(){
 		$(id).css('top',  winH/2-$(id).height()/2);
 		$(id).css('left', winW/2-$(id).width()/2);
 
+	
+
+/*
+
+
+		switch(type){
+			case '1':
+			case '4':
+				original_width = content_field.width;
+				original_height = content_field.height;
+
+				var ratio = original_height / original_width;
+
+				content_field.width =  maskWidth * 0.6;
+				if(ratio*maskWidth*0.6 > maskHeight * 0.55){
+					content_field.height = maskHeight * 0.55;
+					content_field.width = maskHeight * 0.55 / ratio;
+				}else{
+					content_field.height = ratio*maskWidth*0.6 ;
+				}
+
+				break;
+			case '2': 
+			case '5':
+				content_field.rows=10;
+				content_field.cols=60; 
+				break;	
+			case '3': 
+				content_field.rows=7;
+				content_field.cols=60;
+				break;	
+			case '6':
+				content_field.width = maskWidth * 0.6;
+				content_field.height = maskHeight * 0.55; 
+				break;
+		}
+*/
+	//	zoomContent.append(content_field)
+
+
 		dialog.append(zoomContent);
 
-		myVideo.pause(); 
+
 
 		$(id).fadeIn(2000); 
 }
