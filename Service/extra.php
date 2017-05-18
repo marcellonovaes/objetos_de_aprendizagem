@@ -33,7 +33,7 @@
 
 	$contributions = array();
 	while($contribution = mysqli_fetch_array($result)) {
-		$line = array('id'=>$contribution['id'],'type'=>$contribution['sugestion_type'], 'answer'=>$contribution['gap_answer'], 'sugestion'=>$contribution['sugestion_text'],'position'=>$contribution['gap_position']);
+		$line = array('id'=>$contribution['id'],'type'=>$contribution['sugestion_type'], 'answer'=>$contribution['gap_answer'], 'sugestion'=>$contribution['sugestion_text'],'position'=>$contribution['gap_position'],'x'=>$contribution['x'],'y'=>$contribution['y']);
 		$contributions[] = $line;
 		
 	}

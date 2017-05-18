@@ -1,6 +1,6 @@
 
-var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player,x, y, bg,click;
-var contents = {}, gaps = {}, types={}, ctrl=[];
+var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player, bg,click, vw, vh;
+var contents = {}, gaps = {}, types={}, ctrl=[], x=[], y=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 
@@ -61,6 +61,8 @@ function handleContent(content){
 		gaps[c.position] = c.answer;
 		contents[c.position] = c.sugestion;
 		types[c.position] = c.type;
+		x[c.position] = c.x;
+		y[c.position] = c.y;
 		ctrl[i] = c.position;
 	}
 	
@@ -85,7 +87,6 @@ function loadVideo(){
 	
 	myVideo.src = "../Videos/"+video+".mp4";
 
-
 	myVideo.play(); 
  
 	setInterval(function() {
@@ -97,7 +98,7 @@ function loadVideo(){
 }
 
 function syncVideo(delta){
-		var z;
+		var z,dx,dy;
 		var p = Math.ceil(myVideo.currentTime);
 		
 		if(myVideo.ended){
@@ -134,6 +135,10 @@ function syncVideo(delta){
 			
 			if(cp != p){
 
+				
+				dx = parseFloat(x[p]);
+				dy = parseFloat(y[p]);
+
 				pos += delta;
 
 				timeout = 0;
@@ -165,10 +170,8 @@ function syncVideo(delta){
 					case '1':
 					case '4':
 						var h,w,hx,wx;
-						//var maskHeight = myVideo.height * 1.5;
 						var maskHeight = $(document).height();
 						var maskWidth = $(window).width();
-						//var maskWidth = myVideo.width * 1.5;
 
 						var image = new Image();
     						image.src=host+'/Images/Sugestions/'+video+'/'+b;
@@ -201,20 +204,18 @@ function syncVideo(delta){
 						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'   style="box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);" >';
 						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+' style="opacity:0.8;box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);"  >';
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);'   src='../Images/ClickHere.gif' width=100></a>";
-						click.style.left = (pad+10)+'px';
+						click.style.left = (pad+10+dx)+'px';
+						click.style.top = (125+dy)+'px';
 		
 						content.style.backgroundColor = "";
-						x = 125;
-						content.style.top = x+'px';
-						content.style.left = (pad+10)+'px';
+						content.style.top = (125+dy)+'px';
+						content.style.left = (pad+10+dx)+'px';
 						content.innerHTML   = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+b+"</a>";
 						break;
 					case '3':
-						content.style.left = (pad+16)+'px';						
+						content.style.left = (pad+16+dx)+'px';						
 						content.style.background = bg;
-						x = 300;
-						content.style.top = x+'px';
-						//content.style.fontSize = '18px';
+						content.style.top = (133+dy)+'px';
 						content.style.borderRadius = '1em';
 						content.innerHTML = a+"<br>=<br>"+b;
 						break; 
@@ -223,13 +224,12 @@ function syncVideo(delta){
 						z = "<textarea rows=12 cols=50  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);' readonly>"+b+"</textarea>";
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
 						content.style.background = bg;
-						content.style.left = (pad+25)+'px';
-						x = 133;
-						content.style.top = x+'px';
+						content.style.left = (pad+25+dx)+'px';
+						content.style.top = (133+dy)+'px';
 						content.innerHTML = b;
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
-						click.style.top = (x-35)+'px';
-						click.style.left = (pad-10)+'px';
+						click.style.top = (98+dy)+'px';
+						click.style.left = (pad-10+dx)+'px';
 						break;	
 					case '6': 
 					
@@ -250,16 +250,14 @@ function syncVideo(delta){
 						var winH = $(window).height()*0.55;
 						var winW = $(window).width()*0.6;
 						z = "<iframe width="+winW+" height="+winH+" src="+page+"style='box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);'></iframe>";
-						//b = "<iframe width="+hvideo+" height="+hvideo/1.778+" src="+page+"></iframe>";
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
-						//content.style.backgroundColor = "red";
 						content.style.background = bg;
-						x = 133;
-						content.style.top = x+'px';
+						content.style.top = (133+dy)+'px';
+						content.style.left = (pad+dx)+'px';
 						content.innerHTML = b;
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
-						click.style.top = (x-35)+'px';
-						click.style.left = (pad-10)+'px';
+						click.style.top = (98+dy)+'px';
+						click.style.left = (pad-10+dx)+'px';
 						break;	
 				}
 			
