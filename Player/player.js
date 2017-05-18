@@ -100,6 +100,15 @@ function syncVideo(delta){
 		var z;
 		var p = Math.ceil(myVideo.currentTime);
 		
+		if(myVideo.ended){
+			playpause.innerHTML = "Play";
+			timeout=0;
+			pos=-1;
+			cp=-1;
+			p=0;
+		}
+		
+		
 		if(pos >= ctrl.length)	{ pos = ctrl.length-1;cp=-1;}
 		if(pos < 0)		{pos = 0;cp=-1;}
 
