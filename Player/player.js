@@ -68,8 +68,15 @@ function handleContent(content){
 	pos=-1;
 	cp=-1;
 	p=0;
+	
+	
 	loadVideo();
-	playpause.innerHTML = "Pause";
+	
+	if(isMobile() == false){
+		playpause.innerHTML = "Pause";
+	}else{
+		playpause.innerHTML = "Play";
+	}
 	
 }
 
