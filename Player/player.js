@@ -1,5 +1,5 @@
 
-var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player,x, y;
+var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player,x, y, bg,click;
 var contents = {}, gaps = {}, types={}, ctrl=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
@@ -27,6 +27,7 @@ function init(){
 	myVideo.height = hvideo/1.778;
 */
 
+	click = document.getElementById("click");
 	player = document.getElementById("player");
 	zoomContent = document.getElementById("zoomContent");
 	dialog = document.getElementById("dialog");
@@ -44,6 +45,10 @@ hvideo /= 3;
 	content.style.left = (pad+15)+'px';
 
 	gap_field.innerHTML = title;
+
+	bg = content.style.background;
+	content.style.background = "";
+	click.innerHTML = "";
 
 	getContent();
 }
@@ -97,8 +102,14 @@ function syncVideo(delta){
 			content.innerHTML = "";
 
 			zoomContent.innerHTML = "";
+			
+			click.innerHTML = "";
+			
 						
 			content.style.backgroundColor = "";
+
+			content.style.background = "";
+
 		}else{
 			timeout++;
 		}
@@ -110,7 +121,7 @@ function syncVideo(delta){
 				pos += delta;
 
 				timeout = 0;
-
+				click.innerHTML = "";
 				content.innerHTML = "";
 
 				content.style.borderRadius = '8em';
@@ -122,6 +133,7 @@ function syncVideo(delta){
 
 				content.style.backgroundColor = "";
 
+				content.style.background = ""; 
 
 				try{
 					a = decodeURIComponent(escape(gaps[p]));
@@ -170,8 +182,11 @@ function syncVideo(delta){
 						}
 
 
-						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
-						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+'>';
+						z = '<img height='+h+' width='+w+' src='+host+'/Images/Sugestions/'+video+'/'+b+'   style="box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);" >';
+						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+' style="opacity:0.8;box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);"  >';
+						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);'   src='../Images/ClickHere.gif' width=100></a>";
+						click.style.left = (pad+10)+'px';
+		
 						content.style.backgroundColor = "";
 						x = 125;
 						content.style.top = x+'px';
@@ -179,8 +194,8 @@ function syncVideo(delta){
 						content.innerHTML   = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+b+"</a>";
 						break;
 					case '3':
-						content.style.backgroundColor = "red";
 						content.style.left = (pad+16)+'px';						
+						content.style.background = bg;
 						x = 300;
 						content.style.top = x+'px';
 						//content.style.fontSize = '18px';
@@ -189,13 +204,16 @@ function syncVideo(delta){
 						break; 
 					case '2': 
 					case '5': 
-						z = "<textarea rows=12 cols=50  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;' readonly>"+b+"</textarea>";
+						z = "<textarea rows=12 cols=50  style='background-color : #eeeeee;text-align: justify;font-size:18px;padding:5px;box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);' readonly>"+b+"</textarea>";
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
-						content.style.backgroundColor = "red";
-						content.style.left = (pad+18)+'px';
+						content.style.background = bg;
+						content.style.left = (pad+25)+'px';
 						x = 133;
 						content.style.top = x+'px';
 						content.innerHTML = b;
+						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
+						click.style.top = (x-35)+'px';
+						click.style.left = (pad-10)+'px';
 						break;	
 					case '6': 
 					
@@ -215,13 +233,17 @@ function syncVideo(delta){
 					
 						var winH = $(window).height()*0.55;
 						var winW = $(window).width()*0.6;
-						z = "<iframe width="+winW+" height="+winH+" src="+page+"></iframe>";
+						z = "<iframe width="+winW+" height="+winH+" src="+page+"style='box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);'></iframe>";
 						//b = "<iframe width="+hvideo+" height="+hvideo/1.778+" src="+page+"></iframe>";
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
-						content.style.backgroundColor = "red";
+						//content.style.backgroundColor = "red";
+						content.style.background = bg;
 						x = 133;
 						content.style.top = x+'px';
 						content.innerHTML = b;
+						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
+						click.style.top = (x-35)+'px';
+						click.style.left = (pad-10)+'px';
 						break;	
 				}
 			
