@@ -1,11 +1,12 @@
 
-var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player, bg,click, vw, vh;
+var myVideo, content, gap_field, content_field, pos,cp, type, zoomContent, dialog,playpause,timeout,player, bg,click, vw, vh,expTop;
 var contents = {}, gaps = {}, types={}, ctrl=[], x=[], y=[];
 //, start, stop, question, answer, btGapFound, btType1, btType2, btSend, btCancel, banner, type, panelFound, panelType, panelQuestion;
 
 
 //var host ='http://localhost/objetos_de_aprendizagem';
 var host ='https://videos-novaes.c9users.io';
+//var host ='https://sbie-novaes.c9users.io';
 
 
 init();
@@ -27,6 +28,7 @@ function init(){
 	myVideo.height = hvideo/1.778;
 */
 
+	answer_text = document.getElementById("answer_text");
 	click = document.getElementById("click");
 	player = document.getElementById("player");
 	zoomContent = document.getElementById("zoomContent");
@@ -40,8 +42,11 @@ function init(){
 
 hvideo /= 3;
 
+	expTop = 110;
+	pad += 30;
 
 	player.style.left = pad+'px';
+	player.style.top = (expTop+100)+'px';
 	content.style.left = (pad+15)+'px';
 
 	gap_field.innerHTML = title;
@@ -86,6 +91,8 @@ function loadVideo(){
 	var a,b;
 	
 	myVideo.src = "../Videos/"+video+".mp4";
+
+	answer_text.style = 'width:'+1.2*myVideo.width+'px;height:'+expTop+'px;background-color : #eeeeee;text-align: justify;font-size:16px;padding:1px;';
 
 	myVideo.play(); 
  
@@ -205,17 +212,17 @@ function syncVideo(delta){
 						b = '<img height='+hx+' width='+wx+' src='+host+'/Images/Sugestions/'+video+'/'+b+' style="opacity:0.8;box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);"  >';
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);'   src='../Images/ClickHere.gif' width=100></a>";
 						click.style.left = (pad+10+dx)+'px';
-						click.style.top = (125+dy)+'px';
+						click.style.top = (expTop+125+dy)+'px';
 		
 						content.style.backgroundColor = "";
-						content.style.top = (125+dy)+'px';
+						content.style.top = (expTop+125+dy)+'px';
 						content.style.left = (pad+10+dx)+'px';
 						content.innerHTML   = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+b+"</a>";
 						break;
 					case '3':
 						content.style.left = (pad+16+dx)+'px';						
 						content.style.background = bg;
-						content.style.top = (133+dy)+'px';
+						content.style.top = (expTop+133+dy)+'px';
 						content.style.borderRadius = '1em';
 						content.innerHTML = a+"<br>=<br>"+b;
 						break; 
@@ -225,10 +232,10 @@ function syncVideo(delta){
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
 						content.style.background = bg;
 						content.style.left = (pad+25+dx)+'px';
-						content.style.top = (133+dy)+'px';
+						content.style.top = (expTop+133+dy)+'px';
 						content.innerHTML = b;
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
-						click.style.top = (98+dy)+'px';
+						click.style.top = (expTop+98+dy)+'px';
 						click.style.left = (pad-10+dx)+'px';
 						break;	
 					case '6': 
@@ -252,11 +259,11 @@ function syncVideo(delta){
 						z = "<iframe width="+winW+" height="+winH+" src="+page+"style='box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);'></iframe>";
 						b = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'>"+a+"</a>";
 						content.style.background = bg;
-						content.style.top = (133+dy)+'px';
+						content.style.top = (expTop+133+dy)+'px';
 						content.style.left = (pad+dx)+'px';
 						content.innerHTML = b;
 						click.innerHTML = "<a href='javascript:void(0)' onclick='zoomIn();' style='color:#ffffff;'><img style='transform: rotate(295deg);-ms-transform: rotate(295deg); -webkit-transform: rotate(295deg);' src='../Images/ClickHere.gif' width=60></a>";
-						click.style.top = (98+dy)+'px';
+						click.style.top = (expTop+98+dy)+'px';
 						click.style.left = (pad-10+dx)+'px';
 						break;	
 				}

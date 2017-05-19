@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Ajude a entender o video</title>
+		<title>Video Interativo sobre: Peixe, cadê minha peita ?</title>
 
 	<link rel="stylesheet" href="w3.css">
 	<link href="player.css" rel="stylesheet">
@@ -93,6 +93,12 @@ $(document).ready(function() {
 <center>
 <div class="w3-card-4 w3-margin w3-white">
 	<h1><spam id="gap_field" align="center" style="white-space: nowrap"></spam></h1>
+	<p><textarea align="center" id="answer_text" class="answer_text" style = 'height:80px;background-color : #eeeeee;text-align: justify;font-size:16px;padding:1px;';
+ readonly>Este é um vídeo interativo, além de assistir você pode:
+	1. Clicar sobre os itens que aparecem para ver as explicações.
+	2. Utilizar os botões para navegar entre as explicações.
+	3. Se achar muito rápido, use os botões para voltar na explicação.
+	</textarea></p>
 
 <center>
 
@@ -109,9 +115,9 @@ $(document).ready(function() {
 	  </video>
 	 </p>
  	 <p align="center">
-	  <button style="width:180px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(-1)">Expressão Anterior</button>
-	  <button style="width:150px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" id="playpause"  onclick="playPause()">Play/Pause</button> 
-	  <button style="width:180px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(1)">Próxima Expressão</button>
+	  <button style="width:190px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(-1)">Explicação Anterior</button>
+	  <button style="width:130px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" id="playpause"  onclick="playPause()">Play/Pause</button> 
+	  <button style="width:190px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(1)">Próxima Expressão</button>
 	 </p>
 	</div>
 	
