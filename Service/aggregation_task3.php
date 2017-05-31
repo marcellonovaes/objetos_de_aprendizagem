@@ -1,13 +1,5 @@
 <?php
-	$servername =  "localhost";
-	$username = "datauser";
-	$password = "Icone#%#";
-	$dbname = "cs-oa-sbie";
-
-	//$data = $_POST['jsonString'];
-
-	$video = $_GET['video'];
-
+	include('database.cfg');
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -15,17 +7,8 @@
    		die("Connection failed: " . mysqli_connect_error());
 	}
 
+	$sql = "SELECT *,count(`sugestion_id`) AS `weight` FROM `task3` GROUP BY `sugestion_id` ORDER BY `gap_id` , `sugestion_id` ";
 
-//	$json = json_decode($data);
-//	$video = $json->video;
-//	$video = '001';
-
-//	$sql = "SELECT * FROM `task2` WHERE `video` = $video ORDER BY `gap_id` , `type` , `sugestion`";
-
-	//$sql = "SELECT * FROM `task3`	 WHERE `video_id` = ".$video." GROUP BY  `gap_id`  ORDER BY `gap_position` ,  `sugestion_id`  ";
-
-	$sql = "SELECT *,count(`sugestion_id`) AS `weight` FROM `task3` WHERE `video_id` = ".$video." GROUP BY `sugestion_id` ORDER BY `gap_id` , `sugestion_id` ";
-//echo $sql;
 	mysqli_set_charset($conn,"utf8");
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
@@ -55,13 +38,6 @@
 			}
 		
 	}
-
-
-
-	//var_dump($contributions);
-
-
-	
 	
 	foreach($contributions as $contribution){
 		$sql = " INSERT INTO `cs-oa-sbie`.`task3_aggregated` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`,`sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`,  `weight`) VALUES ('".$contribution['id']."', CURRENT_TIMESTAMP, '".$contribution['gap_id']."', '".$contribution['user_id']."', '".$contribution['video_id']."', '".$contribution['sugestion_id']."','".$contribution['sugestion_text']."', '".$contribution['sugestion_type']."', '".$contribution['gap_position']."', '".$contribution['gap_answer']."', '".$contribution['fingerprint']."', '".$contribution['weight']."') ";
@@ -74,8 +50,6 @@
 		}
 	}
 	
-
-
 	mysqli_close($conn);
 
 ?>

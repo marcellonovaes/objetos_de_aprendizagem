@@ -2,9 +2,9 @@
 var myVideo,video, fingerprint, dialog, original_height, original_width, zoomItem, user_id, gap_id, gap_type, gap_problem, position, sugestion_url, sugestion_txt, sugestion_img, banner, answer_text,contrib,playpause,control;
 var sugestions = [], index;
 
-//var host ='http://localhost/objetos_de_aprendizagem';
+var host ='http://localhost/objetos_de_aprendizagem';
 //var host ='https://videos-novaes.c9users.io';
-var host ='https://sbie-novaes.c9users.io';
+//var host ='https://sbie-novaes.c9users.io';
 
 init();
 

@@ -1,5 +1,6 @@
 <?php
-//$video = '002';
+include('database.cfg');
+
 $date = new DateTime();
 
 $gap_id = $_POST['id'];
@@ -24,11 +25,6 @@ if($type==1 || $type==4){
 	fwrite($f, 'SUGESTION: '.$sugestion);
 	fclose($f);
 }
-
-$servername =  "localhost";
-$username = "datauser";
-$password = "Icone#%#";
-$dbname = "cs-oa-sbie";
 
 $data = $_POST['jsonString'];
 

@@ -1,12 +1,5 @@
 <?php
-	$servername =  "localhost";
-	$username = "datauser";
-	$password = "Icone#%#";
-	$dbname = "cs-oa-sbie";
-
-	//$data = $_POST['jsonString'];
-
-	$video = $_GET['video'];
+	include('database.cfg');
 
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -15,12 +8,7 @@
    		die("Connection failed: " . mysqli_connect_error());
 	}
 
-
-//	$json = json_decode($data);
-//	$video = $json->video;
-//	$video = '001';
-
-	$sql = "SELECT * FROM `task2` WHERE `video` = $video ORDER BY `gap_id` , `type` , `sugestion`";
+	$sql = "SELECT * FROM `task2` ORDER BY `gap_id` , `type` , `sugestion`";
 
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
@@ -29,14 +17,6 @@
 		$contributions[] = array('id'=>$contribution['id'],'user'=>$contribution['user'], 'video'=>$contribution['video'], 'type'=>$contribution['type'], 'gap_id'=>$contribution['gap_id'],'sugestion'=>$contribution['sugestion']);
 	}
 
-
-
-
-	//$json = json_encode($contributions);
-
-	//echo $json;
-
-	
 	$current=0;
 	$contributions[$current]['weight'] = 1;
 	foreach($contributions as $index=>$contribution){
@@ -60,7 +40,6 @@
 			}
 
 			if($match > 0.8*$z){
-				//echo "<p>".$contributions[$current]['sugestion'].':'.$contributions[$index]['sugestion']."</p>";
 				if($y > $x){
 					$current = $index;
 					$contributions[$current]['weight'] = $contributions[$current]['weight'] + 1;
@@ -84,8 +63,6 @@
 	
 	}
 	
-	
-	
 	foreach($contributions as $contribution){
 		$sql = " INSERT INTO `cs-oa-sbie`.`task2_aggregated` (`id`, `time`, `user`, `video`, `type`, `gap_id`, `sugestion`, `weight`) VALUES ('".$contribution['id']."', CURRENT_TIMESTAMP, '".$contribution['user']."', '".$contribution['video']."', '".$contribution['type']."', '".$contribution['gap_id']. "', '".$contribution['sugestion']."','".$contribution['weight']."') ";
 
@@ -97,12 +74,6 @@
 		}
 	}
 	
-	
-	//var_dump($contributions);
-	//$json = json_encode($contributions);
-
-	//echo $json;
-
 	mysqli_close($conn);
 
 function similarity($string1, $string2, $minlen = 5) {

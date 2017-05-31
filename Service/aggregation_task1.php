@@ -1,13 +1,5 @@
 <?php
-	$servername =  "localhost";
-	$username = "datauser";
-	$password = "Icone#%#";
-	$dbname = "cs-oa-sbie";
-
-	//$data = $_POST['jsonString'];
-
-	$video = $_GET['video'];
-
+	include('database.cfg');
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -15,13 +7,7 @@
    		die("Connection failed: " . mysqli_connect_error());
 	}
 
-
-//	$json = json_decode($data);
-//	$video = $json->video;
-//	$video = '001';
-
-	$sql = "SELECT * FROM `task1` WHERE `video` = $video ORDER BY  `position` ASC ";
-
+	$sql = "SELECT * FROM `task1` ORDER BY  `position` ASC ";
 
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
@@ -30,20 +16,9 @@
 		$contributions[] = array('id'=>$contribution['id'],'user'=>$contribution['user'], 'video'=>$contribution['video'], 'type'=>$contribution['type'], 'answer'=>$contribution['answer'],'position'=>$contribution['position']);
 	}
 
-
-
-/*
-	$json = json_encode($contributions);
-
-	echo $json;
-*/
-	
 	$current=0;
 	$contributions[$current]['weight'] = 1;
 	foreach($contributions as $index=>$contribution){
-		//echo "<p>$current:$index:$contribution:".$contribution['position'].":".$contributions[$current]['position']."</p>";
-		
-		
 		
 		if($current == $index) continue;
 		
@@ -67,10 +42,6 @@
 			}
 			
 			if($match > 0.8*$z){
-			//	echo "<p>$current:$index:$match:$x:$y</p>";
-			//	echo "<p>".$contribution['answer'].":".$contributions[$current]['answer']."</p>";
-			//	var_dump($s);
-			
 				if($y > $x){
 					unset($contributions[$index]);
 					$contributions[$current]['weight'] = $contributions[$current]['weight'] + 1;
@@ -99,10 +70,6 @@
     		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
 	}
-	//var_dump($contributions);
-	//$json = json_encode($contributions);
-
-	//echo $json;
 
 	mysqli_close($conn);
 

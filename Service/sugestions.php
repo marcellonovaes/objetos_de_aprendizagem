@@ -1,25 +1,13 @@
 <?php
-	$servername =  "localhost";
-	$username = "datauser";
-	$password = "Icone#%#";
-	$dbname = "cs-oa-sbie";
-
-	//$data = $_POST['jsonString'];
-
+	include('database.cfg');
 
 	$gap_id = $_GET['gap'];
-
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 	if (!$conn) {
    		die("Connection failed: " . mysqli_connect_error());
 	}
-
-
-//	$json = json_decode($data);
-//	$video = $json->video;
-//	$video = '001';
 
 	$sql = "SELECT * FROM `task2_aggregated` WHERE `gap_id` = $gap_id ORDER BY  `gap_id` ASC ";
 

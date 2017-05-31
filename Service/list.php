@@ -1,12 +1,5 @@
 <?php
-	$servername =  "localhost";
-	$username = "datauser";
-	$password = "Icone#%#";
-	$dbname = "cs-oa-sbie";
-
-	//$data = $_POST['jsonString'];
-
-
+	include('database.cfg');
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -14,13 +7,7 @@
    		die("Connection failed: " . mysqli_connect_error());
 	}
 
-
-//	$json = json_decode($data);
-//	$video = $json->video;
-//	$video = '001';
-
 	$sql = "SELECT * FROM `task1_aggregated`  ORDER BY  `video` ASC ";
-
 
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 

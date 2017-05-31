@@ -12,6 +12,8 @@ $sugestion_type = $_POST['sugestion_type'];
 $gap_position = $_POST['gap_position'];
 $gap_answer = $_POST['gap_answer'];
 $fingerprint = $_POST['fingerprint'];
+$x = $_POST['x'];
+$y = $_POST['y'];
 
 $data = $_POST['jsonString'];
 
@@ -21,7 +23,7 @@ if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `cs-oa-sbie`.`task3` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`) VALUES (NULL, CURRENT_TIMESTAMP, '$gap_id',  '$user_id','$video_id', '$sugestion_id', '$sugestion_text ', '$sugestion_type ', '$gap_position', '$gap_answer', '$fingerprint')";
+$sql = "INSERT INTO `cs-oa-sbie`.`contents` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`, `x`, `y`) VALUES (NULL, CURRENT_TIMESTAMP, '$gap_id',  '$user_id','$video_id', '$sugestion_id', '$sugestion_text ', '$sugestion_type ', '$gap_position', '$gap_answer', '$fingerprint', $x, $y)";
 
 if (mysqli_query($conn, $sql)) {
  	echo "New record created successfully";
