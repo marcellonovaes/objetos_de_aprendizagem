@@ -1,1 +1,143 @@
-player.html
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Video Interativo: Ailurofobia</title>
+
+	<link rel="stylesheet" href="w3.css">
+	<link href="player.css" rel="stylesheet">
+	<script src="jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var video = 5; var title = 'Ailurofobia'
+
+//var video = 2; title = 'Peixe, cadê minha peita ?'
+
+var hvideo =  640;//0.45 * $(window).width();
+
+var vw = 640;
+var vh = 360;
+
+var pad =  ($(window).width() - hvideo)/2;
+
+
+$(document).ready(function() {	
+
+	$('a[name=modal]').click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+
+		zoomContent.remove();
+
+		myVideo.play();
+		playpause.innerHTML = "Pause";
+ 
+/*
+
+		zoomItem.height = original_height;
+		zoomItem.width = original_width;
+
+
+		zoomItem.cols = 37;
+		zoomItem.rows = 2;
+
+
+
+
+*/
+
+
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+});
+
+</script>
+
+
+</head>
+
+ 
+<body> 
+<center>
+<div class="w3-card-4 w3-margin w3-white">
+	<h1><spam id="gap_field" align="center" style="white-space: nowrap"></spam></h1>
+	<p><textarea align="center" id="answer_text" class="answer_text" ;
+ readonly>Este é um vídeo interativo, além de assistir você pode:
+	1. Clicar sobre os itens que aparecem para ver as explicações.
+	2. Utilizar os botões para navegar entre as explicações.
+	3. Se achar muito rápido, use os botões para voltar na explicação.
+	</textarea></p>
+<center>
+
+
+	<span id="content" style="opacity:1;position: absolute;left: 115px;top: 125px;z-index: 3; background: none;color: #ffffff;font-size:20px;padding:11px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, transparent, red);"></span>
+	<span id="click" style="opacity:1;position: absolute;left: 115px;top: 125px;z-index: 4; background: none;color: #ffffff;font-size:20px;padding:11px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);"></span>
+
+
+	<div class="player" id="player"  style="position: absolute;left: 100px;top: 100px;z-index: 1;">
+	 <p>
+	  <video autoplay poster='../Images/poster.png' id="video" width="520"  style='box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);'>
+	    <source type="video/mp4">
+ 	   Your browser does not support HTML5 video.
+	  </video>
+	 </p>
+ 	 <p align="center">
+	  <button style="width:190px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(-1)">Explicação Anterior</button>
+	  <button style="width:130px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" id="playpause"  onclick="playPause()">Play/Pause</button> 
+	  <button style="width:190px; background: none;color: #ffffff;font-size:18px;padding:1px;box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);-moz-box-shadow:  0px 0px 81px 0px rgba(0,0,0,0.05);-webkit-box-shadow: 0px 0px 81px 0px rgba(0,0,0,0.05);background-image: linear-gradient(45deg, black, red);" onclick="gapStep(1)">Próxima Expressão</button>
+	 </p>
+	</div>
+	
+</center>
+
+</div>
+
+
+<div id="boxes">
+
+	<div id="dialog" class="window">
+		<a href="#" class="close">Fechar <img src="ico_close.png" width=30></a><br />
+	</div>
+
+	<div id="mask"></div>
+</div>
+
+
+</center>
+
+<script src="player.js"></script>
+</body> 
+</html>
+
