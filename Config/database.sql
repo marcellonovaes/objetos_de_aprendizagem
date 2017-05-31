@@ -1,33 +1,27 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.2.10
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tempo de Geração: 31/05/2017 às 16:15
--- Versão do servidor: 5.5.54-0ubuntu0.14.04.1
--- Versão do PHP: 5.5.9-1ubuntu4.21
+-- Host: localhost:3306
+-- Generation Time: Jun 01, 2017 at 12:01 AM
+-- Server version: 5.5.38
+-- PHP Version: 5.6.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
--- Banco de dados: `cs-oa-sbie`
+-- Database: `cs-oa-sbie`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `contents`
+-- Table structure for table `contents`
 --
 
-CREATE TABLE IF NOT EXISTS `contents` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `contents` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gap_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -40,59 +34,562 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `fingerprint` varchar(128) DEFAULT NULL,
   `x` int(11) NOT NULL,
   `y` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=540 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `contents`
+-- Dumping data for table `contents`
 --
 
 INSERT INTO `contents` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`, `x`, `y`) VALUES
-(1, '2017-05-17 13:54:33', 34, 1, 5, 11, 'O Velho Continente Ã© a Europa. ', 5, 55, 'Qual Ã© o velho continente?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(2, '2017-05-17 13:54:33', 29, 1, 5, 48, '29_4_1494364392.png ', 4, 31, 'O que ele mais temia?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(3, '2017-05-17 13:54:33', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a. ', 5, 81, 'O que Ã© Vetor de TransmissÃ£o ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(4, '2017-05-17 13:54:30', 11, 1, 2, 222, 'Venon Ã© uma das bandas de black metal mais influentes do mundo. ', 5, 38, 'Que Ã© Venon ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(5, '2017-05-17 13:54:30', 25, 1, 2, 105, '25_4_1494624981.png ', 4, 26, 'Quem Ã© Slayer?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(6, '2017-05-17 13:54:33', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry) ', 6, 103, 'Quem Ã© Jerry?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(7, '2017-05-17 13:54:33', 30, 1, 5, 158, 'CatÃ³licos ApostÃ³licos Romanos ', 5, 39, 'Quem eram estes seguidores ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(8, '2017-05-17 13:54:33', 2, 1, 5, 47, 'sofrimento fÃ­sico ou moral ', 2, 10, 'Padecimento', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(10, '2017-05-17 13:54:30', 12, 1, 2, 43, '12_4_1494364231.png ', 4, 40, 'CÃ£o dentro do pentagrama ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(11, '2017-05-17 13:54:30', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar ', 2, 44, 'Dar um pulo', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(12, '2017-05-17 13:54:30', 7, 1, 2, 81, 'Legal ', 3, 42, 'Show de bola', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(17, '2017-05-17 13:54:30', 27, 1, 2, 44, 'Sumiu ', 3, 18, 'Tomou Doril ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(18, '2017-05-17 13:54:33', 36, 1, 5, 63, 'Inimigos ', 2, 14, 'Desafetos', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(20, '2017-05-17 13:54:33', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/ ', 6, 9, 'Suscitar', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(21, '2017-05-17 13:54:33', 17, 1, 5, 89, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2]. ', 5, 82, 'Que doenÃ§a?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(25, '2017-05-17 13:54:33', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry) ', 6, 102, 'Quem Ã© Tom?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(26, '2017-05-17 13:54:33', 6, 1, 5, 99, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o. ', 5, 22, 'O que Ã© a bula "Licet ad capiendos" ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(29, '2017-05-17 13:54:33', 4, 1, 5, 8, 'https://pt.wikipedia.org/wiki/Papa_Greg%C3%B3rio_IX ', 6, 17, 'Quem foi GregÃ³rio IX ?', '6f39b366467d545bc34bdaf65d46c4ad', 115, 125),
-(30, '2017-05-17 13:54:30', 24, 1, 2, 200, 'Roubar; esconder de modo a ficar oculto. ', 2, 23, 'Malocou', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(32, '2017-05-17 13:54:33', 31, 1, 5, 35, '31_4_1494363832.png ', 4, 43, 'Que pobres seres indefesos?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(35, '2017-05-17 13:54:33', 5, 1, 5, 26, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica. ', 2, 18, 'promulgou', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(38, '2017-05-17 13:54:30', 23, 1, 2, 15, 'Pessoa que se faz de desentendia. ', 2, 21, 'JoÃ£o sem BraÃ§o', '6f39b366467d545bc34bdaf65d46c4ad', 115, 125),
-(40, '2017-05-17 13:54:33', 28, 1, 5, 141, 'Ã© o medo irracional de gatos ', 5, 26, 'O que Ã© Ailurofobia ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(42, '2017-05-17 13:54:33', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra) ', 5, 91, 'Que epidemia foi essa?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(52, '2017-05-17 13:54:33', 32, 1, 5, 34, 'Os Gatos ', 5, 45, 'Que criatura?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(58, '2017-05-17 13:54:33', 3, 1, 5, 27, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o ', 3, 11, 'ObliteraÃ§Ã£o', '6f39b366467d545bc34bdaf65d46c4ad', 115, 125),
-(68, '2017-05-17 13:54:30', 37, 1, 2, 201, '10_1_1494364458.png', 4, 14, 'Peita?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(69, '2017-05-17 13:54:33', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8 ', 6, 79, 'Turma do Topo Gigio', '6f39b366467d545bc34bdaf65d46c4ad', 115, 125),
-(70, '2017-05-17 13:54:33', 18, 1, 5, 242, '18_4_1494794302.png ', 4, 85, 'Qual era o predador natural?', '6f39b366467d545bc34bdaf65d46c4ad', 115, 125),
-(73, '2017-05-17 13:54:33', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/ ', 6, 13, 'Solapar', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(79, '2017-05-17 13:54:30', 26, 1, 2, 70, 'Barulho irritante ', 2, 27, 'Zuada', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(80, '2017-05-17 13:54:30', 9, 1, 2, 49, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira. ', 2, 29, 'CaÃ´', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(81, '2017-05-17 13:54:33', 22, 1, 5, 38, '22_4_1494363937.png ', 4, 73, 'Parentes do Mickey ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(89, '2017-05-17 13:54:33', 13, 1, 5, 46, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes. ', 5, 65, 'Que foi a ExpansÃ£o MarÃ­tima ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(115, '2017-05-17 13:54:30', 10, 1, 2, 50, '10_1_1494364458.png ', 1, 31, 'Peita', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(122, '2017-05-17 13:54:33', 14, 1, 5, 53, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas. ', 5, 76, 'O que Ã© Peste BubÃ´nica ?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125),
-(133, '2017-05-17 13:54:33', 33, 1, 5, 148, 'https://pt.wikipedia.org/wiki/Rato-preto ', 6, 54, 'EspÃ©cie ratus ratus?', '8e3b5521902c39b30ed16f47a75eaabc', 115, 125);
+(1, '2017-05-31 20:26:03', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 132, 215),
+(2, '2017-05-31 20:26:15', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 152, 70),
+(3, '2017-05-31 20:26:22', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 159, 58),
+(4, '2017-05-31 20:26:28', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 226, 151),
+(5, '2017-05-31 20:26:36', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', -5, -3),
+(6, '2017-05-31 20:26:39', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 227, 163),
+(7, '2017-05-31 20:26:43', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 264, 154),
+(8, '2017-05-31 20:26:46', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 237, 147),
+(9, '2017-05-31 20:26:53', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 214, 169),
+(10, '2017-05-31 20:26:56', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 221, 224),
+(11, '2017-05-31 20:26:59', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 200, 221),
+(12, '2017-05-31 20:27:06', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 184, 67),
+(13, '2017-05-31 20:27:10', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 188, 62),
+(14, '2017-05-31 20:27:13', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 211, 229),
+(15, '2017-05-31 20:27:15', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 240, 168),
+(16, '2017-05-31 20:27:18', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 214, 228),
+(17, '2017-05-31 20:27:23', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 209, 176),
+(18, '2017-05-31 20:27:26', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 146, 215),
+(19, '2017-05-31 20:27:31', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 187, 67),
+(20, '2017-05-31 20:27:33', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 203, 228),
+(21, '2017-05-31 20:27:36', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 227, 168),
+(22, '2017-05-31 20:27:39', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 150, 220),
+(23, '2017-05-31 20:27:42', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 190, 233),
+(24, '2017-05-31 20:27:45', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 233, 158),
+(25, '2017-05-31 20:27:47', 2, 1, 5, 47, 'sofrimento fÃƒÂ­sico ou moral  ', 2, 10, 'Padecimento', '35161d9fee7ca96a6ac302e445538e91', 174, 222),
+(26, '2017-05-31 20:27:50', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 240, 189),
+(27, '2017-05-31 20:27:52', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 207, 231),
+(28, '2017-05-31 20:27:57', 7, 1, 2, 81, 'Legal  ', 3, 42, 'Show de bola', '35161d9fee7ca96a6ac302e445538e91', 197, 155),
+(29, '2017-05-31 20:28:00', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 243, 176),
+(30, '2017-05-31 20:28:07', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 203, 165),
+(31, '2017-05-31 20:28:10', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 234, 153),
+(32, '2017-05-31 20:28:12', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 215, 230),
+(33, '2017-05-31 20:28:15', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 199, 230),
+(34, '2017-05-31 20:28:17', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 246, 156),
+(35, '2017-05-31 20:28:22', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 176, 58),
+(36, '2017-05-31 20:28:26', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 207, 167),
+(37, '2017-05-31 20:28:30', 7, 1, 2, 81, 'Legal  ', 3, 42, 'Show de bola', '35161d9fee7ca96a6ac302e445538e91', 193, 147),
+(38, '2017-05-31 20:28:32', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 227, 152),
+(39, '2017-05-31 20:28:35', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 247, 163),
+(40, '2017-05-31 20:28:38', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 231, 172),
+(41, '2017-05-31 20:28:44', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 190, 59),
+(42, '2017-05-31 20:30:08', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 219, 163),
+(43, '2017-05-31 20:30:11', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 227, 228),
+(44, '2017-05-31 20:30:13', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 221, 222),
+(45, '2017-05-31 20:30:17', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 181, 61),
+(46, '2017-05-31 20:30:19', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 239, 151),
+(47, '2017-05-31 20:30:22', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 173, 61),
+(48, '2017-05-31 20:30:25', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 220, 171),
+(49, '2017-05-31 20:30:30', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 135, 216),
+(50, '2017-05-31 20:30:34', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 184, 228),
+(51, '2017-05-31 20:30:40', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 108, 221),
+(52, '2017-05-31 20:30:45', 25, 1, 2, 105, '25_4_1494624981.png  ', 4, 26, 'Quem ÃƒÂ© Slayer?', '35161d9fee7ca96a6ac302e445538e91', 172, 155),
+(53, '2017-05-31 20:30:47', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 229, 173),
+(54, '2017-05-31 20:30:51', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 169, 64),
+(55, '2017-05-31 20:31:06', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 1, 175),
+(56, '2017-05-31 20:31:16', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 299, 164),
+(57, '2017-05-31 20:31:19', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 244, 166),
+(58, '2017-05-31 20:31:21', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar  ', 2, 44, 'Dar um pulo', '35161d9fee7ca96a6ac302e445538e91', 213, 201),
+(59, '2017-05-31 20:31:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 186, 71),
+(60, '2017-05-31 20:31:28', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 206, 227),
+(61, '2017-05-31 20:31:30', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 240, 179),
+(62, '2017-05-31 20:31:34', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 153, 54),
+(63, '2017-05-31 20:31:37', 2, 1, 5, 47, 'sofrimento fÃƒÂ­sico ou moral  ', 2, 10, 'Padecimento', '35161d9fee7ca96a6ac302e445538e91', 175, 218),
+(64, '2017-05-31 20:35:26', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 222, 161),
+(65, '2017-05-31 20:35:29', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 173, 69),
+(66, '2017-05-31 20:35:31', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 231, 182),
+(67, '2017-05-31 20:35:34', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 140, 220),
+(68, '2017-05-31 20:35:38', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/  ', 6, 9, 'Suscitar', '35161d9fee7ca96a6ac302e445538e91', 175, 223),
+(69, '2017-05-31 20:35:40', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 187, 231),
+(70, '2017-05-31 20:35:43', 17, 1, 5, 89, 'A Peste BubÃƒÂ´nica (portuguÃƒÂªs brasileiro) ou Peste BubÃƒÂ³nica (portuguÃƒÂªs europeu) ÃƒÂ© uma doenÃƒÂ§a pulmonar ou septicÃƒÂªmica, infectocontagiosa, provocada pela bactÃƒÂ©ria Yersinia pestis, que ÃƒÂ© transmitida ao homem pela pulga atravÃƒÂ©s do rato-preto. A pandemia mais conhecida da doenÃƒÂ§a ocorreu no fim da Idade MÃƒÂ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃƒÂ§ÃƒÂ£o europeia em 1347, epidemia esta que ocorreu do sÃƒÂ©culo XIV atÃƒÂ© o sÃƒÂ©culo XVII[2].  ', 5, 82, 'Que doenÃƒÂ§a?', '35161d9fee7ca96a6ac302e445538e91', 211, 230),
+(71, '2017-05-31 20:35:46', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)  ', 6, 103, 'Quem ÃƒÂ© Jerry?', '35161d9fee7ca96a6ac302e445538e91', 205, 226),
+(72, '2017-05-31 20:35:48', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(73, '2017-05-31 20:35:51', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 234, 172),
+(74, '2017-05-31 20:35:56', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 161, 59),
+(75, '2017-05-31 20:36:00', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 167, 59),
+(76, '2017-05-31 20:36:02', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 216, 233),
+(77, '2017-05-31 20:36:04', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 207, 230),
+(78, '2017-05-31 20:36:06', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 225, 224),
+(79, '2017-05-31 20:36:09', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/  ', 6, 9, 'Suscitar', '35161d9fee7ca96a6ac302e445538e91', 180, 219),
+(80, '2017-05-31 20:36:13', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(81, '2017-05-31 20:36:15', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 182, 224),
+(82, '2017-05-31 20:36:20', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 224, 163),
+(83, '2017-05-31 20:36:23', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 165, 33),
+(84, '2017-05-31 20:36:28', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 143, 218),
+(85, '2017-05-31 20:36:35', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 179),
+(86, '2017-05-31 20:36:38', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 233, 168),
+(87, '2017-05-31 20:36:40', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 176, 218),
+(88, '2017-05-31 20:36:44', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 216, 167),
+(89, '2017-05-31 20:38:30', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 1, 173),
+(90, '2017-05-31 20:38:32', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 206, 224),
+(91, '2017-05-31 20:38:38', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 169),
+(92, '2017-05-31 20:38:42', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 215, 167),
+(93, '2017-05-31 20:38:44', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 207, 226),
+(94, '2017-05-31 20:38:46', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(95, '2017-05-31 20:38:49', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 157, 43),
+(96, '2017-05-31 20:38:53', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 169),
+(97, '2017-05-31 20:38:55', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 236, 158),
+(98, '2017-05-31 20:38:57', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 221, 230),
+(99, '2017-05-31 20:39:00', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 226, 230),
+(100, '2017-05-31 20:39:03', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar  ', 2, 44, 'Dar um pulo', '35161d9fee7ca96a6ac302e445538e91', 220, 182),
+(101, '2017-05-31 20:39:05', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 255, 174),
+(102, '2017-05-31 20:39:08', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 171, 48),
+(103, '2017-05-31 20:39:10', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 221, 234),
+(104, '2017-05-31 20:39:14', 25, 1, 2, 105, '25_4_1494624981.png  ', 4, 26, 'Quem ÃƒÂ© Slayer?', '35161d9fee7ca96a6ac302e445538e91', 180, 128),
+(105, '2017-05-31 20:39:16', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 244, 165),
+(106, '2017-05-31 20:39:21', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 174, 67),
+(107, '2017-05-31 20:39:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 181, 64),
+(108, '2017-05-31 20:39:28', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 51),
+(109, '2017-05-31 20:39:32', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 213, 149),
+(110, '2017-05-31 20:39:34', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 239, 169),
+(111, '2017-05-31 20:39:36', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(112, '2017-05-31 20:39:38', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 191, 223),
+(113, '2017-05-31 20:39:45', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 87, 7),
+(114, '2017-05-31 20:39:48', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 182, 44),
+(115, '2017-05-31 20:39:51', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 221, 183),
+(116, '2017-05-31 20:39:54', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 207, 160),
+(117, '2017-05-31 20:39:57', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 139, 215),
+(118, '2017-05-31 20:40:00', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 135, 211),
+(119, '2017-05-31 20:40:03', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 159, 45),
+(120, '2017-05-31 20:40:06', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 162, 60),
+(121, '2017-05-31 20:40:08', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 221, 180),
+(122, '2017-05-31 20:40:10', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(123, '2017-05-31 20:40:24', 22, 1, 5, 38, '22_4_1494363937.png  ', 4, 73, 'Parentes do Mickey ?', '35161d9fee7ca96a6ac302e445538e91', 301, 136),
+(124, '2017-05-31 20:40:27', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 168, 66),
+(125, '2017-05-31 20:40:30', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 171, 59),
+(126, '2017-05-31 20:40:31', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(127, '2017-05-31 20:40:34', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 187, 222),
+(128, '2017-05-31 20:40:36', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 218, 164),
+(129, '2017-05-31 20:40:41', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 153, 72),
+(130, '2017-05-31 20:40:45', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -3, 177),
+(131, '2017-05-31 20:40:53', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(132, '2017-05-31 20:41:33', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 149, 57),
+(133, '2017-05-31 20:41:36', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 242, 166),
+(134, '2017-05-31 20:41:38', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 236, 179),
+(135, '2017-05-31 20:41:41', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 204, 222),
+(136, '2017-05-31 20:41:43', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 178, 223),
+(137, '2017-05-31 20:41:46', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 155, 53),
+(138, '2017-05-31 20:41:48', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 235, 162),
+(139, '2017-05-31 20:41:52', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 150, 44),
+(140, '2017-05-31 20:41:58', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 1, 167),
+(141, '2017-05-31 20:42:01', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 249, 167),
+(142, '2017-05-31 20:42:06', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 20, 0),
+(143, '2017-05-31 20:42:09', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 213, 234),
+(144, '2017-05-31 20:42:11', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 226, 185),
+(145, '2017-05-31 20:42:13', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 219, 221),
+(146, '2017-05-31 20:42:16', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 160, 63),
+(147, '2017-05-31 20:42:18', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 235, 167),
+(148, '2017-05-31 20:42:22', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 199, 217),
+(149, '2017-05-31 20:42:28', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 155, 64),
+(150, '2017-05-31 20:42:31', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 245, 154),
+(151, '2017-05-31 20:42:37', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 292, 163),
+(152, '2017-05-31 20:42:42', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 155, 48),
+(153, '2017-05-31 20:42:45', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 197, 228),
+(154, '2017-05-31 20:42:47', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 187, 223),
+(155, '2017-05-31 20:43:58', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 162, 57),
+(156, '2017-05-31 20:44:02', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 157, 69),
+(157, '2017-05-31 20:44:04', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 237, 170),
+(158, '2017-05-31 20:44:07', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 220, 147),
+(159, '2017-05-31 20:44:08', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(160, '2017-05-31 20:44:11', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 216, 140),
+(161, '2017-05-31 20:44:13', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 230, 162),
+(162, '2017-05-31 20:44:16', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 220, 143),
+(163, '2017-05-31 20:44:18', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(164, '2017-05-31 20:44:20', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 249, 186),
+(165, '2017-05-31 20:44:22', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 245, 171),
+(166, '2017-05-31 20:44:24', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(167, '2017-05-31 20:44:27', 36, 1, 5, 63, 'Inimigos  ', 2, 14, 'Desafetos', '35161d9fee7ca96a6ac302e445538e91', 190, 229),
+(168, '2017-05-31 20:44:29', 23, 1, 2, 20, 'Se refere a uma pessoa que finge nÃƒÂ£o entender o que esta acontecendo para tirar vantagem da situaÃƒÂ§ÃƒÂ£o ou para o prÃƒÂ³prio bem  ', 2, 21, 'JoÃƒÂ£o sem BraÃƒÂ§o', '35161d9fee7ca96a6ac302e445538e91', 226, 182),
+(169, '2017-05-31 20:44:32', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 133, 219),
+(170, '2017-05-31 20:44:34', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(171, '2017-05-31 20:44:36', 2, 1, 5, 47, 'sofrimento fÃƒÂ­sico ou moral  ', 2, 10, 'Padecimento', '35161d9fee7ca96a6ac302e445538e91', 174, 229),
+(172, '2017-05-31 20:44:38', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 232, 193),
+(173, '2017-05-31 20:44:42', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 154, 41),
+(174, '2017-05-31 20:44:44', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 186, 226),
+(175, '2017-05-31 20:44:47', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 190, 221),
+(176, '2017-05-31 20:44:49', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 243, 179),
+(177, '2017-05-31 20:44:52', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 177, 228),
+(178, '2017-05-31 20:44:54', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 233, 154),
+(179, '2017-05-31 20:44:57', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 154, 72),
+(180, '2017-05-31 20:44:59', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 223, 187),
+(181, '2017-05-31 20:45:02', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 161, 51),
+(182, '2017-05-31 20:45:04', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 279, 150),
+(183, '2017-05-31 20:45:06', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/  ', 6, 9, 'Suscitar', '35161d9fee7ca96a6ac302e445538e91', 174, 226),
+(184, '2017-05-31 20:45:10', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 85, 199),
+(185, '2017-05-31 20:45:13', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 58),
+(186, '2017-05-31 20:45:18', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 297, 162),
+(187, '2017-05-31 20:45:20', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 169, 57),
+(188, '2017-05-31 20:45:23', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃƒÂ§a, ÃƒÂ© um vetor de transmissÃƒÂ£o daquela doenÃƒÂ§a.  ', 5, 81, 'O que ÃƒÂ© Vetor de TransmissÃƒÂ£o ?', '35161d9fee7ca96a6ac302e445538e91', 177, 212),
+(189, '2017-05-31 20:45:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 47),
+(190, '2017-05-31 20:45:28', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 232, 153),
+(191, '2017-05-31 20:45:31', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 164, 48),
+(192, '2017-05-31 20:45:33', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 223, 159),
+(193, '2017-05-31 20:45:36', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 171, 48),
+(194, '2017-05-31 20:45:38', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 127, 211),
+(195, '2017-05-31 20:45:40', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 139, 218),
+(196, '2017-05-31 20:45:45', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 177),
+(197, '2017-05-31 20:45:47', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 207, 237),
+(198, '2017-05-31 20:45:49', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 208, 231),
+(199, '2017-05-31 20:45:51', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 151, 62),
+(200, '2017-05-31 20:45:55', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 148, 40),
+(201, '2017-05-31 20:45:58', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 158, 48),
+(202, '2017-05-31 20:46:00', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 202, 222),
+(203, '2017-05-31 20:46:02', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 124, 187),
+(204, '2017-05-31 20:46:06', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 175, 47),
+(205, '2017-05-31 20:46:10', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 17, 0),
+(206, '2017-05-31 20:46:12', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 157, 59),
+(207, '2017-05-31 20:46:15', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 213, 227),
+(208, '2017-05-31 20:46:17', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 166, 65),
+(209, '2017-05-31 20:46:23', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 0, 170),
+(210, '2017-05-31 20:46:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 149, 61),
+(211, '2017-05-31 20:46:27', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 251, 172),
+(212, '2017-05-31 20:46:31', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 161),
+(213, '2017-05-31 20:46:33', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 199, 225),
+(214, '2017-05-31 20:46:35', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 153, 213),
+(215, '2017-05-31 20:46:38', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 258, 158),
+(216, '2017-05-31 20:46:41', 30, 1, 5, 158, 'CatÃƒÂ³licos ApostÃƒÂ³licos Romanos  ', 5, 39, 'Quem eram estes seguidores ?', '35161d9fee7ca96a6ac302e445538e91', 179, 218),
+(217, '2017-05-31 20:46:43', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 179, 228),
+(218, '2017-05-31 20:46:45', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 271, 161),
+(219, '2017-05-31 20:46:49', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 166, 48),
+(220, '2017-05-31 20:46:51', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 231, 151),
+(221, '2017-05-31 20:46:53', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 239, 167),
+(222, '2017-05-31 20:46:55', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 237, 148),
+(223, '2017-05-31 20:46:57', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 223, 225),
+(224, '2017-05-31 20:46:59', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 241, 161),
+(225, '2017-05-31 20:47:01', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(226, '2017-05-31 20:47:03', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 236, 154),
+(227, '2017-05-31 20:47:07', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 3, 175),
+(228, '2017-05-31 20:47:10', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 223, 232),
+(229, '2017-05-31 20:47:12', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 155, 65),
+(230, '2017-05-31 20:47:13', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(231, '2017-05-31 20:47:16', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 170, 69),
+(232, '2017-05-31 20:47:19', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -3, 159),
+(233, '2017-05-31 20:47:21', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃƒÂ§a, ÃƒÂ© um vetor de transmissÃƒÂ£o daquela doenÃƒÂ§a.  ', 5, 81, 'O que ÃƒÂ© Vetor de TransmissÃƒÂ£o ?', '35161d9fee7ca96a6ac302e445538e91', 188, 224),
+(234, '2017-05-31 20:47:23', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 208, 223),
+(235, '2017-05-31 20:47:25', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)  ', 6, 103, 'Quem ÃƒÂ© Jerry?', '35161d9fee7ca96a6ac302e445538e91', 214, 233),
+(236, '2017-05-31 20:47:29', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 130, 24),
+(237, '2017-05-31 20:47:31', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(238, '2017-05-31 20:47:32', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(239, '2017-05-31 20:47:34', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 249, 183),
+(240, '2017-05-31 20:47:36', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 241, 237),
+(241, '2017-05-31 20:47:38', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(242, '2017-05-31 20:47:41', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 181, 210),
+(243, '2017-05-31 20:47:43', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 240, 161),
+(244, '2017-05-31 20:47:46', 36, 1, 5, 63, 'Inimigos  ', 2, 14, 'Desafetos', '35161d9fee7ca96a6ac302e445538e91', 199, 222),
+(245, '2017-05-31 20:47:47', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(246, '2017-05-31 20:47:50', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 223, 192),
+(247, '2017-05-31 20:47:52', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 232, 189),
+(248, '2017-05-31 20:47:54', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 196, 225),
+(249, '2017-05-31 20:47:56', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 240, 149),
+(250, '2017-05-31 20:47:58', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(251, '2017-05-31 20:48:00', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 166, 225),
+(252, '2017-05-31 20:48:02', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 227, 164),
+(253, '2017-05-31 20:48:04', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 224, 182),
+(254, '2017-05-31 20:48:07', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 161, 38),
+(255, '2017-05-31 20:48:10', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 129, 197),
+(256, '2017-05-31 20:48:12', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 208, 229),
+(257, '2017-05-31 20:48:14', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 222, 233),
+(258, '2017-05-31 20:48:19', 22, 1, 5, 38, '22_4_1494363937.png  ', 4, 73, 'Parentes do Mickey ?', '35161d9fee7ca96a6ac302e445538e91', 291, 130),
+(259, '2017-05-31 20:48:22', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(260, '2017-05-31 20:48:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 60),
+(261, '2017-05-31 20:48:28', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 247, 182),
+(262, '2017-05-31 20:48:30', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 237, 161),
+(263, '2017-05-31 20:48:32', 2, 1, 5, 47, 'sofrimento fÃƒÂ­sico ou moral  ', 2, 10, 'Padecimento', '35161d9fee7ca96a6ac302e445538e91', 168, 221),
+(264, '2017-05-31 20:48:34', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 226, 156),
+(265, '2017-05-31 20:48:36', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 209, 155),
+(266, '2017-05-31 20:48:38', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 234, 165),
+(267, '2017-05-31 20:48:40', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 174, 54),
+(268, '2017-05-31 20:48:42', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 223, 145),
+(269, '2017-05-31 20:48:44', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 237, 171),
+(270, '2017-05-31 20:48:46', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/  ', 6, 9, 'Suscitar', '35161d9fee7ca96a6ac302e445538e91', 176, 214),
+(271, '2017-05-31 20:48:48', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 224, 180),
+(272, '2017-05-31 20:48:50', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 219, 228),
+(273, '2017-05-31 20:48:52', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 226, 151);
+INSERT INTO `contents` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`, `x`, `y`) VALUES
+(274, '2017-05-31 20:48:54', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 130, 204),
+(275, '2017-05-31 20:48:56', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 218, 220),
+(276, '2017-05-31 20:48:58', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 211, 236),
+(277, '2017-05-31 20:49:03', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 153, 67),
+(278, '2017-05-31 20:49:05', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 181, 64),
+(279, '2017-05-31 20:49:07', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 205, 229),
+(280, '2017-05-31 20:49:11', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 188, 52),
+(281, '2017-05-31 20:49:13', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 108, 184),
+(282, '2017-05-31 20:49:16', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 198, 168),
+(283, '2017-05-31 20:49:19', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 141, 24),
+(284, '2017-05-31 20:49:22', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 137, 207),
+(285, '2017-05-31 20:49:24', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 156, 52),
+(286, '2017-05-31 20:49:26', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 236, 199),
+(287, '2017-05-31 20:49:26', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8  ', 6, 79, 'Turma do Topo Gigio', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(288, '2017-05-31 20:49:29', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 216, 166),
+(289, '2017-05-31 20:49:31', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 211, 233),
+(290, '2017-05-31 20:49:33', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 220, 151),
+(291, '2017-05-31 20:49:35', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 130, 198),
+(292, '2017-05-31 20:51:31', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 162, 73),
+(293, '2017-05-31 20:51:33', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 127, 213),
+(294, '2017-05-31 20:51:35', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 139, 64),
+(295, '2017-05-31 20:51:37', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 250, 178),
+(296, '2017-05-31 20:51:39', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 226, 153),
+(297, '2017-05-31 20:51:41', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 152, 56),
+(298, '2017-05-31 20:51:43', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 255, 175),
+(299, '2017-05-31 20:51:45', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 213, 167),
+(300, '2017-05-31 20:51:47', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 208, 235),
+(301, '2017-05-31 20:51:50', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 136, 70),
+(302, '2017-05-31 20:51:53', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 231, 161),
+(303, '2017-05-31 20:51:55', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 224, 160),
+(304, '2017-05-31 20:51:58', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃƒÂ§a, ÃƒÂ© um vetor de transmissÃƒÂ£o daquela doenÃƒÂ§a.  ', 5, 81, 'O que ÃƒÂ© Vetor de TransmissÃƒÂ£o ?', '35161d9fee7ca96a6ac302e445538e91', 109, 211),
+(305, '2017-05-31 20:52:00', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 229, 164),
+(306, '2017-05-31 20:52:02', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(307, '2017-05-31 20:52:04', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 166, 73),
+(308, '2017-05-31 20:52:06', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 236, 174),
+(309, '2017-05-31 20:52:08', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 188, 226),
+(310, '2017-05-31 20:52:10', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 205, 175),
+(311, '2017-05-31 20:52:13', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 166),
+(312, '2017-05-31 20:52:15', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 240, 153),
+(313, '2017-05-31 20:52:17', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 242, 192),
+(314, '2017-05-31 20:52:19', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 214, 178),
+(315, '2017-05-31 20:52:21', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 224, 198),
+(316, '2017-05-31 20:52:23', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 173, 68),
+(317, '2017-05-31 20:52:29', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 299, 159),
+(318, '2017-05-31 20:52:31', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 153, 48),
+(319, '2017-05-31 20:52:34', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 207, 145),
+(320, '2017-05-31 20:52:36', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 240, 175),
+(321, '2017-05-31 20:52:38', 23, 1, 2, 20, 'Se refere a uma pessoa que finge nÃƒÂ£o entender o que esta acontecendo para tirar vantagem da situaÃƒÂ§ÃƒÂ£o ou para o prÃƒÂ³prio bem  ', 2, 21, 'JoÃƒÂ£o sem BraÃƒÂ§o', '35161d9fee7ca96a6ac302e445538e91', 209, 204),
+(322, '2017-05-31 20:52:40', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 145, 47),
+(323, '2017-05-31 20:52:50', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -4, 178),
+(324, '2017-05-31 20:52:53', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 254, 174),
+(325, '2017-05-31 20:52:54', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 242, 178),
+(326, '2017-05-31 20:52:57', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8  ', 6, 79, 'Turma do Topo Gigio', '35161d9fee7ca96a6ac302e445538e91', 193, 228),
+(327, '2017-05-31 20:52:59', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 255, 162),
+(328, '2017-05-31 20:53:02', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 152, 54),
+(329, '2017-05-31 20:53:04', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 219, 161),
+(330, '2017-05-31 20:53:07', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 121, 196),
+(331, '2017-05-31 20:53:09', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 227, 153),
+(332, '2017-05-31 20:53:11', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 129, 215),
+(333, '2017-05-31 20:53:14', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 152, 62),
+(334, '2017-05-31 20:53:16', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(335, '2017-05-31 20:53:18', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 211, 235),
+(336, '2017-05-31 20:53:21', 25, 1, 2, 105, '25_4_1494624981.png  ', 4, 26, 'Quem ÃƒÂ© Slayer?', '35161d9fee7ca96a6ac302e445538e91', 170, 111),
+(337, '2017-05-31 20:53:23', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 233, 174),
+(338, '2017-05-31 20:53:25', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 206, 145),
+(339, '2017-05-31 20:53:28', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 152, 67),
+(340, '2017-05-31 20:53:33', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 1, 163),
+(341, '2017-05-31 20:53:34', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 240, 190),
+(342, '2017-05-31 20:53:39', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 159, 60),
+(343, '2017-05-31 20:53:41', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 215, 227),
+(344, '2017-05-31 20:53:43', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 169, 67),
+(345, '2017-05-31 20:53:45', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 215, 236),
+(346, '2017-05-31 20:53:46', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(347, '2017-05-31 20:53:49', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 173, 52),
+(348, '2017-05-31 20:53:51', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 250, 144),
+(349, '2017-05-31 20:53:54', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 127, 214),
+(350, '2017-05-31 20:53:56', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 137, 203),
+(351, '2017-05-31 20:53:58', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 232, 236),
+(352, '2017-05-31 20:54:02', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 158, 69),
+(353, '2017-05-31 20:54:04', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 249, 159),
+(354, '2017-05-31 20:54:09', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 137),
+(355, '2017-05-31 20:54:11', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 219, 234),
+(356, '2017-05-31 20:54:14', 30, 1, 5, 158, 'CatÃƒÂ³licos ApostÃƒÂ³licos Romanos  ', 5, 39, 'Quem eram estes seguidores ?', '35161d9fee7ca96a6ac302e445538e91', 191, 216),
+(357, '2017-05-31 20:54:16', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 177, 219),
+(358, '2017-05-31 20:54:18', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 158, 199),
+(359, '2017-05-31 20:54:20', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 165, 232),
+(360, '2017-05-31 20:54:24', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 208, 178),
+(361, '2017-05-31 20:54:26', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 222, 227),
+(362, '2017-05-31 20:54:29', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 176, 44),
+(363, '2017-05-31 20:54:31', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 235, 166),
+(364, '2017-05-31 20:54:33', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 238, 151),
+(365, '2017-05-31 20:54:35', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 202, 230),
+(366, '2017-05-31 20:54:42', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 263, 211),
+(367, '2017-05-31 20:54:46', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 150, 66),
+(368, '2017-05-31 20:54:49', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 169, 54),
+(369, '2017-05-31 20:54:51', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 134, 220),
+(370, '2017-05-31 20:54:54', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 222, 159),
+(371, '2017-05-31 20:54:56', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 158, 60),
+(372, '2017-05-31 20:54:59', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 158, 47),
+(373, '2017-05-31 20:55:00', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(374, '2017-05-31 20:55:02', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 237, 178),
+(375, '2017-05-31 20:55:05', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 123, 210),
+(376, '2017-05-31 20:55:07', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 171, 222),
+(377, '2017-05-31 20:55:10', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 204, 219),
+(378, '2017-05-31 20:55:12', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 138, 206),
+(379, '2017-05-31 20:55:14', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 161, 220),
+(380, '2017-05-31 20:55:16', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 217, 186),
+(381, '2017-05-31 20:55:19', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 149, 50),
+(382, '2017-05-31 20:55:22', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 211, 149),
+(383, '2017-05-31 20:55:25', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 152, 42),
+(384, '2017-05-31 20:55:27', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 282, 191),
+(385, '2017-05-31 20:55:29', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 191, 232),
+(386, '2017-05-31 20:55:30', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 269, 149),
+(387, '2017-05-31 20:55:33', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 154, 217),
+(388, '2017-05-31 20:55:35', 30, 1, 5, 158, 'CatÃƒÂ³licos ApostÃƒÂ³licos Romanos  ', 5, 39, 'Quem eram estes seguidores ?', '35161d9fee7ca96a6ac302e445538e91', 161, 203),
+(389, '2017-05-31 20:55:39', 9, 1, 2, 49, 'Mentira contada com intenÃƒÂ§ÃƒÂ£o de enganar, conquistar ou forma de brincadeira.  ', 2, 29, 'CaÃƒÂ´', '35161d9fee7ca96a6ac302e445538e91', 258, 163),
+(390, '2017-05-31 20:56:36', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 157, 67),
+(391, '2017-05-31 20:56:38', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 138, 217),
+(392, '2017-05-31 20:56:40', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 155, 217),
+(393, '2017-05-31 20:56:41', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 183, 229),
+(394, '2017-05-31 20:56:43', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 242, 174),
+(395, '2017-05-31 20:56:46', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 227, 150),
+(396, '2017-05-31 20:56:49', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 161, 67),
+(397, '2017-05-31 20:56:54', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 145),
+(398, '2017-05-31 20:56:56', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 228, 195),
+(399, '2017-05-31 20:56:59', 9, 1, 2, 49, 'Mentira contada com intenÃƒÂ§ÃƒÂ£o de enganar, conquistar ou forma de brincadeira.  ', 2, 29, 'CaÃƒÂ´', '35161d9fee7ca96a6ac302e445538e91', 232, 199),
+(400, '2017-05-31 20:57:01', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 196, 162),
+(401, '2017-05-31 20:57:04', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 166, 45),
+(402, '2017-05-31 20:57:06', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 177, 54),
+(403, '2017-05-31 20:57:08', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 169, 71),
+(404, '2017-05-31 20:57:10', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 231, 157),
+(405, '2017-05-31 20:57:11', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 172, 46),
+(406, '2017-05-31 20:57:13', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 206, 123),
+(407, '2017-05-31 20:57:16', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 197, 69),
+(408, '2017-05-31 20:57:18', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 194, 219),
+(409, '2017-05-31 20:57:22', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 163, 42),
+(410, '2017-05-31 20:57:24', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 239, 145),
+(411, '2017-05-31 20:57:26', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 205, 141),
+(412, '2017-05-31 20:57:28', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 197, 221),
+(413, '2017-05-31 20:57:33', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 168),
+(414, '2017-05-31 20:57:35', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 152, 226),
+(415, '2017-05-31 20:57:38', 25, 1, 2, 105, '25_4_1494624981.png  ', 4, 26, 'Quem ÃƒÂ© Slayer?', '35161d9fee7ca96a6ac302e445538e91', 168, 126),
+(416, '2017-05-31 20:57:39', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 244, 174),
+(417, '2017-05-31 20:57:42', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 159, 63),
+(418, '2017-05-31 20:57:44', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 209, 230),
+(419, '2017-05-31 20:57:47', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 124, 196),
+(420, '2017-05-31 20:57:49', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 205, 186),
+(421, '2017-05-31 20:57:51', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 152, 59),
+(422, '2017-05-31 20:57:53', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 265, 187),
+(423, '2017-05-31 20:57:55', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 215, 166),
+(424, '2017-05-31 20:57:56', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 188, 224),
+(425, '2017-05-31 20:57:58', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(426, '2017-05-31 20:58:00', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 162, 64),
+(427, '2017-05-31 20:58:02', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 224, 162),
+(428, '2017-05-31 20:58:04', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 170, 72),
+(429, '2017-05-31 20:58:06', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 223, 219),
+(430, '2017-05-31 20:58:08', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 230, 188),
+(431, '2017-05-31 20:58:10', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(432, '2017-05-31 20:58:12', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 159, 46),
+(433, '2017-05-31 20:58:14', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 189, 227),
+(434, '2017-05-31 20:58:15', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(435, '2017-05-31 20:58:17', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 141, 195),
+(436, '2017-05-31 20:58:21', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 161, 45),
+(437, '2017-05-31 20:58:24', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 182, 58),
+(438, '2017-05-31 20:58:26', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 252, 167),
+(439, '2017-05-31 20:58:26', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(440, '2017-05-31 20:58:29', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 197, 223),
+(441, '2017-05-31 20:58:31', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 175, 57),
+(442, '2017-05-31 20:58:33', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 205, 136),
+(443, '2017-05-31 20:58:36', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 180, 219),
+(444, '2017-05-31 20:58:37', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 239, 150),
+(445, '2017-05-31 20:58:43', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 233, 187),
+(446, '2017-05-31 20:58:46', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 257, 212),
+(447, '2017-05-31 20:58:47', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(448, '2017-05-31 20:58:48', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(449, '2017-05-31 20:58:51', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', 1, 156),
+(450, '2017-05-31 20:58:54', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 125, 211),
+(451, '2017-05-31 20:58:56', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 149, 220),
+(452, '2017-05-31 20:58:58', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 246, 228),
+(453, '2017-05-31 20:58:59', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(454, '2017-05-31 20:59:09', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 144, 209),
+(455, '2017-05-31 20:59:24', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 179, 48),
+(456, '2017-05-31 20:59:27', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 168, 50),
+(457, '2017-05-31 20:59:29', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 242, 184),
+(458, '2017-05-31 20:59:32', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 167, 71),
+(459, '2017-05-31 20:59:35', 17, 1, 5, 89, 'A Peste BubÃƒÂ´nica (portuguÃƒÂªs brasileiro) ou Peste BubÃƒÂ³nica (portuguÃƒÂªs europeu) ÃƒÂ© uma doenÃƒÂ§a pulmonar ou septicÃƒÂªmica, infectocontagiosa, provocada pela bactÃƒÂ©ria Yersinia pestis, que ÃƒÂ© transmitida ao homem pela pulga atravÃƒÂ©s do rato-preto. A pandemia mais conhecida da doenÃƒÂ§a ocorreu no fim da Idade MÃƒÂ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃƒÂ§ÃƒÂ£o europeia em 1347, epidemia esta que ocorreu do sÃƒÂ©culo XIV atÃƒÂ© o sÃƒÂ©culo XVII[2].  ', 5, 82, 'Que doenÃƒÂ§a?', '35161d9fee7ca96a6ac302e445538e91', 203, 230),
+(460, '2017-05-31 20:59:38', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 192, 75),
+(461, '2017-05-31 20:59:40', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar  ', 2, 44, 'Dar um pulo', '35161d9fee7ca96a6ac302e445538e91', 242, 179),
+(462, '2017-05-31 20:59:41', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(463, '2017-05-31 20:59:43', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 139, 199),
+(464, '2017-05-31 20:59:45', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)  ', 6, 103, 'Quem ÃƒÂ© Jerry?', '35161d9fee7ca96a6ac302e445538e91', 221, 235),
+(465, '2017-05-31 20:59:47', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 194, 214),
+(466, '2017-05-31 20:59:48', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(467, '2017-05-31 20:59:50', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 146, 215),
+(468, '2017-05-31 20:59:53', 23, 1, 2, 20, 'Se refere a uma pessoa que finge nÃƒÂ£o entender o que esta acontecendo para tirar vantagem da situaÃƒÂ§ÃƒÂ£o ou para o prÃƒÂ³prio bem  ', 2, 21, 'JoÃƒÂ£o sem BraÃƒÂ§o', '35161d9fee7ca96a6ac302e445538e91', 214, 167),
+(469, '2017-05-31 20:59:55', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 225, 145),
+(470, '2017-05-31 20:59:58', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 173, 36),
+(471, '2017-05-31 21:00:00', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 177, 211),
+(472, '2017-05-31 21:00:03', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 131),
+(473, '2017-05-31 21:00:05', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 245, 197),
+(474, '2017-05-31 21:00:07', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 232, 230),
+(475, '2017-05-31 21:00:09', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 190, 204),
+(476, '2017-05-31 21:00:11', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 223, 168),
+(477, '2017-05-31 21:23:24', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 198, 229),
+(478, '2017-05-31 21:23:25', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(479, '2017-05-31 21:23:27', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 143, 227),
+(480, '2017-05-31 21:23:30', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 158, 52),
+(481, '2017-05-31 21:23:32', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 142, 223),
+(482, '2017-05-31 21:23:34', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 145, 215),
+(483, '2017-05-31 21:23:36', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 218, 166),
+(484, '2017-05-31 21:23:40', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 217, 170),
+(485, '2017-05-31 21:23:42', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 217, 176),
+(486, '2017-05-31 21:23:45', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 58),
+(487, '2017-05-31 21:23:48', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 168, 58),
+(488, '2017-05-31 21:23:52', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 200, 40),
+(489, '2017-05-31 21:23:54', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 145, 225),
+(490, '2017-05-31 21:23:56', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 224, 163),
+(491, '2017-05-31 21:24:00', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 154),
+(492, '2017-05-31 21:24:02', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 238, 180),
+(493, '2017-05-31 21:24:04', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 147, 59),
+(494, '2017-05-31 21:24:07', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 167, 52),
+(495, '2017-05-31 21:24:09', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 243, 158),
+(496, '2017-05-31 21:24:13', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 158, 47),
+(497, '2017-05-31 21:24:14', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(498, '2017-05-31 21:24:17', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 124, 217),
+(499, '2017-05-31 21:24:18', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(500, '2017-05-31 21:24:20', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 145, 211),
+(501, '2017-05-31 21:24:22', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 224, 233),
+(502, '2017-05-31 21:24:24', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 186, 205),
+(503, '2017-05-31 21:24:28', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 8, 4),
+(504, '2017-05-31 21:24:30', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 205, 223),
+(505, '2017-05-31 21:24:32', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 205, 225),
+(506, '2017-05-31 21:24:35', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 138, 56),
+(507, '2017-05-31 21:24:38', 22, 1, 5, 38, '22_4_1494363937.png  ', 4, 73, 'Parentes do Mickey ?', '35161d9fee7ca96a6ac302e445538e91', 276, 118),
+(508, '2017-05-31 21:24:44', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar  ', 2, 44, 'Dar um pulo', '35161d9fee7ca96a6ac302e445538e91', 199, 179),
+(509, '2017-05-31 21:24:46', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 184, 231),
+(510, '2017-05-31 21:24:52', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 177),
+(511, '2017-05-31 21:24:54', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 220, 148),
+(512, '2017-05-31 21:24:57', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 220, 142),
+(513, '2017-05-31 21:25:00', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 166, 60),
+(514, '2017-05-31 21:25:02', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 204, 218),
+(515, '2017-05-31 21:25:04', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 234, 160),
+(516, '2017-05-31 21:25:06', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(517, '2017-05-31 21:25:08', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 240, 165),
+(518, '2017-05-31 21:25:11', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 165, 49),
+(519, '2017-05-31 21:25:13', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 249, 214),
+(520, '2017-05-31 21:25:15', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 158, 48),
+(521, '2017-05-31 21:25:17', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(522, '2017-05-31 21:25:19', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 122, 194),
+(523, '2017-05-31 21:25:21', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0),
+(524, '2017-05-31 21:25:25', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -4, 169),
+(525, '2017-05-31 21:25:28', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -2, 171),
+(526, '2017-05-31 21:25:30', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 132, 221),
+(527, '2017-05-31 21:25:33', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 220, 225),
+(528, '2017-05-31 21:25:35', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 141, 58),
+(529, '2017-05-31 21:25:37', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 147, 231),
+(530, '2017-05-31 21:25:40', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃƒÂ§a, ÃƒÂ© um vetor de transmissÃƒÂ£o daquela doenÃƒÂ§a.  ', 5, 81, 'O que ÃƒÂ© Vetor de TransmissÃƒÂ£o ?', '35161d9fee7ca96a6ac302e445538e91', 185, 221),
+(531, '2017-05-31 21:25:43', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 167, 35),
+(532, '2017-05-31 21:25:45', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 222, 163),
+(533, '2017-05-31 21:25:48', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 173, 29),
+(534, '2017-05-31 21:27:45', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 189, 230),
+(535, '2017-05-31 21:27:47', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 201, 235),
+(536, '2017-05-31 21:27:49', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 251, 224),
+(537, '2017-05-31 21:27:51', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 152, 220),
+(538, '2017-05-31 21:27:53', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 181, 232),
+(539, '2017-05-31 21:28:03', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `contents_aggregated`
+-- Table structure for table `contents_aggregated`
 --
 
-CREATE TABLE IF NOT EXISTS `contents_aggregated` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contents_aggregated` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gap_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -105,69 +602,67 @@ CREATE TABLE IF NOT EXISTS `contents_aggregated` (
   `fingerprint` varchar(128) DEFAULT NULL,
   `x` int(11) NOT NULL,
   `y` int(11) NOT NULL,
-  `weight` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=134 ;
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=535 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `contents_aggregated`
+-- Dumping data for table `contents_aggregated`
 --
 
 INSERT INTO `contents_aggregated` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`, `x`, `y`, `weight`) VALUES
-(1, '2017-05-17 13:54:33', 34, 1, 5, 11, 'O Velho Continente Ã© a Europa. ', 5, 55, 'Qual Ã© o velho continente?', '8e3b5521902c39b30ed16f47a75eaabc', 215, 230, 0),
-(2, '2017-05-17 13:54:33', 29, 1, 5, 48, '29_4_1494364392.png ', 4, 31, 'O que ele mais temia?', '8e3b5521902c39b30ed16f47a75eaabc', 298, 0, 0),
-(3, '2017-05-17 13:54:33', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a. ', 5, 81, 'O que Ã© Vetor de TransmissÃ£o ?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 200, 0),
-(4, '2017-05-17 13:54:30', 11, 1, 2, 222, 'Venon Ã© uma das bandas de black metal mais influentes do mundo. ', 5, 38, 'Que Ã© Venon ?', '8e3b5521902c39b30ed16f47a75eaabc', 50, 230, 0),
-(5, '2017-05-17 13:54:30', 25, 1, 2, 105, '25_4_1494624981.png ', 4, 26, 'Quem Ã© Slayer?', '8e3b5521902c39b30ed16f47a75eaabc', 200, 155, 0),
-(6, '2017-05-17 13:54:33', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry) ', 6, 103, 'Quem Ã© Jerry?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 35, 0),
-(7, '2017-05-17 13:54:33', 30, 1, 5, 158, 'CatÃ³licos ApostÃ³licos Romanos ', 5, 39, 'Quem eram estes seguidores ?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 200, 0),
-(8, '2017-05-17 13:54:33', 2, 1, 5, 47, 'sofrimento fÃ­sico ou moral ', 2, 10, 'Padecimento', '8e3b5521902c39b30ed16f47a75eaabc', 350, 50, 0),
-(10, '2017-05-17 13:54:30', 12, 1, 2, 43, '12_4_1494364231.png ', 4, 40, 'CÃ£o dentro do pentagrama ?', '8e3b5521902c39b30ed16f47a75eaabc', 160, 65, 0),
-(11, '2017-05-17 13:54:30', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar ', 2, 44, 'Dar um pulo', '8e3b5521902c39b30ed16f47a75eaabc', 320, 230, 0),
-(12, '2017-05-17 13:54:30', 7, 1, 2, 81, 'Legal ', 3, 42, 'Show de bola', '8e3b5521902c39b30ed16f47a75eaabc', 220, 170, 0),
-(17, '2017-05-17 13:54:30', 27, 1, 2, 44, 'Sumiu ', 3, 18, 'Tomou Doril ?', '8e3b5521902c39b30ed16f47a75eaabc', 220, 170, 0),
-(18, '2017-05-17 13:54:33', 36, 1, 5, 63, 'Inimigos ', 2, 14, 'Desafetos', '8e3b5521902c39b30ed16f47a75eaabc', 385, 90, 0),
-(20, '2017-05-17 13:54:33', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/ ', 6, 9, 'Suscitar', '8e3b5521902c39b30ed16f47a75eaabc', 30, 15, 0),
-(21, '2017-05-17 13:54:33', 17, 1, 5, 89, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2]. ', 5, 82, 'Que doenÃ§a?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 15, 0),
-(25, '2017-05-17 13:54:33', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry) ', 6, 102, 'Quem Ã© Tom?', '8e3b5521902c39b30ed16f47a75eaabc', 365, 20, 0),
-(26, '2017-05-17 13:54:33', 6, 1, 5, 99, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o. ', 5, 22, 'O que Ã© a bula "Licet ad capiendos" ?', '8e3b5521902c39b30ed16f47a75eaabc', 95, 230, 0),
-(29, '2017-05-17 13:54:33', 4, 1, 5, 8, 'https://pt.wikipedia.org/wiki/Papa_Greg%C3%B3rio_IX ', 6, 17, 'Quem foi GregÃ³rio IX ?', '6f39b366467d545bc34bdaf65d46c4ad', 280, 230, 0),
-(30, '2017-05-17 13:54:30', 24, 1, 2, 200, 'Roubar; esconder de modo a ficar oculto. ', 2, 23, 'Malocou', '8e3b5521902c39b30ed16f47a75eaabc', 30, 230, 0),
-(32, '2017-05-17 13:54:33', 31, 1, 5, 35, '31_4_1494363832.png ', 4, 43, 'Que pobres seres indefesos?', '8e3b5521902c39b30ed16f47a75eaabc', 0, 0, 0),
-(35, '2017-05-17 13:54:33', 5, 1, 5, 26, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica. ', 2, 18, 'promulgou', '8e3b5521902c39b30ed16f47a75eaabc', 20, 175, 0),
-(38, '2017-05-17 13:54:30', 23, 1, 2, 15, 'Pessoa que se faz de desentendia. ', 2, 21, 'JoÃ£o sem BraÃ§o', '6f39b366467d545bc34bdaf65d46c4ad', 30, 230, 0),
-(40, '2017-05-17 13:54:33', 28, 1, 5, 141, 'Ã© o medo irracional de gatos ', 5, 26, 'O que Ã© Ailurofobia ?', '8e3b5521902c39b30ed16f47a75eaabc', 260, 215, 0),
-(42, '2017-05-17 13:54:33', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra) ', 5, 91, 'Que epidemia foi essa?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 200, 0),
-(52, '2017-05-17 13:54:33', 32, 1, 5, 34, 'Os Gatos ', 5, 45, 'Que criatura?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 15, 0),
-(58, '2017-05-17 13:54:33', 3, 1, 5, 27, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o ', 3, 11, 'ObliteraÃ§Ã£o', '6f39b366467d545bc34bdaf65d46c4ad', 2, 175, 0),
-(68, '2017-05-17 13:54:30', 37, 1, 2, 201, '10_1_1494364458.png', 4, 14, 'Peita?', '8e3b5521902c39b30ed16f47a75eaabc', 160, 65, 0),
-(69, '2017-05-17 13:54:33', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8 ', 6, 79, 'Turma do Topo Gigio', '6f39b366467d545bc34bdaf65d46c4ad', 300, 15, 0),
-(70, '2017-05-17 13:54:33', 18, 1, 5, 242, '18_4_1494794302.png ', 4, 85, 'Qual era o predador natural?', '6f39b366467d545bc34bdaf65d46c4ad', 300, 0, 0),
-(73, '2017-05-17 13:54:33', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/ ', 6, 13, 'Solapar', '8e3b5521902c39b30ed16f47a75eaabc', 30, 30, 0),
-(79, '2017-05-17 13:54:30', 26, 1, 2, 70, 'Barulho irritante ', 2, 27, 'Zuada', '8e3b5521902c39b30ed16f47a75eaabc', 320, 230, 0),
-(80, '2017-05-17 13:54:30', 9, 1, 2, 49, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira. ', 2, 29, 'CaÃ´', '8e3b5521902c39b30ed16f47a75eaabc', 50, 230, 0),
-(81, '2017-05-17 13:54:33', 22, 1, 5, 38, '22_4_1494363937.png ', 4, 73, 'Parentes do Mickey ?', '8e3b5521902c39b30ed16f47a75eaabc', 295, 130, 0),
-(89, '2017-05-17 13:54:33', 13, 1, 5, 46, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes. ', 5, 65, 'Que foi a ExpansÃ£o MarÃ­tima ?', '8e3b5521902c39b30ed16f47a75eaabc', 85, 205, 0),
-(115, '2017-05-17 13:54:30', 10, 1, 2, 50, '10_1_1494364458.png ', 1, 31, 'Peita', '8e3b5521902c39b30ed16f47a75eaabc', 160, 65, 0),
-(122, '2017-05-17 13:54:33', 14, 1, 5, 53, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas. ', 5, 76, 'O que Ã© Peste BubÃ´nica ?', '8e3b5521902c39b30ed16f47a75eaabc', 170, 230, 0),
-(133, '2017-05-17 13:54:33', 33, 1, 5, 148, 'https://pt.wikipedia.org/wiki/Rato-preto ', 6, 54, 'EspÃ©cie ratus ratus?', '8e3b5521902c39b30ed16f47a75eaabc', 30, 180, 0);
+(1, '2017-05-31 21:58:02', 13, 1, 5, 46, 'A expansÃƒÂ£o ultramarina EuropÃƒÂ©ia deu inÃƒÂ­cio ao processo da RevoluÃƒÂ§ÃƒÂ£o Comercial, que caracterizou os sÃƒÂ©culos XV, XVI e XVII. AtravÃƒÂ©s das Grandes NavegaÃƒÂ§ÃƒÂµes.  ', 5, 65, 'Que foi a ExpansÃƒÂ£o MarÃƒÂ­tima ?', '35161d9fee7ca96a6ac302e445538e91', 132, 209, 0),
+(2, '2017-05-31 21:58:02', 12, 1, 2, 43, '12_4_1494364231.png  ', 4, 40, 'CÃƒÂ£o dentro do pentagrama ?', '35161d9fee7ca96a6ac302e445538e91', 159, 65, 0),
+(3, '2017-05-31 21:58:02', 37, 1, 2, 201, '10_1_1494364458.png ', 4, 14, 'Peita?', '35161d9fee7ca96a6ac302e445538e91', 166, 57, 0),
+(4, '2017-05-31 21:58:02', 24, 1, 2, 13, 'Catou  ', 3, 23, 'Malocou', '35161d9fee7ca96a6ac302e445538e91', 227, 155, 0),
+(5, '2017-05-31 21:58:02', 31, 1, 5, 35, '31_4_1494363832.png  ', 4, 43, 'Que pobres seres indefesos?', '35161d9fee7ca96a6ac302e445538e91', 0, 0, 0),
+(6, '2017-05-31 21:58:02', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg  ', 6, 38, 'Que ÃƒÂ© Venon ?', '35161d9fee7ca96a6ac302e445538e91', 234, 169, 0),
+(10, '2017-05-31 21:58:02', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra)  ', 5, 91, 'Que epidemia foi essa?', '35161d9fee7ca96a6ac302e445538e91', 208, 227, 0),
+(11, '2017-05-31 21:58:02', 14, 1, 5, 53, 'A peste bubÃƒÂ´nica, tambÃƒÂ©m chamada de peste negra, ÃƒÂ© uma doenÃƒÂ§a grave e muitas vezes fatal causada pela bactÃƒÂ©ria da peste, YersÃƒÂ­nia pestis, que ÃƒÂ© transmitida por animais roedores aos seres humanos. A maioria dos indivÃƒÂ­duos nÃƒÂ£o tratados morre nas 48 horas que sucedem o inÃƒÂ­cio dos sintomas.  ', 5, 76, 'O que ÃƒÂ© Peste BubÃƒÂ´nica ?', '35161d9fee7ca96a6ac302e445538e91', 182, 223, 0),
+(14, '2017-05-31 21:58:02', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)  ', 6, 102, 'Quem ÃƒÂ© Tom?', '35161d9fee7ca96a6ac302e445538e91', 215, 231, 0),
+(22, '2017-05-31 21:58:02', 28, 1, 5, 141, 'ÃƒÂ© o medo irracional de gatos  ', 5, 26, 'O que ÃƒÂ© Ailurofobia ?', '35161d9fee7ca96a6ac302e445538e91', 141, 207, 0),
+(23, '2017-05-31 21:58:02', 33, 1, 5, 52, 'Rato Preto.  ', 5, 54, 'EspÃƒÂ©cie ratus ratus?', '35161d9fee7ca96a6ac302e445538e91', 188, 224, 0),
+(28, '2017-05-31 21:58:02', 7, 1, 2, 81, 'Legal  ', 3, 42, 'Show de bola', '35161d9fee7ca96a6ac302e445538e91', 195, 151, 0),
+(52, '2017-05-31 21:58:02', 25, 1, 2, 105, '25_4_1494624981.png  ', 4, 26, 'Quem ÃƒÂ© Slayer?', '35161d9fee7ca96a6ac302e445538e91', 173, 130, 0),
+(56, '2017-05-31 21:58:02', 18, 1, 5, 242, '18_4_1494794302.png  ', 4, 85, 'Qual era o predador natural?', '35161d9fee7ca96a6ac302e445538e91', 237, 130, 0),
+(58, '2017-05-31 21:58:02', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar  ', 2, 44, 'Dar um pulo', '35161d9fee7ca96a6ac302e445538e91', 219, 185, 0),
+(70, '2017-05-31 21:58:02', 17, 1, 5, 89, 'A Peste BubÃƒÂ´nica (portuguÃƒÂªs brasileiro) ou Peste BubÃƒÂ³nica (portuguÃƒÂªs europeu) ÃƒÂ© uma doenÃƒÂ§a pulmonar ou septicÃƒÂªmica, infectocontagiosa, provocada pela bactÃƒÂ©ria Yersinia pestis, que ÃƒÂ© transmitida ao homem pela pulga atravÃƒÂ©s do rato-preto. A pandemia mais conhecida da doenÃƒÂ§a ocorreu no fim da Idade MÃƒÂ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃƒÂ§ÃƒÂ£o europeia em 1347, epidemia esta que ocorreu do sÃƒÂ©culo XIV atÃƒÂ© o sÃƒÂ©culo XVII[2].  ', 5, 82, 'Que doenÃƒÂ§a?', '35161d9fee7ca96a6ac302e445538e91', 207, 230, 0),
+(71, '2017-05-31 21:58:02', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)  ', 6, 103, 'Quem ÃƒÂ© Jerry?', '35161d9fee7ca96a6ac302e445538e91', 213, 231, 0),
+(167, '2017-05-31 21:58:02', 36, 1, 5, 63, 'Inimigos  ', 2, 14, 'Desafetos', '35161d9fee7ca96a6ac302e445538e91', 195, 226, 0),
+(256, '2017-05-31 21:58:02', 5, 1, 5, 26, 'Promulgar ÃƒÂ© a aÃƒÂ§ÃƒÂ£o de tornar algo de conhecimento pÃƒÂºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃƒÂ¡tica.  ', 2, 18, 'promulgou', '35161d9fee7ca96a6ac302e445538e91', 217, 231, 0),
+(258, '2017-05-31 21:58:02', 22, 1, 5, 38, '22_4_1494363937.png  ', 4, 73, 'Parentes do Mickey ?', '35161d9fee7ca96a6ac302e445538e91', 289, 128, 0),
+(259, '2017-05-31 21:58:02', 6, 1, 5, 99, 'ÃƒÂ© uma bula que Papa GregÃƒÂ³rio IX editou e que dÃƒÂ¡ inÃƒÂ­cio ÃƒÂ  InquisiÃƒÂ§ÃƒÂ£o.  ', 5, 22, 'O que ÃƒÂ© a bula "Licet ad capiendos" ?', '35161d9fee7ca96a6ac302e445538e91', 40, 39, 0),
+(263, '2017-05-31 21:58:02', 2, 1, 5, 47, 'sofrimento fÃƒÂ­sico ou moral  ', 2, 10, 'Padecimento', '35161d9fee7ca96a6ac302e445538e91', 173, 223, 0),
+(270, '2017-05-31 21:58:02', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/  ', 6, 9, 'Suscitar', '35161d9fee7ca96a6ac302e445538e91', 176, 221, 0),
+(272, '2017-05-31 21:58:02', 32, 1, 5, 34, 'Os Gatos  ', 5, 45, 'Que criatura?', '35161d9fee7ca96a6ac302e445538e91', 211, 225, 0),
+(287, '2017-05-31 21:58:02', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8  ', 6, 79, 'Turma do Topo Gigio', '35161d9fee7ca96a6ac302e445538e91', 97, 114, 0),
+(321, '2017-05-31 21:58:02', 23, 1, 2, 20, 'Se refere a uma pessoa que finge nÃƒÂ£o entender o que esta acontecendo para tirar vantagem da situaÃƒÂ§ÃƒÂ£o ou para o prÃƒÂ³prio bem  ', 2, 21, 'JoÃƒÂ£o sem BraÃƒÂ§o', '35161d9fee7ca96a6ac302e445538e91', 216, 184, 0),
+(356, '2017-05-31 21:58:02', 30, 1, 5, 158, 'CatÃƒÂ³licos ApostÃƒÂ³licos Romanos  ', 5, 39, 'Quem eram estes seguidores ?', '35161d9fee7ca96a6ac302e445538e91', 177, 212, 0),
+(389, '2017-05-31 21:58:02', 9, 1, 2, 49, 'Mentira contada com intenÃƒÂ§ÃƒÂ£o de enganar, conquistar ou forma de brincadeira.  ', 2, 29, 'CaÃƒÂ´', '35161d9fee7ca96a6ac302e445538e91', 245, 181, 0),
+(512, '2017-05-31 21:58:02', 27, 1, 2, 44, 'Sumiu  ', 3, 18, 'Tomou Doril ?', '35161d9fee7ca96a6ac302e445538e91', 215, 156, 0),
+(513, '2017-05-31 21:58:02', 10, 1, 2, 50, '10_1_1494364458.png  ', 1, 31, 'Peita', '35161d9fee7ca96a6ac302e445538e91', 164, 54, 0),
+(514, '2017-05-31 21:58:02', 4, 1, 5, 7, 'Um papa.  ', 5, 17, 'Quem foi GregÃƒÂ³rio IX ?', '35161d9fee7ca96a6ac302e445538e91', 206, 228, 0),
+(515, '2017-05-31 21:58:02', 26, 1, 2, 70, 'Barulho irritante  ', 2, 27, 'Zuada', '35161d9fee7ca96a6ac302e445538e91', 239, 178, 0),
+(516, '2017-05-31 21:58:02', 29, 1, 5, 48, '29_4_1494364392.png  ', 4, 31, 'O que ele mais temia?', '35161d9fee7ca96a6ac302e445538e91', 0, 0, 0),
+(519, '2017-05-31 21:58:02', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/  ', 6, 13, 'Solapar', '35161d9fee7ca96a6ac302e445538e91', 237, 221, 0),
+(524, '2017-05-31 21:58:02', 3, 1, 5, 27, 'eliminaÃƒÂ§ÃƒÂ£o, anulaÃƒÂ§ÃƒÂ£o, desaparecimento, extinÃƒÂ§ÃƒÂ£o  ', 3, 11, 'ObliteraÃƒÂ§ÃƒÂ£o', '35161d9fee7ca96a6ac302e445538e91', -1, 165, 0),
+(530, '2017-05-31 21:58:02', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃƒÂ§a, ÃƒÂ© um vetor de transmissÃƒÂ£o daquela doenÃƒÂ§a.  ', 5, 81, 'O que ÃƒÂ© Vetor de TransmissÃƒÂ£o ?', '35161d9fee7ca96a6ac302e445538e91', 165, 217, 0),
+(534, '2017-05-31 21:58:02', 34, 1, 5, 11, 'O Velho Continente ÃƒÂ© a Europa.  ', 5, 55, 'Qual ÃƒÂ© o velho continente?', '35161d9fee7ca96a6ac302e445538e91', 195, 228, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `segments`
+-- Table structure for table `segments`
 --
 
-CREATE TABLE IF NOT EXISTS `segments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `segments` (
+`id` int(11) NOT NULL,
   `video` int(11) NOT NULL,
   `start` int(11) NOT NULL,
-  `stop` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `stop` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `segments`
+-- Dumping data for table `segments`
 --
 
 INSERT INTO `segments` (`id`, `video`, `start`, `stop`) VALUES
@@ -185,22 +680,21 @@ INSERT INTO `segments` (`id`, `video`, `start`, `stop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task1`
+-- Table structure for table `task1`
 --
 
-CREATE TABLE IF NOT EXISTS `task1` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task1` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int(11) NOT NULL,
   `video` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `answer` varchar(128) NOT NULL,
-  `position` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+  `position` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task1`
+-- Dumping data for table `task1`
 --
 
 INSERT INTO `task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`) VALUES
@@ -246,83 +740,81 @@ INSERT INTO `task1` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task1_aggregated`
+-- Table structure for table `task1_aggregated`
 --
 
-CREATE TABLE IF NOT EXISTS `task1_aggregated` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task1_aggregated` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int(11) NOT NULL,
   `video` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `answer` varchar(128) NOT NULL,
   `position` int(11) NOT NULL,
-  `weight` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task1_aggregated`
+-- Dumping data for table `task1_aggregated`
 --
 
 INSERT INTO `task1_aggregated` (`id`, `time`, `user`, `video`, `type`, `answer`, `position`, `weight`) VALUES
-(1, '2017-05-17 13:59:16', 1, 5, 1, 'Suscitar', 9, 1),
-(2, '2017-05-17 13:59:16', 1, 5, 1, 'Padecimento', 10, 1),
-(3, '2017-05-17 13:59:16', 1, 5, 1, 'ObliteraÃ§Ã£o', 11, 1),
-(4, '2017-05-17 13:59:16', 1, 5, 2, 'Quem foi GregÃ³rio IX ?', 17, 1),
-(5, '2017-05-17 13:59:16', 1, 5, 1, 'promulgou', 18, 1),
-(6, '2017-05-17 13:59:16', 1, 5, 2, 'O que Ã© a bula "Licet ad capiendos" ?', 22, 1),
-(7, '2017-05-17 13:59:13', 1, 2, 1, 'Show de bola', 42, 1),
-(8, '2017-05-17 13:59:13', 1, 2, 1, 'Dar um pulo', 44, 1),
-(9, '2017-05-17 13:59:13', 1, 2, 1, 'CaÃ´', 29, 1),
-(10, '2017-05-17 13:59:13', 1, 2, 1, 'Peita', 31, 1),
-(11, '2017-05-17 13:59:13', 1, 2, 2, 'Que Ã© Venon ?', 38, 1),
-(12, '2017-05-17 13:59:13', 1, 2, 2, 'CÃ£o dentro do pentagrama ?', 40, 1),
-(13, '2017-05-17 13:59:16', 1, 5, 2, 'Que foi a ExpansÃ£o MarÃ­tima ?', 65, 1),
-(14, '2017-05-17 13:59:16', 1, 5, 2, 'O que Ã© Peste BubÃ´nica ?', 76, 1),
-(15, '2017-05-17 13:59:16', 1, 5, 2, 'Turma do Topo Gigio', 79, 1),
-(16, '2017-05-17 13:59:16', 1, 5, 2, 'O que Ã© Vetor de TransmissÃ£o ?', 81, 1),
-(17, '2017-05-17 13:59:16', 1, 5, 2, 'Que doenÃ§a?', 82, 1),
-(18, '2017-05-17 13:59:16', 1, 5, 2, 'Qual era o predador natural?', 85, 1),
-(19, '2017-05-17 13:59:16', 1, 5, 2, 'Que epidemia foi essa?', 91, 1),
-(20, '2017-05-17 13:59:16', 1, 5, 2, 'Quem Ã© Tom?', 102, 1),
-(21, '2017-05-17 13:59:16', 1, 5, 2, 'Quem Ã© Jerry?', 103, 1),
-(22, '2017-05-17 13:59:16', 1, 5, 2, 'Parentes do Mickey ?', 73, 1),
-(23, '2017-05-17 13:59:12', 1, 2, 1, 'JoÃ£o sem BraÃ§o', 21, 1),
-(24, '2017-05-17 13:59:13', 1, 2, 1, 'Malocou', 23, 1),
-(25, '2017-05-17 13:59:13', 1, 2, 2, 'Quem Ã© Slayer?', 26, 1),
-(26, '2017-05-17 13:59:13', 1, 2, 1, 'Zuada', 27, 1),
-(27, '2017-05-17 13:59:12', 1, 2, 1, 'Tomou Doril ?', 18, 1),
-(28, '2017-05-17 13:59:16', 1, 5, 2, 'O que Ã© Ailurofobia ?', 26, 1),
-(29, '2017-05-17 13:59:16', 1, 5, 2, 'O que ele mais temia?', 31, 1),
-(30, '2017-05-17 13:59:16', 1, 5, 2, 'Quem eram estes seguidores ?', 39, 1),
-(31, '2017-05-17 13:59:16', 1, 5, 2, 'Que pobres seres indefesos?', 43, 2),
-(32, '2017-05-17 13:59:16', 1, 5, 2, 'Que criatura?', 45, 1),
-(33, '2017-05-17 13:59:16', 1, 5, 2, 'EspÃ©cie ratus ratus?', 54, 1),
-(34, '2017-05-17 13:59:16', 1, 5, 2, 'Qual Ã© o velho continente?', 55, 1),
-(35, '2017-05-17 13:59:16', 1, 5, 1, 'Solapar', 13, 1),
-(36, '2017-05-17 13:59:16', 1, 5, 1, 'Desafetos', 14, 1),
-(38, '2017-05-17 13:59:12', 1, 2, 1, 'Peita?', 14, 1);
+(1, '2017-05-31 17:06:08', 1, 5, 1, 'Suscitar', 9, 1),
+(2, '2017-05-31 17:06:08', 1, 5, 1, 'Padecimento', 10, 1),
+(3, '2017-05-31 17:06:08', 1, 5, 1, 'ObliteraÃ§Ã£o', 11, 1),
+(4, '2017-05-31 17:06:08', 1, 5, 2, 'Quem foi GregÃ³rio IX ?', 17, 1),
+(5, '2017-05-31 17:06:08', 1, 5, 1, 'promulgou', 18, 1),
+(6, '2017-05-31 17:06:08', 1, 5, 2, 'O que Ã© a bula "Licet ad capiendos" ?', 22, 1),
+(7, '2017-05-31 17:06:08', 1, 2, 1, 'Show de bola', 42, 1),
+(8, '2017-05-31 17:06:08', 1, 2, 1, 'Dar um pulo', 44, 1),
+(9, '2017-05-31 17:06:08', 1, 2, 1, 'CaÃ´', 29, 1),
+(10, '2017-05-31 17:06:08', 1, 2, 1, 'Peita', 31, 1),
+(11, '2017-05-31 17:06:08', 1, 2, 2, 'Que Ã© Venon ?', 38, 1),
+(12, '2017-05-31 17:06:08', 1, 2, 2, 'CÃ£o dentro do pentagrama ?', 40, 1),
+(13, '2017-05-31 17:06:08', 1, 5, 2, 'Que foi a ExpansÃ£o MarÃ­tima ?', 65, 1),
+(14, '2017-05-31 17:06:08', 1, 5, 2, 'O que Ã© Peste BubÃ´nica ?', 76, 1),
+(15, '2017-05-31 17:06:08', 1, 5, 2, 'Turma do Topo Gigio', 79, 1),
+(16, '2017-05-31 17:06:08', 1, 5, 2, 'O que Ã© Vetor de TransmissÃ£o ?', 81, 1),
+(17, '2017-05-31 17:06:08', 1, 5, 2, 'Que doenÃ§a?', 82, 1),
+(18, '2017-05-31 17:06:08', 1, 5, 2, 'Qual era o predador natural?', 85, 1),
+(19, '2017-05-31 17:06:08', 1, 5, 2, 'Que epidemia foi essa?', 91, 1),
+(20, '2017-05-31 17:06:08', 1, 5, 2, 'Quem Ã© Tom?', 102, 1),
+(21, '2017-05-31 17:06:08', 1, 5, 2, 'Quem Ã© Jerry?', 103, 1),
+(22, '2017-05-31 17:06:08', 1, 5, 2, 'Parentes do Mickey ?', 73, 1),
+(23, '2017-05-31 17:06:08', 1, 2, 1, 'JoÃ£o sem BraÃ§o', 21, 1),
+(24, '2017-05-31 17:06:08', 1, 2, 1, 'Malocou', 23, 1),
+(25, '2017-05-31 17:06:08', 1, 2, 2, 'Quem Ã© Slayer?', 26, 1),
+(26, '2017-05-31 17:06:08', 1, 2, 1, 'Zuada', 27, 1),
+(27, '2017-05-31 17:06:08', 1, 2, 1, 'Tomou Doril ?', 18, 1),
+(28, '2017-05-31 17:06:08', 1, 5, 2, 'O que Ã© Ailurofobia ?', 26, 1),
+(29, '2017-05-31 17:06:08', 1, 5, 2, 'O que ele mais temia?', 31, 1),
+(30, '2017-05-31 17:06:08', 1, 5, 2, 'Quem eram estes seguidores ?', 39, 1),
+(31, '2017-05-31 17:06:08', 1, 5, 2, 'Que pobres seres indefesos?', 43, 1),
+(32, '2017-05-31 17:06:08', 1, 5, 2, 'Que criatura?', 45, 1),
+(33, '2017-05-31 17:06:08', 1, 5, 2, 'EspÃ©cie ratus ratus?', 54, 1),
+(34, '2017-05-31 17:06:08', 1, 5, 2, 'Qual Ã© o velho continente?', 55, 1),
+(35, '2017-05-31 17:06:08', 1, 5, 1, 'Solapar', 13, 1),
+(36, '2017-05-31 17:06:08', 1, 5, 1, 'Desafetos', 14, 1),
+(38, '2017-05-31 17:06:08', 1, 2, 1, 'Peita?', 14, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task2`
+-- Table structure for table `task2`
 --
 
-CREATE TABLE IF NOT EXISTS `task2` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task2` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int(11) NOT NULL,
   `video` int(11) NOT NULL,
   `gap_id` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  `sugestion` mediumtext NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=312 ;
+  `sugestion` mediumtext NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task2`
+-- Dumping data for table `task2`
 --
 
 INSERT INTO `task2` (`id`, `time`, `user`, `video`, `gap_id`, `type`, `sugestion`) VALUES
@@ -638,283 +1130,282 @@ INSERT INTO `task2` (`id`, `time`, `user`, `video`, `gap_id`, `type`, `sugestion
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task2_aggregated`
+-- Table structure for table `task2_aggregated`
 --
 
-CREATE TABLE IF NOT EXISTS `task2_aggregated` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task2_aggregated` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int(11) NOT NULL,
   `video` int(11) NOT NULL,
   `gap_id` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `sugestion` mediumtext NOT NULL,
-  `weight` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=312 ;
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task2_aggregated`
+-- Dumping data for table `task2_aggregated`
 --
 
 INSERT INTO `task2_aggregated` (`id`, `time`, `user`, `video`, `gap_id`, `type`, `sugestion`, `weight`) VALUES
-(1, '2017-05-17 13:59:21', 1, 5, 28, 5, 'Medo de gatos.', 1),
-(4, '2017-05-17 13:59:21', 1, 5, 31, 5, 'Gatos.', 1),
-(5, '2017-05-17 13:59:21', 1, 5, 32, 5, 'Gatos.', 2),
-(6, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Gato.', 1),
-(7, '2017-05-17 13:59:20', 1, 5, 4, 5, 'Um papa.', 2),
-(9, '2017-05-17 13:59:20', 1, 5, 20, 4, '20_4_1494358415.png', 1),
-(10, '2017-05-17 13:59:25', 1, 2, 10, 3, 'Camiseta', 1),
-(11, '2017-05-17 13:59:21', 1, 5, 34, 5, 'O Velho Continente Ã© a Europa.', 1),
-(12, '2017-05-17 13:59:21', 1, 5, 29, 5, 'Os gatos', 1),
-(13, '2017-05-17 13:59:25', 1, 2, 24, 3, 'Catou', 1),
-(16, '2017-05-17 13:59:25', 1, 2, 10, 3, 'Camisa de banda', 2),
-(17, '2017-05-17 13:59:20', 1, 5, 18, 6, 'https://videos-novaes.c9users.io/Service/redirect.php?url=http://logosapologetica.com/10514-2/#axzz4gxPU7BUn', 1),
-(18, '2017-05-17 13:59:21', 1, 5, 28, 5, 'AILUROFOBIA: A FOBIA DO MEDO DOS GATOS', 1),
-(19, '2017-05-17 13:59:21', 1, 5, 31, 6, 'http://historiadomundo.uol.com.br/curiosidades/os-gatos-na-historia.htm', 1),
-(20, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Se refere a uma pessoa que finge nÃ£o entender o que esta acontecendo para tirar vantagem da situaÃ§Ã£o ou para o prÃ³prio bem', 1),
-(21, '2017-05-17 13:59:20', 1, 5, 14, 6, 'https://www.tuasaude.com/peste-bubonica/', 1),
-(22, '2017-05-17 13:59:21', 1, 5, 31, 4, '31_4_1494362145.png', 1),
-(23, '2017-05-17 13:59:25', 1, 2, 11, 6, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg', 1),
-(24, '2017-05-17 13:59:21', 1, 5, 32, 5, 'Os gatos que foram exterminados ,pois teoricamente o Papa tinha uma fobia dos gatos.', 2),
-(26, '2017-05-17 13:59:20', 1, 5, 5, 2, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica.', 1),
-(27, '2017-05-17 13:59:20', 1, 5, 3, 3, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o', 2),
-(28, '2017-05-17 13:59:24', 1, 2, 8, 2, 'gÃ­ria informando que alguÃ©m vai para algum lugar  ', 1),
-(29, '2017-05-17 13:59:20', 1, 5, 15, 6, 'https://www.youtube.com/watch?v=b6GBzPvsjN8', 2),
-(30, '2017-05-17 13:59:25', 1, 2, 25, 6, 'https://pt.wikipedia.org/wiki/Slayer', 2),
-(31, '2017-05-17 13:59:20', 1, 5, 20, 4, '20_4_1494362641.png', 1),
-(32, '2017-05-17 13:59:25', 1, 2, 24, 2, 'gÃ­ria informando que alguÃ©m furtou um objeto.', 1),
-(33, '2017-05-17 13:59:21', 1, 5, 34, 5, 'EurÃ¡sia e Ãfrica: os continentes europeu, africano, asiÃ¡tico e os quatro arquipÃ©lagos da MacaronÃ©sia', 2),
-(35, '2017-05-17 13:59:21', 1, 5, 31, 4, '31_4_1494363832.png', 1),
-(37, '2017-05-17 13:59:20', 1, 5, 16, 6, 'https://pt.wikipedia.org/wiki/Vetor_(epidemiologia)', 1),
-(38, '2017-05-17 13:59:21', 1, 5, 22, 4, '22_4_1494363937.png', 1),
-(39, '2017-05-17 13:59:20', 1, 5, 5, 3, 'Publicou', 1),
-(41, '2017-05-17 13:59:20', 1, 5, 4, 4, '4_4_1494364033.png', 1),
-(42, '2017-05-17 13:59:25', 1, 2, 23, 1, '23_1_1494364192.png', 1),
-(43, '2017-05-17 13:59:25', 1, 2, 12, 4, '12_4_1494364231.png', 1),
-(44, '2017-05-17 13:59:25', 1, 2, 27, 3, 'Sumiu', 1),
-(46, '2017-05-17 13:59:20', 1, 5, 13, 5, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes.', 1),
-(47, '2017-05-17 13:59:20', 1, 5, 2, 2, 'sofrimento fÃ­sico ou moral', 2),
-(48, '2017-05-17 13:59:21', 1, 5, 29, 4, '29_4_1494364392.png', 2),
-(49, '2017-05-17 13:59:25', 1, 2, 9, 2, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira.', 1),
-(50, '2017-05-17 13:59:25', 1, 2, 10, 1, '10_1_1494364458.png', 1),
-(52, '2017-05-17 13:59:21', 1, 5, 33, 5, 'Rato Preto.', 1),
-(53, '2017-05-17 13:59:20', 1, 5, 14, 5, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas.', 1),
-(54, '2017-05-17 13:59:20', 1, 5, 21, 4, '21_4_1494364581.png', 1),
-(56, '2017-05-17 13:59:25', 1, 2, 26, 2, 'referÃªncia Ã  opiniÃ£o sobre qualidade da mÃºsica nÃ£o compreendida pelo ouvinte.', 1),
-(58, '2017-05-17 13:59:20', 1, 5, 20, 5, 'A doenÃ§a Ã© a peste negra. Como a bacteria causadora estava no rato, bastava utilizar vinagre nos navios para que as pulgas e ratos nÃ£o entrassem, pois o cheiro Ã© forte, elas evitariam a entrada nos navios prevenindo milhoes da morte.', 1),
-(59, '2017-05-17 13:59:20', 1, 5, 6, 5, 'Peste negra', 1),
-(60, '2017-05-17 13:59:20', 1, 5, 16, 5, 'Peste negra', 1),
-(61, '2017-05-17 13:59:20', 1, 5, 15, 5, 'Ratos.', 3),
-(62, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Vagabundo.', 1),
-(63, '2017-05-17 13:59:21', 1, 5, 36, 2, 'Inimigos', 2),
-(64, '2017-05-17 13:59:20', 1, 5, 19, 5, 'Dizimou a maior parte da Europa, trazida por ratos, que seriam caÃ§ados com gatos mas o cara que mandava na Europa nÃ£o gosta de gatos e mandou matar tudo. Resultado: cerca de 1/3 dos Europeus morreram', 1),
-(66, '2017-05-17 13:59:21', 1, 5, 30, 6, 'https://pt.wikipedia.org/wiki/Inquisi%C3%A7%C3%A3o', 1),
-(68, '2017-05-17 13:59:21', 1, 5, 35, 6, 'https://www.dicio.com.br/solapar/', 1),
-(69, '2017-05-17 13:59:20', 1, 5, 4, 5, 'Foi o Papa que editou a bula que deu inÃ­cio Ã  InquisiÃ§Ã£o.', 1),
-(70, '2017-05-17 13:59:25', 1, 2, 26, 2, 'Barulho irritante', 2),
-(71, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Gato Tom, do desenho Tom e Jerry', 1),
-(72, '2017-05-17 13:59:20', 1, 5, 4, 6, 'https://en.wikipedia.org/wiki/Pope_Gregory_IX#Demonization_of_cats', 1),
-(73, '2017-05-17 13:59:21', 1, 5, 31, 5, 'Gatos', 2),
-(75, '2017-05-17 13:59:21', 1, 5, 34, 6, 'https://pt.wikipedia.org/wiki/Velho_Mundo', 2),
-(76, '2017-05-17 13:59:20', 1, 5, 5, 2, 'Publicar ou mandar publicar uma lei com todos os requisitos necessÃ¡rios para a tornar executÃ³ria.', 1),
-(78, '2017-05-17 13:59:25', 1, 2, 24, 2, 'Ã‰ o ato de malocar, o que o maloqueiro faz!', 1),
-(79, '2017-05-17 13:59:20', 1, 5, 19, 5, 'A\r\nPeste negra', 1),
-(80, '2017-05-17 13:59:21', 1, 5, 35, 2, 'InduÃ§Ã£o ao mal', 1),
-(82, '2017-05-17 13:59:25', 1, 2, 26, 2, 'Zuada Ã© um barulho constante podendo se tornar irritante.', 1),
-(83, '2017-05-17 13:59:20', 1, 5, 15, 4, '15_4_1494623812.png', 1),
-(84, '2017-05-17 13:59:20', 1, 5, 13, 5, 'Peste bubÃ´nica?', 1),
-(85, '2017-05-17 13:59:25', 1, 2, 8, 3, 'ir, deslocar', 1),
-(86, '2017-05-17 13:59:25', 1, 2, 9, 3, 'besteira', 1),
-(87, '2017-05-17 13:59:21', 1, 5, 33, 5, 'Ratos, animais roedores', 1),
-(88, '2017-05-17 13:59:20', 1, 5, 1, 2, 'Provocar algo em consequÃªncia de alguma razÃ£o', 1),
-(89, '2017-05-17 13:59:20', 1, 5, 17, 5, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2].', 1),
-(92, '2017-05-17 13:59:20', 1, 5, 5, 6, 'https://www.significados.com.br/promulgar/', 1),
-(94, '2017-05-17 13:59:20', 1, 5, 1, 2, 'criar', 1),
-(97, '2017-05-17 13:59:21', 1, 5, 35, 2, 'Afastar algo para longe de nÃ³s de com intensidade', 1),
-(98, '2017-05-17 13:59:20', 1, 5, 16, 5, 'EspÃ©cies transportadoras dos portadores da infecÃ§Ã£o', 1),
-(99, '2017-05-17 13:59:20', 1, 5, 6, 5, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o.', 1),
-(100, '2017-05-17 13:59:20', 1, 5, 2, 2, 'Adoecer ', 1),
-(103, '2017-05-17 13:59:21', 1, 5, 32, 5, 'Gato', 1),
-(104, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Gato personagem de desenhos animados', 1),
-(105, '2017-05-17 13:59:25', 1, 2, 25, 4, '25_4_1494624981.png', 1),
-(106, '2017-05-17 13:59:25', 1, 2, 9, 2, 'Conversa sem nexo com objetivo principal da conversa', 1),
-(107, '2017-05-17 13:59:20', 1, 5, 21, 4, '21_4_1494625013.png', 1),
-(108, '2017-05-17 13:59:21', 1, 5, 21, 5, 'Rato personagem de desenho animado', 2),
-(109, '2017-05-17 13:59:21', 1, 5, 21, 6, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)', 1),
-(110, '2017-05-17 13:59:21', 1, 5, 33, 5, 'O rato-preto (Rattus rattus) Ã© uma espÃ©cie de rato, tambÃ©m conhecida nas regiÃµes Norte e Nordeste do Brasil por guabiru.[1][2] Um rato adulto tem entre 12,75 e 18,25 centÃ­metros de corpo, mais 15 a 22 centÃ­metros de rabo (sendo, assim, menor do que a ratazana). ', 1),
-(111, '2017-05-17 13:59:20', 1, 5, 4, 5, 'Papa que demonizou os gatos e declarou sua caÃ§a', 1),
-(112, '2017-05-17 13:59:24', 1, 2, 8, 2, 'dar um pulo em algum lugar significa ir em algum lugar', 1),
-(113, '2017-05-17 13:59:20', 1, 5, 1, 2, 'causar algo', 1),
-(114, '2017-05-17 13:59:21', 1, 5, 22, 5, 'mikey Ã© um personagem de desenho animado que Ã© um rato. Apontando algo como parentes do mikey , estÃ¡ falando de ratos', 1),
-(115, '2017-05-17 13:59:20', 1, 5, 3, 2, 'EliminaÃ§Ã£o massiva', 1),
-(116, '2017-05-17 13:59:21', 1, 5, 32, 5, 'rato', 1),
-(117, '2017-05-17 13:59:25', 1, 2, 9, 2, 'Mentira, brincadeira de mau gosto.', 1),
-(118, '2017-05-17 13:59:20', 1, 5, 1, 2, 'ser a causa do aparecimento de; provocar, originar.', 2),
-(120, '2017-05-17 13:59:21', 1, 5, 31, 6, 'https://pt.wikipedia.org/wiki/Gato', 1),
-(121, '2017-05-17 13:59:21', 1, 5, 34, 5, 'Europa Rattus Rattus peste bulbonica', 4),
-(122, '2017-05-17 13:59:21', 1, 5, 29, 5, 'rato', 1),
-(123, '2017-05-17 13:59:20', 1, 5, 16, 5, 'ser vivo transmissor de um agente infectante', 1),
-(124, '2017-05-17 13:59:20', 1, 5, 14, 5, 'A peste bubÃ´nica foi uma doenÃ§a, transmitidas Ã  partir de ratos, que dizimou 1/3 da populaÃ§Ã£o mundial da Ã©poca. Sua proliferaÃ§Ã£o deu por conta da quantidade de lixo produzida, na Ã©poca nÃ£o se trava como hoje, que era motivo de contribuiÃ§Ã£o para surgimento de uma populaÃ§Ã£o cada vez maior de ratos. AlÃ©m do transporte, inconsciente, destes animais em navios.', 1),
-(126, '2017-05-17 13:59:21', 1, 5, 32, 5, 'gato', 1),
-(127, '2017-05-17 13:59:21', 1, 5, 32, 5, 'Os gatos.', 1),
-(128, '2017-05-17 13:59:20', 1, 5, 2, 3, 'enfermidade ', 1),
-(129, '2017-05-17 13:59:25', 1, 2, 27, 2, 'A expressÃ£o se originou por causa do slogan de um medicamento, chamado Doril, o qual era: "Tomou doril? A dor sumiu". Em outras palavras, ela significa que, se alguÃ©m tocar doril, esta pessoa desaparece.', 1),
-(130, '2017-05-17 13:59:20', 1, 5, 19, 5, 'peste negra', 2),
-(132, '2017-05-17 13:59:20', 1, 5, 15, 5, 'Personagem de desenho animado', 1),
-(133, '2017-05-17 13:59:21', 1, 5, 22, 5, 'rato', 1),
-(135, '2017-05-17 13:59:20', 1, 5, 3, 2, 'extermÃ­nio', 2),
-(136, '2017-05-17 13:59:20', 1, 5, 13, 5, 'Quando os povos da idade mÃ©dia queriam ganhar o mundo pelos mares', 1),
-(138, '2017-05-17 13:59:20', 1, 5, 15, 4, '15_4_1494625674.png', 2),
-(141, '2017-05-17 13:59:21', 1, 5, 28, 5, 'Ã© o medo irracional de gatos', 1),
-(142, '2017-05-17 13:59:25', 1, 2, 11, 5, 'Banda de rock', 1),
-(144, '2017-05-17 13:59:20', 1, 5, 5, 3, 'disseminou', 1),
-(145, '2017-05-17 13:59:24', 1, 2, 8, 2, 'Fazer uma rÃ¡pida passagemâ€‹ em algum lugar', 1),
-(146, '2017-05-17 13:59:20', 1, 5, 1, 3, 'Aparecer', 1),
-(147, '2017-05-17 13:59:24', 1, 2, 7, 2, 'Algo q estÃ¡ confirmado', 1),
-(148, '2017-05-17 13:59:21', 1, 5, 33, 6, 'https://pt.wikipedia.org/wiki/Rato-preto', 2),
-(149, '2017-05-17 13:59:21', 1, 5, 34, 5, 'Europeu pois foi o primeiro a ser descoberto', 1),
-(150, '2017-05-17 13:59:21', 1, 5, 31, 5, 'Os gatos ainda sÃ£o um dos melhores mÃ©todos de combate ao rattus rattus que Ã© uma das principais preocupaÃ§Ãµes de combate a pestes nas Ã¡reas urbanas, gatos sÃ£o animais dÃ³ceis e facilmente domesticÃ¡veis porÃ©m o mesmo diminuiu a caÃ§a de sua presa logo que o mesmo vem deixando de sair de sua cadeia alimentar, buscar uma nova maneira de combate aos ratos Ã© a melhor maneira de prevenir sua proliferaÃ§Ã£o, jÃ¡ que seus predadores naturais prefere sr alimentado por raÃ§Ãµes, carnes e perifÃ©ricos.  ', 2),
-(151, '2017-05-17 13:59:20', 1, 5, 13, 6, 'https://nl.hideproxy.me/go.php?u=Dz5fB3nASoFxFOu3ORtyT%2FzIBZm%2F66sTtEoAPu9562%2Fha6RILnLhu%2BPM%2BkKgqyuVOA%3D%3D&b=5&f=norefer', 2),
-(152, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Tom Ã© um gato que faz parte dos cartoons clÃ¡ssicos de Hanna-Barbera.', 1),
-(153, '2017-05-17 13:59:20', 1, 5, 3, 2, '1.	Em terminologia radiolÃ³gica, desaparecimento do contorno de um Ã³rgÃ£o quando os tecidos adjacentes tÃªm a mesma absorÃ§Ã£o aos raios X.', 1),
-(154, '2017-05-17 13:59:20', 1, 5, 18, 5, 'Gatos', 1),
-(155, '2017-05-17 13:59:25', 1, 2, 24, 2, 'Esconder', 1),
-(156, '2017-05-17 13:59:20', 1, 5, 4, 5, 'O Papa GregÃ³rio IX, nascido Ugolino di Anagni foi Papa de 1227 a 1241. Filho do conde de Segni e sobrinho. do Papa InocÃªncio III, estudou direito em Paris e Bolonha. Feito cardeal em 1198, tornou-se cardeal-bispo de Ã“stia em 1206.', 1),
-(157, '2017-05-17 13:59:24', 1, 2, 7, 2, 'Bem louco.', 1),
-(158, '2017-05-17 13:59:21', 1, 5, 30, 5, 'CatÃ³licos ApostÃ³licos Romanos', 2),
-(159, '2017-05-17 13:59:20', 1, 5, 13, 5, 'A ExpansÃ£o MarÃ­tima - ou ExpansÃ£o Ultramarina - foi um processo de busca por novos territÃ³rios no alÃ©m-mar (no Ã¢mbito do Metalismo) de modo a suprir as demandas internas das metrÃ³poles.', 1),
-(161, '2017-05-17 13:59:24', 1, 2, 7, 3, 'Ã“timo', 2),
-(162, '2017-05-17 13:59:21', 1, 5, 36, 3, 'Rival', 1),
-(164, '2017-05-17 13:59:25', 1, 2, 26, 3, 'Barulho', 1),
-(165, '2017-05-17 13:59:21', 1, 5, 35, 2, 'Aniquilar as bases de alguma coisa.', 1),
-(166, '2017-05-17 13:59:25', 1, 2, 27, 3, 'Sumir', 1),
-(167, '2017-05-17 13:59:20', 1, 5, 21, 5, 'Jerry, o rato, Ã© uma personagens dos cartoons clÃ¡ssicos da produtora Hanna-Barbera.', 1),
-(168, '2017-05-17 13:59:20', 1, 5, 18, 5, 'O nÃºmero 1/3 jÃ¡ deixa no imaginÃ¡rio do  que ele estÃ¡ falando. Acredito que ele esteja falando da peste negra. A fÃ¡cil reproduÃ§Ã£o dos ratos em um ambiente onde rato era apenas um roedor e que nÃ£o se tinha no senso comum como sendo um animal "asqueroso" e a falta de providÃªncia para acabar com os mesmo contribuÃ­ram para sua proliferaÃ§Ã£o. As pulgas dos ratos foram o causador deste desastre e uma maneira de conter a proliferaÃ§Ã£o era tendo o predador natural do seu transportador: o gato(isso no senso comum e o que o interlocutor induz a responder), cobra...', 2),
-(169, '2017-05-17 13:59:21', 1, 5, 31, 5, 'Gatos sendo caÃ§ados por medo e ignorÃ¢ncia', 1),
-(170, '2017-05-17 13:59:20', 1, 5, 5, 2, 'Determinou uma lei', 1),
-(171, '2017-05-17 13:59:20', 1, 5, 2, 2, 'Estado de enfermermidade', 1),
-(172, '2017-05-17 13:59:25', 1, 2, 8, 2, 'Ir rapidamente a algum lugar', 1),
-(173, '2017-05-17 13:59:21', 1, 5, 30, 5, 'PontÃ­fice Ã© a palavra chave para determinar que a religiÃ£o seja a catÃ³lica.', 1),
-(174, '2017-05-17 13:59:20', 1, 5, 13, 5, 'ExpansÃ£o marÃ­tima se deu pela necessidade do comercio e pela ambiÃ§Ã£o de riquezas e de certa forma levar a religiÃ£o para "novos mundos". ', 1),
-(175, '2017-05-17 13:59:20', 1, 5, 15, 5, 'Qual dÃºvida? Vim saber hoje da existÃªncia da Turma do Topo Gigio', 1),
-(177, '2017-05-17 13:59:20', 1, 5, 18, 5, 'NÃ£o tinha o TOM, entÃ£o quer dizer que mataram os gatos ? oxente', 1),
-(178, '2017-05-17 13:59:25', 1, 2, 25, 5, 'Uma banda do trash metal', 1),
-(179, '2017-05-17 13:59:21', 1, 5, 36, 3, 'adversÃ¡rio', 2),
-(180, '2017-05-17 13:59:21', 1, 5, 34, 5, 'Europa, pois as amÃ©ricas sÃ£o o novo mundo', 1),
-(182, '2017-05-17 13:59:25', 1, 2, 9, 2, 'CaÃ´ Ã© gÃ­ria pra mentira no Rio de Janeiro', 1),
-(183, '2017-05-17 13:59:20', 1, 5, 6, 5, 'Fala de SatanÃ¡s?', 1),
-(184, '2017-05-17 13:59:21', 1, 5, 28, 6, 'https://pt.wikipedia.org/wiki/Ailurofobia', 1),
-(185, '2017-05-17 13:59:25', 1, 2, 12, 5, 'Capa do disco do Venom', 1),
-(186, '2017-05-17 13:59:25', 1, 2, 27, 2, 'remÃ©dio pra dor', 1),
-(188, '2017-05-17 13:59:21', 1, 5, 28, 5, 'JA FALEI MEDO DE GATO', 1),
-(189, '2017-05-17 13:59:25', 1, 2, 26, 2, 'Mangar de alguem', 1),
-(190, '2017-05-17 13:59:20', 1, 5, 6, 5, 'Medo de satanÃ¡s', 1),
-(191, '2017-05-17 13:59:21', 1, 5, 29, 5, 'SATANAS', 1),
-(192, '2017-05-17 13:59:25', 1, 2, 24, 2, 'Giria', 1),
-(193, '2017-05-17 13:59:21', 1, 5, 21, 5, 'RATO', 1),
-(194, '2017-05-17 13:59:25', 1, 2, 11, 5, 'BANDA SATANICA', 1),
-(195, '2017-05-17 13:59:21', 1, 5, 31, 5, 'GATOS', 1),
-(196, '2017-05-17 13:59:25', 1, 2, 11, 5, 'DE NOVO BICHO - UMA BANDA BLACK METAL', 1),
-(197, '2017-05-17 13:59:21', 1, 5, 36, 2, 'GENTE QUE TU NAO GOSTA', 1),
-(198, '2017-05-17 13:59:20', 1, 5, 17, 5, 'BLACK DEATH\r\nPESTE NEGRA', 1),
-(199, '2017-05-17 13:59:21', 1, 5, 33, 6, 'https://pt.wikipedia.org/wiki/Peste_negra', 1),
-(200, '2017-05-17 13:59:25', 1, 2, 24, 2, 'Roubar; esconder de modo a ficar oculto.', 1),
-(201, '2017-05-17 13:59:20', 1, 5, 1, 3, 'originar', 1),
-(202, '2017-05-17 13:59:21', 1, 5, 36, 2, 'Falta de afeto', 1),
-(205, '2017-05-17 13:59:20', 1, 5, 4, 6, 'https://pt.wikipedia.org/wiki/Papa_Greg%C3%B3rio_IX', 2),
-(206, '2017-05-17 13:59:25', 1, 2, 9, 3, 'mentira', 2),
-(207, '2017-05-17 13:59:20', 1, 5, 1, 3, 'provocar', 2),
-(209, '2017-05-17 13:59:20', 1, 5, 1, 6, 'https://www.dicio.com.br/suscitar/', 1),
-(210, '2017-05-17 13:59:25', 1, 2, 12, 4, '12_4_1494702159.png', 1),
-(211, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Se refere ao desenho Tom e Jerry, no qual o Tom Ã© um gato que vive perseguindo um rato - Jerry.', 1),
-(212, '2017-05-17 13:59:21', 1, 5, 36, 3, 'inimigos', 2),
-(213, '2017-05-17 13:59:25', 1, 2, 26, 6, 'http://www.dicionarioinformal.com.br/zuado/', 1),
-(214, '2017-05-17 13:59:25', 1, 2, 11, 4, '11_4_1494702577.png', 1),
-(215, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Fingir que nÃ£o estÃ¡ entendendo algo.', 2),
-(217, '2017-05-17 13:59:21', 1, 5, 30, 5, 'Eram os catÃ³licos.', 1),
-(218, '2017-05-17 13:59:21', 1, 5, 29, 5, 'Ele temia os gatos.', 2),
-(219, '2017-05-17 13:59:24', 1, 2, 7, 3, 'Legal', 3),
-(221, '2017-05-17 13:59:25', 1, 2, 12, 4, '12_4_1494705147.png', 1),
-(222, '2017-05-17 13:59:25', 1, 2, 11, 5, 'Venon Ã© uma das bandas de black metal mais influentes do mundo.', 2),
-(223, '2017-05-17 13:59:21', 1, 5, 35, 3, 'Prejudicar', 1),
-(224, '2017-05-17 13:59:21', 1, 5, 36, 3, 'sobrepor', 1),
-(226, '2017-05-17 13:59:20', 1, 5, 3, 2, 'Padecimento: fazer entristecer, surgir empatia para um sentimento de tristeza.', 1),
-(228, '2017-05-17 13:59:20', 1, 5, 19, 6, 'https://pt.wikipedia.org/wiki/Peste_negra', 1),
-(229, '2017-05-17 13:59:24', 1, 2, 7, 2, 'ExpressÃ£o que demonstra uma coisa boa.', 1),
-(230, '2017-05-17 13:59:21', 1, 5, 36, 2, 'Coisas que nÃ£o gostam.', 1),
-(231, '2017-05-17 13:59:21', 1, 5, 21, 5, 'O Rato do desenho Tom e Jerry', 1),
-(232, '2017-05-17 13:59:21', 1, 5, 31, 5, 'O Gato', 1),
-(233, '2017-05-17 13:59:20', 1, 5, 3, 2, 'Fazer deixar de existir, aniquilar.', 1),
-(234, '2017-05-17 13:59:20', 1, 5, 18, 5, 'O Gato', 1),
-(235, '2017-05-17 13:59:25', 1, 2, 27, 3, 'sumiu', 1),
-(237, '2017-05-17 13:59:20', 1, 5, 18, 5, 'os gatos', 1),
-(239, '2017-05-17 13:59:25', 1, 2, 11, 5, 'nao sei', 1),
-(240, '2017-05-17 13:59:20', 1, 5, 19, 5, 'Epidemia de peste bubonica (peste negra)', 1),
-(242, '2017-05-17 13:59:20', 1, 5, 18, 4, '18_4_1494794302.png', 1),
-(243, '2017-05-17 13:59:20', 1, 5, 13, 5, 'Busca por porÃ§Ãµes de terra ainda inexploradas.', 1),
-(244, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Pessoa que se faz de desentendido, que nÃ£o sabe o que estÃ¡ acontecendo.', 2),
-(245, '2017-05-17 13:59:21', 1, 5, 22, 4, '22_4_1494794494.png', 1),
-(246, '2017-05-17 13:59:20', 1, 5, 1, 2, 'Fazer surgir, aparecer', 2),
-(247, '2017-05-17 13:59:20', 1, 5, 13, 6, 'https://pt.wikipedia.org/wiki/Era_dos_Descobrimentos', 1),
-(248, '2017-05-17 13:59:21', 1, 5, 21, 5, 'O famoso ratinho perseguido pelo gato Tom em todos os episÃ³dios do desenho animado.', 1),
-(249, '2017-05-17 13:59:20', 1, 5, 14, 6, 'https://pt.wikipedia.org/wiki/Peste_bub%C3%B4nica', 2),
-(250, '2017-05-17 13:59:25', 1, 2, 8, 2, 'Ida rÃ¡pida a algum lugar.', 1),
-(252, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Se fazer de desentendido.', 2),
-(253, '2017-05-17 13:59:25', 1, 2, 12, 5, 'DemÃ´nio dentro do pentagrama.', 2),
-(254, '2017-05-17 13:59:21', 1, 5, 22, 5, 'Ratos, fazendo alusÃ£o ao famoso rato da Disney', 3),
-(255, '2017-05-17 13:59:25', 1, 2, 12, 5, 'Desenho de um cachorro dentro de um pentagrama (um cÃ­rculo com uma estrela em seu interior).', 1),
-(256, '2017-05-17 13:59:20', 1, 5, 4, 4, '4_4_1494795085.png', 1),
-(258, '2017-05-17 13:59:21', 1, 5, 32, 5, 'Ratos.', 1),
-(259, '2017-05-17 13:59:21', 1, 5, 35, 2, 'Destruir, aniquilar.', 2),
-(261, '2017-05-17 13:59:20', 1, 5, 20, 5, 'Gato do desenho Tom e Jerry', 1),
-(262, '2017-05-17 13:59:20', 1, 5, 16, 5, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a.', 1),
-(263, '2017-05-17 13:59:25', 1, 2, 27, 2, 'Sumiu.', 2),
-(264, '2017-05-17 13:59:20', 1, 5, 20, 6, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)', 1),
-(267, '2017-05-17 13:59:20', 1, 5, 20, 4, '20_4_1494795417.png', 1),
-(269, '2017-05-17 13:59:20', 1, 5, 14, 5, 'Uma doenÃ§a transmitida por ratos.', 3),
-(270, '2017-05-17 13:59:25', 1, 2, 26, 2, 'Coisa estranha.', 1),
-(271, '2017-05-17 13:59:25', 1, 2, 23, 2, 'Desentendido.', 3),
-(273, '2017-05-17 13:59:20', 1, 5, 6, 5, 'Um decreto.', 1),
-(274, '2017-05-17 13:59:25', 1, 2, 8, 2, 'Ir a algum lugar rÃ¡pido.', 2),
-(275, '2017-05-17 13:59:20', 1, 5, 19, 5, 'Peste bubÃ´nica.', 4),
-(276, '2017-05-17 13:59:20', 1, 5, 17, 5, 'Peste BubÃ´nica.', 1),
-(277, '2017-05-17 13:59:20', 1, 5, 1, 2, 'Despertar.', 2),
-(280, '2017-05-17 13:59:21', 1, 5, 22, 4, '22_4_1494795949.png', 1),
-(281, '2017-05-17 13:59:21', 1, 5, 30, 5, 'Povo devoto. ', 1),
-(283, '2017-05-17 13:59:25', 1, 2, 23, 1, '23_1_1494796087.png', 1),
-(284, '2017-05-17 13:59:21', 1, 5, 32, 4, '31_4_1494363832.png', 1),
-(285, '2017-05-17 13:59:20', 1, 5, 4, 5, 'Um Papa.', 1),
-(286, '2017-05-17 13:59:21', 1, 5, 35, 2, 'Atacar', 1),
-(287, '2017-05-17 13:59:25', 1, 2, 25, 5, 'Banda norte americana', 1),
-(289, '2017-05-17 13:59:20', 1, 5, 5, 2, 'Instituiu ', 1),
-(290, '2017-05-17 13:59:24', 1, 2, 7, 2, 'Concordar com algo', 1),
-(291, '2017-05-17 13:59:25', 1, 2, 25, 5, 'Uma banda norte americana', 1),
-(292, '2017-05-17 13:59:20', 1, 5, 19, 5, 'Peste bubÃ´nica ', 1),
-(293, '2017-05-17 13:59:20', 1, 5, 16, 5, 'Que transmite algo', 1),
-(295, '2017-05-17 13:59:21', 1, 5, 36, 1, '36_1_1494796484.png', 1),
-(296, '2017-05-17 13:59:21', 1, 5, 33, 5, 'rato', 1),
-(298, '2017-05-17 13:59:21', 1, 5, 31, 5, 'ratos', 1),
-(300, '2017-05-17 13:59:21', 1, 5, 31, 5, 'gato', 1),
-(301, '2017-05-17 13:59:25', 1, 2, 12, 5, 'simbolo', 2),
-(303, '2017-05-17 13:59:20', 1, 5, 17, 5, 'Ã‰ a Peste BulbÃ´nica, tambÃ©m conhecida como Peste Negra. DoenÃ§a transmitida pela pulga de ratos. Ela se alastrou na Europa na Idade MÃ©dia e matou 1/3 de sua populaÃ§Ã£o. No vÃ­deo ele fala que a falta de predadores de ratos ajudou a doenÃ§a a se alastrar se referindo a gatos (Tom e Jerry), que eram mortos porque as pessoas na Ã©poca acreditavam que eles eram seres relacionados com as bruxas.', 2),
-(304, '2017-05-17 13:59:20', 1, 5, 1, 3, 'Causar, Originar', 1),
-(305, '2017-05-17 13:59:25', 1, 2, 9, 3, 'Chatisse, Mentira', 1),
-(306, '2017-05-17 13:59:20', 1, 5, 15, 4, '15_4_1494811869.png', 1),
-(307, '2017-05-17 13:59:20', 1, 5, 18, 5, 'Era o gato. Ele chama o predador de "Tom" do desenho "Tom e Jerry", em que Tom Ã© o gato e Jerry Ã© o rato.', 1),
-(308, '2017-05-17 13:59:20', 1, 5, 21, 5, 'Ã‰ o rato. ', 1),
-(309, '2017-05-17 13:59:20', 1, 5, 15, 4, '15_4_1494812053.png', 1),
-(310, '2017-05-17 13:59:21', 1, 5, 37, 1, '10_1_1494364458.png', 1),
-(311, '2017-05-17 13:59:25', 1, 2, 10, 2, 'Vai ou vamos', 1);
+(1, '2017-05-31 17:06:57', 1, 5, 28, 5, 'Medo de gatos.', 1),
+(4, '2017-05-31 17:06:57', 1, 5, 31, 5, 'Gatos.', 1),
+(5, '2017-05-31 17:06:57', 1, 5, 32, 5, 'Gatos.', 2),
+(6, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Gato.', 1),
+(7, '2017-05-31 17:06:56', 1, 5, 4, 5, 'Um papa.', 2),
+(9, '2017-05-31 17:06:57', 1, 5, 20, 4, '20_4_1494358415.png', 1),
+(10, '2017-05-31 17:06:56', 1, 2, 10, 3, 'Camiseta', 1),
+(11, '2017-05-31 17:06:57', 1, 5, 34, 5, 'O Velho Continente Ã© a Europa.', 1),
+(12, '2017-05-31 17:06:57', 1, 5, 29, 5, 'Os gatos', 1),
+(13, '2017-05-31 17:06:57', 1, 2, 24, 3, 'Catou', 1),
+(16, '2017-05-31 17:06:56', 1, 2, 10, 3, 'Camisa de banda', 2),
+(17, '2017-05-31 17:06:56', 1, 5, 18, 6, 'https://videos-novaes.c9users.io/Service/redirect.php?url=http://logosapologetica.com/10514-2/#axzz4gxPU7BUn', 1),
+(18, '2017-05-31 17:06:57', 1, 5, 28, 5, 'AILUROFOBIA: A FOBIA DO MEDO DOS GATOS', 1),
+(19, '2017-05-31 17:06:57', 1, 5, 31, 6, 'http://historiadomundo.uol.com.br/curiosidades/os-gatos-na-historia.htm', 1),
+(20, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Se refere a uma pessoa que finge nÃ£o entender o que esta acontecendo para tirar vantagem da situaÃ§Ã£o ou para o prÃ³prio bem', 1),
+(21, '2017-05-31 17:06:56', 1, 5, 14, 6, 'https://www.tuasaude.com/peste-bubonica/', 1),
+(22, '2017-05-31 17:06:57', 1, 5, 31, 4, '31_4_1494362145.png', 1),
+(23, '2017-05-31 17:06:56', 1, 2, 11, 6, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg', 1),
+(24, '2017-05-31 17:06:57', 1, 5, 32, 5, 'Os gatos que foram exterminados ,pois teoricamente o Papa tinha uma fobia dos gatos.', 2),
+(26, '2017-05-31 17:06:56', 1, 5, 5, 2, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica.', 1),
+(27, '2017-05-31 17:06:56', 1, 5, 3, 3, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o', 2),
+(28, '2017-05-31 17:06:56', 1, 2, 8, 2, 'gÃ­ria informando que alguÃ©m vai para algum lugar  ', 1),
+(29, '2017-05-31 17:06:56', 1, 5, 15, 6, 'https://www.youtube.com/watch?v=b6GBzPvsjN8', 2),
+(30, '2017-05-31 17:06:57', 1, 2, 25, 6, 'https://pt.wikipedia.org/wiki/Slayer', 2),
+(31, '2017-05-31 17:06:57', 1, 5, 20, 4, '20_4_1494362641.png', 1),
+(32, '2017-05-31 17:06:57', 1, 2, 24, 2, 'gÃ­ria informando que alguÃ©m furtou um objeto.', 1),
+(33, '2017-05-31 17:06:57', 1, 5, 34, 5, 'EurÃ¡sia e Ãfrica: os continentes europeu, africano, asiÃ¡tico e os quatro arquipÃ©lagos da MacaronÃ©sia', 2),
+(35, '2017-05-31 17:06:57', 1, 5, 31, 4, '31_4_1494363832.png', 1),
+(37, '2017-05-31 17:06:56', 1, 5, 16, 6, 'https://pt.wikipedia.org/wiki/Vetor_(epidemiologia)', 1),
+(38, '2017-05-31 17:06:57', 1, 5, 22, 4, '22_4_1494363937.png', 1),
+(39, '2017-05-31 17:06:56', 1, 5, 5, 3, 'Publicou', 1),
+(41, '2017-05-31 17:06:56', 1, 5, 4, 4, '4_4_1494364033.png', 1),
+(42, '2017-05-31 17:06:57', 1, 2, 23, 1, '23_1_1494364192.png', 1),
+(43, '2017-05-31 17:06:56', 1, 2, 12, 4, '12_4_1494364231.png', 1),
+(44, '2017-05-31 17:06:57', 1, 2, 27, 3, 'Sumiu', 1),
+(46, '2017-05-31 17:06:56', 1, 5, 13, 5, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes.', 1),
+(47, '2017-05-31 17:06:56', 1, 5, 2, 2, 'sofrimento fÃ­sico ou moral', 2),
+(48, '2017-05-31 17:06:57', 1, 5, 29, 4, '29_4_1494364392.png', 2),
+(49, '2017-05-31 17:06:56', 1, 2, 9, 2, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira.', 1),
+(50, '2017-05-31 17:06:56', 1, 2, 10, 1, '10_1_1494364458.png', 1),
+(52, '2017-05-31 17:06:57', 1, 5, 33, 5, 'Rato Preto.', 1),
+(53, '2017-05-31 17:06:56', 1, 5, 14, 5, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas.', 1),
+(54, '2017-05-31 17:06:57', 1, 5, 21, 4, '21_4_1494364581.png', 1),
+(56, '2017-05-31 17:06:57', 1, 2, 26, 2, 'referÃªncia Ã  opiniÃ£o sobre qualidade da mÃºsica nÃ£o compreendida pelo ouvinte.', 1),
+(58, '2017-05-31 17:06:57', 1, 5, 20, 5, 'A doenÃ§a Ã© a peste negra. Como a bacteria causadora estava no rato, bastava utilizar vinagre nos navios para que as pulgas e ratos nÃ£o entrassem, pois o cheiro Ã© forte, elas evitariam a entrada nos navios prevenindo milhoes da morte.', 1),
+(59, '2017-05-31 17:06:56', 1, 5, 6, 5, 'Peste negra', 1),
+(60, '2017-05-31 17:06:56', 1, 5, 16, 5, 'Peste negra', 1),
+(61, '2017-05-31 17:06:56', 1, 5, 15, 5, 'Ratos.', 3),
+(62, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Vagabundo.', 1),
+(63, '2017-05-31 17:06:57', 1, 5, 36, 2, 'Inimigos', 2),
+(64, '2017-05-31 17:06:57', 1, 5, 19, 5, 'Dizimou a maior parte da Europa, trazida por ratos, que seriam caÃ§ados com gatos mas o cara que mandava na Europa nÃ£o gosta de gatos e mandou matar tudo. Resultado: cerca de 1/3 dos Europeus morreram', 1),
+(66, '2017-05-31 17:06:57', 1, 5, 30, 6, 'https://pt.wikipedia.org/wiki/Inquisi%C3%A7%C3%A3o', 1),
+(68, '2017-05-31 17:06:57', 1, 5, 35, 6, 'https://www.dicio.com.br/solapar/', 1),
+(69, '2017-05-31 17:06:56', 1, 5, 4, 5, 'Foi o Papa que editou a bula que deu inÃ­cio Ã  InquisiÃ§Ã£o.', 1),
+(70, '2017-05-31 17:06:57', 1, 2, 26, 2, 'Barulho irritante', 2),
+(71, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Gato Tom, do desenho Tom e Jerry', 1),
+(72, '2017-05-31 17:06:56', 1, 5, 4, 6, 'https://en.wikipedia.org/wiki/Pope_Gregory_IX#Demonization_of_cats', 1),
+(73, '2017-05-31 17:06:57', 1, 5, 31, 5, 'Gatos', 2),
+(75, '2017-05-31 17:06:57', 1, 5, 34, 6, 'https://pt.wikipedia.org/wiki/Velho_Mundo', 2),
+(76, '2017-05-31 17:06:56', 1, 5, 5, 2, 'Publicar ou mandar publicar uma lei com todos os requisitos necessÃ¡rios para a tornar executÃ³ria.', 1),
+(78, '2017-05-31 17:06:57', 1, 2, 24, 2, 'Ã‰ o ato de malocar, o que o maloqueiro faz!', 1),
+(79, '2017-05-31 17:06:56', 1, 5, 19, 5, 'A\r\nPeste negra', 1),
+(80, '2017-05-31 17:06:57', 1, 5, 35, 2, 'InduÃ§Ã£o ao mal', 1),
+(82, '2017-05-31 17:06:57', 1, 2, 26, 2, 'Zuada Ã© um barulho constante podendo se tornar irritante.', 1),
+(83, '2017-05-31 17:06:56', 1, 5, 15, 4, '15_4_1494623812.png', 1),
+(84, '2017-05-31 17:06:56', 1, 5, 13, 5, 'Peste bubÃ´nica?', 1),
+(85, '2017-05-31 17:06:56', 1, 2, 8, 3, 'ir, deslocar', 1),
+(86, '2017-05-31 17:06:56', 1, 2, 9, 3, 'besteira', 1),
+(87, '2017-05-31 17:06:57', 1, 5, 33, 5, 'Ratos, animais roedores', 1),
+(88, '2017-05-31 17:06:56', 1, 5, 1, 2, 'Provocar algo em consequÃªncia de alguma razÃ£o', 1),
+(89, '2017-05-31 17:06:56', 1, 5, 17, 5, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2].', 1),
+(92, '2017-05-31 17:06:56', 1, 5, 5, 6, 'https://www.significados.com.br/promulgar/', 1),
+(94, '2017-05-31 17:06:56', 1, 5, 1, 2, 'criar', 1),
+(97, '2017-05-31 17:06:57', 1, 5, 35, 2, 'Afastar algo para longe de nÃ³s de com intensidade', 1),
+(98, '2017-05-31 17:06:56', 1, 5, 16, 5, 'EspÃ©cies transportadoras dos portadores da infecÃ§Ã£o', 1),
+(99, '2017-05-31 17:06:56', 1, 5, 6, 5, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o.', 1),
+(100, '2017-05-31 17:06:56', 1, 5, 2, 2, 'Adoecer ', 1),
+(103, '2017-05-31 17:06:57', 1, 5, 32, 5, 'Gato', 1),
+(104, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Gato personagem de desenhos animados', 1),
+(105, '2017-05-31 17:06:57', 1, 2, 25, 4, '25_4_1494624981.png', 1),
+(106, '2017-05-31 17:06:56', 1, 2, 9, 2, 'Conversa sem nexo com objetivo principal da conversa', 1),
+(107, '2017-05-31 17:06:57', 1, 5, 21, 4, '21_4_1494625013.png', 1),
+(108, '2017-05-31 17:06:57', 1, 5, 21, 5, 'Rato personagem de desenho animado', 2),
+(109, '2017-05-31 17:06:57', 1, 5, 21, 6, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry)', 1),
+(110, '2017-05-31 17:06:57', 1, 5, 33, 5, 'O rato-preto (Rattus rattus) Ã© uma espÃ©cie de rato, tambÃ©m conhecida nas regiÃµes Norte e Nordeste do Brasil por guabiru.[1][2] Um rato adulto tem entre 12,75 e 18,25 centÃ­metros de corpo, mais 15 a 22 centÃ­metros de rabo (sendo, assim, menor do que a ratazana). ', 1),
+(111, '2017-05-31 17:06:56', 1, 5, 4, 5, 'Papa que demonizou os gatos e declarou sua caÃ§a', 1),
+(112, '2017-05-31 17:06:56', 1, 2, 8, 2, 'dar um pulo em algum lugar significa ir em algum lugar', 1),
+(113, '2017-05-31 17:06:56', 1, 5, 1, 2, 'causar algo', 1),
+(114, '2017-05-31 17:06:57', 1, 5, 22, 5, 'mikey Ã© um personagem de desenho animado que Ã© um rato. Apontando algo como parentes do mikey , estÃ¡ falando de ratos', 1),
+(115, '2017-05-31 17:06:56', 1, 5, 3, 2, 'EliminaÃ§Ã£o massiva', 1),
+(116, '2017-05-31 17:06:57', 1, 5, 32, 5, 'rato', 1),
+(117, '2017-05-31 17:06:56', 1, 2, 9, 2, 'Mentira, brincadeira de mau gosto.', 1),
+(118, '2017-05-31 17:06:56', 1, 5, 1, 2, 'ser a causa do aparecimento de; provocar, originar.', 2),
+(120, '2017-05-31 17:06:57', 1, 5, 31, 6, 'https://pt.wikipedia.org/wiki/Gato', 1),
+(121, '2017-05-31 17:06:57', 1, 5, 34, 5, 'Europa Rattus Rattus peste bulbonica', 4),
+(122, '2017-05-31 17:06:57', 1, 5, 29, 5, 'rato', 1),
+(123, '2017-05-31 17:06:56', 1, 5, 16, 5, 'ser vivo transmissor de um agente infectante', 1),
+(124, '2017-05-31 17:06:56', 1, 5, 14, 5, 'A peste bubÃ´nica foi uma doenÃ§a, transmitidas Ã  partir de ratos, que dizimou 1/3 da populaÃ§Ã£o mundial da Ã©poca. Sua proliferaÃ§Ã£o deu por conta da quantidade de lixo produzida, na Ã©poca nÃ£o se trava como hoje, que era motivo de contribuiÃ§Ã£o para surgimento de uma populaÃ§Ã£o cada vez maior de ratos. AlÃ©m do transporte, inconsciente, destes animais em navios.', 1),
+(126, '2017-05-31 17:06:57', 1, 5, 32, 5, 'gato', 1),
+(127, '2017-05-31 17:06:57', 1, 5, 32, 5, 'Os gatos.', 1),
+(128, '2017-05-31 17:06:56', 1, 5, 2, 3, 'enfermidade ', 1),
+(129, '2017-05-31 17:06:57', 1, 2, 27, 2, 'A expressÃ£o se originou por causa do slogan de um medicamento, chamado Doril, o qual era: "Tomou doril? A dor sumiu". Em outras palavras, ela significa que, se alguÃ©m tocar doril, esta pessoa desaparece.', 1),
+(130, '2017-05-31 17:06:57', 1, 5, 19, 5, 'peste negra', 2),
+(132, '2017-05-31 17:06:56', 1, 5, 15, 5, 'Personagem de desenho animado', 1),
+(133, '2017-05-31 17:06:57', 1, 5, 22, 5, 'rato', 1),
+(135, '2017-05-31 17:06:56', 1, 5, 3, 2, 'extermÃ­nio', 2),
+(136, '2017-05-31 17:06:56', 1, 5, 13, 5, 'Quando os povos da idade mÃ©dia queriam ganhar o mundo pelos mares', 1),
+(138, '2017-05-31 17:06:56', 1, 5, 15, 4, '15_4_1494625674.png', 2),
+(141, '2017-05-31 17:06:57', 1, 5, 28, 5, 'Ã© o medo irracional de gatos', 1),
+(142, '2017-05-31 17:06:56', 1, 2, 11, 5, 'Banda de rock', 1),
+(144, '2017-05-31 17:06:56', 1, 5, 5, 3, 'disseminou', 1),
+(145, '2017-05-31 17:06:56', 1, 2, 8, 2, 'Fazer uma rÃ¡pida passagemâ€‹ em algum lugar', 1),
+(146, '2017-05-31 17:06:56', 1, 5, 1, 3, 'Aparecer', 1),
+(147, '2017-05-31 17:06:56', 1, 2, 7, 2, 'Algo q estÃ¡ confirmado', 1),
+(148, '2017-05-31 17:06:57', 1, 5, 33, 6, 'https://pt.wikipedia.org/wiki/Rato-preto', 2),
+(149, '2017-05-31 17:06:57', 1, 5, 34, 5, 'Europeu pois foi o primeiro a ser descoberto', 1),
+(150, '2017-05-31 17:06:57', 1, 5, 31, 5, 'Os gatos ainda sÃ£o um dos melhores mÃ©todos de combate ao rattus rattus que Ã© uma das principais preocupaÃ§Ãµes de combate a pestes nas Ã¡reas urbanas, gatos sÃ£o animais dÃ³ceis e facilmente domesticÃ¡veis porÃ©m o mesmo diminuiu a caÃ§a de sua presa logo que o mesmo vem deixando de sair de sua cadeia alimentar, buscar uma nova maneira de combate aos ratos Ã© a melhor maneira de prevenir sua proliferaÃ§Ã£o, jÃ¡ que seus predadores naturais prefere sr alimentado por raÃ§Ãµes, carnes e perifÃ©ricos.  ', 2),
+(151, '2017-05-31 17:06:56', 1, 5, 13, 6, 'https://nl.hideproxy.me/go.php?u=Dz5fB3nASoFxFOu3ORtyT%2FzIBZm%2F66sTtEoAPu9562%2Fha6RILnLhu%2BPM%2BkKgqyuVOA%3D%3D&b=5&f=norefer', 2),
+(152, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Tom Ã© um gato que faz parte dos cartoons clÃ¡ssicos de Hanna-Barbera.', 1),
+(153, '2017-05-31 17:06:56', 1, 5, 3, 2, '1.	Em terminologia radiolÃ³gica, desaparecimento do contorno de um Ã³rgÃ£o quando os tecidos adjacentes tÃªm a mesma absorÃ§Ã£o aos raios X.', 1),
+(154, '2017-05-31 17:06:56', 1, 5, 18, 5, 'Gatos', 1),
+(155, '2017-05-31 17:06:57', 1, 2, 24, 2, 'Esconder', 1),
+(156, '2017-05-31 17:06:56', 1, 5, 4, 5, 'O Papa GregÃ³rio IX, nascido Ugolino di Anagni foi Papa de 1227 a 1241. Filho do conde de Segni e sobrinho. do Papa InocÃªncio III, estudou direito em Paris e Bolonha. Feito cardeal em 1198, tornou-se cardeal-bispo de Ã“stia em 1206.', 1),
+(157, '2017-05-31 17:06:56', 1, 2, 7, 2, 'Bem louco.', 1),
+(158, '2017-05-31 17:06:57', 1, 5, 30, 5, 'CatÃ³licos ApostÃ³licos Romanos', 2),
+(159, '2017-05-31 17:06:56', 1, 5, 13, 5, 'A ExpansÃ£o MarÃ­tima - ou ExpansÃ£o Ultramarina - foi um processo de busca por novos territÃ³rios no alÃ©m-mar (no Ã¢mbito do Metalismo) de modo a suprir as demandas internas das metrÃ³poles.', 1),
+(161, '2017-05-31 17:06:56', 1, 2, 7, 3, 'Ã“timo', 2),
+(162, '2017-05-31 17:06:57', 1, 5, 36, 3, 'Rival', 1),
+(164, '2017-05-31 17:06:57', 1, 2, 26, 3, 'Barulho', 1),
+(165, '2017-05-31 17:06:57', 1, 5, 35, 2, 'Aniquilar as bases de alguma coisa.', 1),
+(166, '2017-05-31 17:06:57', 1, 2, 27, 3, 'Sumir', 1),
+(167, '2017-05-31 17:06:57', 1, 5, 21, 5, 'Jerry, o rato, Ã© uma personagens dos cartoons clÃ¡ssicos da produtora Hanna-Barbera.', 1),
+(168, '2017-05-31 17:06:56', 1, 5, 18, 5, 'O nÃºmero 1/3 jÃ¡ deixa no imaginÃ¡rio do  que ele estÃ¡ falando. Acredito que ele esteja falando da peste negra. A fÃ¡cil reproduÃ§Ã£o dos ratos em um ambiente onde rato era apenas um roedor e que nÃ£o se tinha no senso comum como sendo um animal "asqueroso" e a falta de providÃªncia para acabar com os mesmo contribuÃ­ram para sua proliferaÃ§Ã£o. As pulgas dos ratos foram o causador deste desastre e uma maneira de conter a proliferaÃ§Ã£o era tendo o predador natural do seu transportador: o gato(isso no senso comum e o que o interlocutor induz a responder), cobra...', 2),
+(169, '2017-05-31 17:06:57', 1, 5, 31, 5, 'Gatos sendo caÃ§ados por medo e ignorÃ¢ncia', 1),
+(170, '2017-05-31 17:06:56', 1, 5, 5, 2, 'Determinou uma lei', 1),
+(171, '2017-05-31 17:06:56', 1, 5, 2, 2, 'Estado de enfermermidade', 1),
+(172, '2017-05-31 17:06:56', 1, 2, 8, 2, 'Ir rapidamente a algum lugar', 1),
+(173, '2017-05-31 17:06:57', 1, 5, 30, 5, 'PontÃ­fice Ã© a palavra chave para determinar que a religiÃ£o seja a catÃ³lica.', 1),
+(174, '2017-05-31 17:06:56', 1, 5, 13, 5, 'ExpansÃ£o marÃ­tima se deu pela necessidade do comercio e pela ambiÃ§Ã£o de riquezas e de certa forma levar a religiÃ£o para "novos mundos". ', 1),
+(175, '2017-05-31 17:06:56', 1, 5, 15, 5, 'Qual dÃºvida? Vim saber hoje da existÃªncia da Turma do Topo Gigio', 1),
+(177, '2017-05-31 17:06:56', 1, 5, 18, 5, 'NÃ£o tinha o TOM, entÃ£o quer dizer que mataram os gatos ? oxente', 1),
+(178, '2017-05-31 17:06:57', 1, 2, 25, 5, 'Uma banda do trash metal', 1),
+(179, '2017-05-31 17:06:57', 1, 5, 36, 3, 'adversÃ¡rio', 2),
+(180, '2017-05-31 17:06:57', 1, 5, 34, 5, 'Europa, pois as amÃ©ricas sÃ£o o novo mundo', 1),
+(182, '2017-05-31 17:06:56', 1, 2, 9, 2, 'CaÃ´ Ã© gÃ­ria pra mentira no Rio de Janeiro', 1),
+(183, '2017-05-31 17:06:56', 1, 5, 6, 5, 'Fala de SatanÃ¡s?', 1),
+(184, '2017-05-31 17:06:57', 1, 5, 28, 6, 'https://pt.wikipedia.org/wiki/Ailurofobia', 1),
+(185, '2017-05-31 17:06:56', 1, 2, 12, 5, 'Capa do disco do Venom', 1),
+(186, '2017-05-31 17:06:57', 1, 2, 27, 2, 'remÃ©dio pra dor', 1),
+(188, '2017-05-31 17:06:57', 1, 5, 28, 5, 'JA FALEI MEDO DE GATO', 1),
+(189, '2017-05-31 17:06:57', 1, 2, 26, 2, 'Mangar de alguem', 1),
+(190, '2017-05-31 17:06:56', 1, 5, 6, 5, 'Medo de satanÃ¡s', 1),
+(191, '2017-05-31 17:06:57', 1, 5, 29, 5, 'SATANAS', 1),
+(192, '2017-05-31 17:06:57', 1, 2, 24, 2, 'Giria', 1),
+(193, '2017-05-31 17:06:57', 1, 5, 21, 5, 'RATO', 1),
+(194, '2017-05-31 17:06:56', 1, 2, 11, 5, 'BANDA SATANICA', 1),
+(195, '2017-05-31 17:06:57', 1, 5, 31, 5, 'GATOS', 1),
+(196, '2017-05-31 17:06:56', 1, 2, 11, 5, 'DE NOVO BICHO - UMA BANDA BLACK METAL', 1),
+(197, '2017-05-31 17:06:57', 1, 5, 36, 2, 'GENTE QUE TU NAO GOSTA', 1),
+(198, '2017-05-31 17:06:56', 1, 5, 17, 5, 'BLACK DEATH\r\nPESTE NEGRA', 1),
+(199, '2017-05-31 17:06:57', 1, 5, 33, 6, 'https://pt.wikipedia.org/wiki/Peste_negra', 1),
+(200, '2017-05-31 17:06:57', 1, 2, 24, 2, 'Roubar; esconder de modo a ficar oculto.', 1),
+(201, '2017-05-31 17:06:56', 1, 5, 1, 3, 'originar', 1),
+(202, '2017-05-31 17:06:57', 1, 5, 36, 2, 'Falta de afeto', 1),
+(205, '2017-05-31 17:06:56', 1, 5, 4, 6, 'https://pt.wikipedia.org/wiki/Papa_Greg%C3%B3rio_IX', 2),
+(206, '2017-05-31 17:06:56', 1, 2, 9, 3, 'mentira', 2),
+(207, '2017-05-31 17:06:56', 1, 5, 1, 3, 'provocar', 2),
+(209, '2017-05-31 17:06:56', 1, 5, 1, 6, 'https://www.dicio.com.br/suscitar/', 1),
+(210, '2017-05-31 17:06:56', 1, 2, 12, 4, '12_4_1494702159.png', 1),
+(211, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Se refere ao desenho Tom e Jerry, no qual o Tom Ã© um gato que vive perseguindo um rato - Jerry.', 1),
+(212, '2017-05-31 17:06:57', 1, 5, 36, 3, 'inimigos', 2),
+(213, '2017-05-31 17:06:57', 1, 2, 26, 6, 'http://www.dicionarioinformal.com.br/zuado/', 1),
+(214, '2017-05-31 17:06:56', 1, 2, 11, 4, '11_4_1494702577.png', 1),
+(215, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Fingir que nÃ£o estÃ¡ entendendo algo.', 2),
+(217, '2017-05-31 17:06:57', 1, 5, 30, 5, 'Eram os catÃ³licos.', 1),
+(218, '2017-05-31 17:06:57', 1, 5, 29, 5, 'Ele temia os gatos.', 2),
+(219, '2017-05-31 17:06:56', 1, 2, 7, 3, 'Legal', 3),
+(221, '2017-05-31 17:06:56', 1, 2, 12, 4, '12_4_1494705147.png', 1),
+(222, '2017-05-31 17:06:56', 1, 2, 11, 5, 'Venon Ã© uma das bandas de black metal mais influentes do mundo.', 2),
+(223, '2017-05-31 17:06:57', 1, 5, 35, 3, 'Prejudicar', 1),
+(224, '2017-05-31 17:06:57', 1, 5, 36, 3, 'sobrepor', 1),
+(226, '2017-05-31 17:06:56', 1, 5, 3, 2, 'Padecimento: fazer entristecer, surgir empatia para um sentimento de tristeza.', 1),
+(228, '2017-05-31 17:06:57', 1, 5, 19, 6, 'https://pt.wikipedia.org/wiki/Peste_negra', 1),
+(229, '2017-05-31 17:06:56', 1, 2, 7, 2, 'ExpressÃ£o que demonstra uma coisa boa.', 1),
+(230, '2017-05-31 17:06:57', 1, 5, 36, 2, 'Coisas que nÃ£o gostam.', 1),
+(231, '2017-05-31 17:06:57', 1, 5, 21, 5, 'O Rato do desenho Tom e Jerry', 1),
+(232, '2017-05-31 17:06:57', 1, 5, 31, 5, 'O Gato', 1),
+(233, '2017-05-31 17:06:56', 1, 5, 3, 2, 'Fazer deixar de existir, aniquilar.', 1),
+(234, '2017-05-31 17:06:56', 1, 5, 18, 5, 'O Gato', 1),
+(235, '2017-05-31 17:06:57', 1, 2, 27, 3, 'sumiu', 1),
+(237, '2017-05-31 17:06:56', 1, 5, 18, 5, 'os gatos', 1),
+(239, '2017-05-31 17:06:56', 1, 2, 11, 5, 'nao sei', 1),
+(240, '2017-05-31 17:06:57', 1, 5, 19, 5, 'Epidemia de peste bubonica (peste negra)', 1),
+(242, '2017-05-31 17:06:56', 1, 5, 18, 4, '18_4_1494794302.png', 1),
+(243, '2017-05-31 17:06:56', 1, 5, 13, 5, 'Busca por porÃ§Ãµes de terra ainda inexploradas.', 1),
+(244, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Pessoa que se faz de desentendido, que nÃ£o sabe o que estÃ¡ acontecendo.', 2),
+(245, '2017-05-31 17:06:57', 1, 5, 22, 4, '22_4_1494794494.png', 1),
+(246, '2017-05-31 17:06:56', 1, 5, 1, 2, 'Fazer surgir, aparecer', 2),
+(247, '2017-05-31 17:06:56', 1, 5, 13, 6, 'https://pt.wikipedia.org/wiki/Era_dos_Descobrimentos', 1),
+(248, '2017-05-31 17:06:57', 1, 5, 21, 5, 'O famoso ratinho perseguido pelo gato Tom em todos os episÃ³dios do desenho animado.', 1),
+(249, '2017-05-31 17:06:56', 1, 5, 14, 6, 'https://pt.wikipedia.org/wiki/Peste_bub%C3%B4nica', 2),
+(250, '2017-05-31 17:06:56', 1, 2, 8, 2, 'Ida rÃ¡pida a algum lugar.', 1),
+(252, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Se fazer de desentendido.', 2),
+(253, '2017-05-31 17:06:56', 1, 2, 12, 5, 'DemÃ´nio dentro do pentagrama.', 2),
+(254, '2017-05-31 17:06:57', 1, 5, 22, 5, 'Ratos, fazendo alusÃ£o ao famoso rato da Disney', 3),
+(255, '2017-05-31 17:06:56', 1, 2, 12, 5, 'Desenho de um cachorro dentro de um pentagrama (um cÃ­rculo com uma estrela em seu interior).', 1),
+(256, '2017-05-31 17:06:56', 1, 5, 4, 4, '4_4_1494795085.png', 1),
+(258, '2017-05-31 17:06:57', 1, 5, 32, 5, 'Ratos.', 1),
+(259, '2017-05-31 17:06:57', 1, 5, 35, 2, 'Destruir, aniquilar.', 2),
+(261, '2017-05-31 17:06:57', 1, 5, 20, 5, 'Gato do desenho Tom e Jerry', 1),
+(262, '2017-05-31 17:06:56', 1, 5, 16, 5, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a.', 1),
+(263, '2017-05-31 17:06:57', 1, 2, 27, 2, 'Sumiu.', 2),
+(264, '2017-05-31 17:06:57', 1, 5, 20, 6, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry)', 1),
+(267, '2017-05-31 17:06:57', 1, 5, 20, 4, '20_4_1494795417.png', 1),
+(269, '2017-05-31 17:06:56', 1, 5, 14, 5, 'Uma doenÃ§a transmitida por ratos.', 3),
+(270, '2017-05-31 17:06:57', 1, 2, 26, 2, 'Coisa estranha.', 1),
+(271, '2017-05-31 17:06:57', 1, 2, 23, 2, 'Desentendido.', 3),
+(273, '2017-05-31 17:06:56', 1, 5, 6, 5, 'Um decreto.', 1),
+(274, '2017-05-31 17:06:56', 1, 2, 8, 2, 'Ir a algum lugar rÃ¡pido.', 2),
+(275, '2017-05-31 17:06:57', 1, 5, 19, 5, 'Peste bubÃ´nica.', 4),
+(276, '2017-05-31 17:06:56', 1, 5, 17, 5, 'Peste BubÃ´nica.', 1),
+(277, '2017-05-31 17:06:56', 1, 5, 1, 2, 'Despertar.', 2),
+(280, '2017-05-31 17:06:57', 1, 5, 22, 4, '22_4_1494795949.png', 1),
+(281, '2017-05-31 17:06:57', 1, 5, 30, 5, 'Povo devoto. ', 1),
+(283, '2017-05-31 17:06:57', 1, 2, 23, 1, '23_1_1494796087.png', 1),
+(284, '2017-05-31 17:06:57', 1, 5, 32, 4, '31_4_1494363832.png', 1),
+(285, '2017-05-31 17:06:56', 1, 5, 4, 5, 'Um Papa.', 1),
+(286, '2017-05-31 17:06:57', 1, 5, 35, 2, 'Atacar', 1),
+(287, '2017-05-31 17:06:57', 1, 2, 25, 5, 'Banda norte americana', 1),
+(289, '2017-05-31 17:06:56', 1, 5, 5, 2, 'Instituiu ', 1),
+(290, '2017-05-31 17:06:56', 1, 2, 7, 2, 'Concordar com algo', 1),
+(291, '2017-05-31 17:06:57', 1, 2, 25, 5, 'Uma banda norte americana', 1),
+(292, '2017-05-31 17:06:57', 1, 5, 19, 5, 'Peste bubÃ´nica ', 1),
+(293, '2017-05-31 17:06:56', 1, 5, 16, 5, 'Que transmite algo', 1),
+(295, '2017-05-31 17:06:57', 1, 5, 36, 1, '36_1_1494796484.png', 1),
+(296, '2017-05-31 17:06:57', 1, 5, 33, 5, 'rato', 1),
+(298, '2017-05-31 17:06:57', 1, 5, 31, 5, 'ratos', 1),
+(300, '2017-05-31 17:06:57', 1, 5, 31, 5, 'gato', 1),
+(301, '2017-05-31 17:06:56', 1, 2, 12, 5, 'simbolo', 2),
+(303, '2017-05-31 17:06:56', 1, 5, 17, 5, 'Ã‰ a Peste BulbÃ´nica, tambÃ©m conhecida como Peste Negra. DoenÃ§a transmitida pela pulga de ratos. Ela se alastrou na Europa na Idade MÃ©dia e matou 1/3 de sua populaÃ§Ã£o. No vÃ­deo ele fala que a falta de predadores de ratos ajudou a doenÃ§a a se alastrar se referindo a gatos (Tom e Jerry), que eram mortos porque as pessoas na Ã©poca acreditavam que eles eram seres relacionados com as bruxas.', 2),
+(304, '2017-05-31 17:06:56', 1, 5, 1, 3, 'Causar, Originar', 1),
+(305, '2017-05-31 17:06:56', 1, 2, 9, 3, 'Chatisse, Mentira', 1),
+(306, '2017-05-31 17:06:56', 1, 5, 15, 4, '15_4_1494811869.png', 1),
+(307, '2017-05-31 17:06:56', 1, 5, 18, 5, 'Era o gato. Ele chama o predador de "Tom" do desenho "Tom e Jerry", em que Tom Ã© o gato e Jerry Ã© o rato.', 1),
+(308, '2017-05-31 17:06:57', 1, 5, 21, 5, 'Ã‰ o rato. ', 1),
+(309, '2017-05-31 17:06:56', 1, 5, 15, 4, '15_4_1494812053.png', 1),
+(310, '2017-05-31 17:06:57', 1, 5, 37, 1, '10_1_1494364458.png', 1),
+(311, '2017-05-31 17:06:56', 1, 2, 10, 2, 'Vai ou vamos', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task3`
+-- Table structure for table `task3`
 --
 
-CREATE TABLE IF NOT EXISTS `task3` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task3` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gap_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -924,12 +1415,11 @@ CREATE TABLE IF NOT EXISTS `task3` (
   `sugestion_type` int(11) NOT NULL,
   `gap_position` int(11) NOT NULL,
   `gap_answer` varchar(128) NOT NULL,
-  `fingerprint` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=189 ;
+  `fingerprint` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task3`
+-- Dumping data for table `task3`
 --
 
 INSERT INTO `task3` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`) VALUES
@@ -1124,11 +1614,11 @@ INSERT INTO `task3` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_i
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `task3_aggregated`
+-- Table structure for table `task3_aggregated`
 --
 
-CREATE TABLE IF NOT EXISTS `task3_aggregated` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `task3_aggregated` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gap_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -1139,53 +1629,156 @@ CREATE TABLE IF NOT EXISTS `task3_aggregated` (
   `gap_position` int(11) NOT NULL,
   `gap_answer` varchar(128) NOT NULL,
   `fingerprint` varchar(128) DEFAULT NULL,
-  `weight` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=134 ;
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `task3_aggregated`
+-- Dumping data for table `task3_aggregated`
 --
 
 INSERT INTO `task3_aggregated` (`id`, `time`, `gap_id`, `user_id`, `video_id`, `sugestion_id`, `sugestion_text`, `sugestion_type`, `gap_position`, `gap_answer`, `fingerprint`, `weight`) VALUES
-(1, '2017-05-17 13:59:31', 34, 1, 5, 11, 'O Velho Continente Ã© a Europa. ', 5, 55, 'Qual Ã© o velho continente?', '8e3b5521902c39b30ed16f47a75eaabc', 6),
-(2, '2017-05-17 13:59:31', 29, 1, 5, 48, '29_4_1494364392.png ', 4, 31, 'O que ele mais temia?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(3, '2017-05-17 13:59:31', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a. ', 5, 81, 'O que Ã© Vetor de TransmissÃ£o ?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(4, '2017-05-17 13:59:28', 11, 1, 2, 222, 'Venon Ã© uma das bandas de black metal mais influentes do mundo. ', 5, 38, 'Que Ã© Venon ?', '8e3b5521902c39b30ed16f47a75eaabc', 1),
-(5, '2017-05-17 13:59:28', 25, 1, 2, 105, '25_4_1494624981.png ', 4, 26, 'Quem Ã© Slayer?', '8e3b5521902c39b30ed16f47a75eaabc', 6),
-(6, '2017-05-17 13:59:31', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry) ', 6, 103, 'Quem Ã© Jerry?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(7, '2017-05-17 13:59:31', 30, 1, 5, 158, 'CatÃ³licos ApostÃ³licos Romanos ', 5, 39, 'Quem eram estes seguidores ?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
-(8, '2017-05-17 13:59:31', 2, 1, 5, 47, 'sofrimento fÃ­sico ou moral ', 2, 10, 'Padecimento', '8e3b5521902c39b30ed16f47a75eaabc', 7),
-(10, '2017-05-17 13:59:28', 12, 1, 2, 43, '12_4_1494364231.png ', 4, 40, 'CÃ£o dentro do pentagrama ?', '8e3b5521902c39b30ed16f47a75eaabc', 6),
-(11, '2017-05-17 13:59:28', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar ', 2, 44, 'Dar um pulo', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(12, '2017-05-17 13:59:28', 7, 1, 2, 81, 'Legal ', 3, 42, 'Show de bola', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(17, '2017-05-17 13:59:28', 27, 1, 2, 44, 'Sumiu ', 3, 18, 'Tomou Doril ?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
-(18, '2017-05-17 13:59:31', 36, 1, 5, 63, 'Inimigos ', 2, 14, 'Desafetos', '8e3b5521902c39b30ed16f47a75eaabc', 5),
-(20, '2017-05-17 13:59:31', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/ ', 6, 9, 'Suscitar', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(21, '2017-05-17 13:59:31', 17, 1, 5, 89, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2]. ', 5, 82, 'Que doenÃ§a?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(25, '2017-05-17 13:59:31', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry) ', 6, 102, 'Quem Ã© Tom?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(26, '2017-05-17 13:59:31', 6, 1, 5, 99, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o. ', 5, 22, 'O que Ã© a bula "Licet ad capiendos" ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(29, '2017-05-17 13:59:31', 4, 1, 5, 8, 'https://pt.wikipedia.org/wiki/Papa_Greg%C3%B3rio_IX ', 6, 17, 'Quem foi GregÃ³rio IX ?', '6f39b366467d545bc34bdaf65d46c4ad', 2),
-(30, '2017-05-17 13:59:28', 24, 1, 2, 200, 'Roubar; esconder de modo a ficar oculto. ', 2, 23, 'Malocou', '8e3b5521902c39b30ed16f47a75eaabc', 1),
-(32, '2017-05-17 13:59:31', 31, 1, 5, 35, '31_4_1494363832.png ', 4, 43, 'Que pobres seres indefesos?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(35, '2017-05-17 13:59:31', 5, 1, 5, 26, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica. ', 2, 18, 'promulgou', '8e3b5521902c39b30ed16f47a75eaabc', 5),
-(38, '2017-05-17 13:59:28', 23, 1, 2, 15, 'Pessoa que se faz de desentendia. ', 2, 21, 'JoÃ£o sem BraÃ§o', '6f39b366467d545bc34bdaf65d46c4ad', 1),
-(40, '2017-05-17 13:59:31', 28, 1, 5, 141, 'Ã© o medo irracional de gatos ', 5, 26, 'O que Ã© Ailurofobia ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(42, '2017-05-17 13:59:31', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra) ', 5, 91, 'Que epidemia foi essa?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(52, '2017-05-17 13:59:31', 32, 1, 5, 34, 'Os Gatos ', 5, 45, 'Que criatura?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(58, '2017-05-17 13:59:31', 3, 1, 5, 27, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o ', 3, 11, 'ObliteraÃ§Ã£o', '6f39b366467d545bc34bdaf65d46c4ad', 1),
-(68, '2017-05-17 13:59:28', 37, 1, 2, 201, '10_1_1494364458.png', 4, 14, 'Peita?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(69, '2017-05-17 13:59:31', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8 ', 6, 79, 'Turma do Topo Gigio', '6f39b366467d545bc34bdaf65d46c4ad', 5),
-(70, '2017-05-17 13:59:31', 18, 1, 5, 242, '18_4_1494794302.png ', 4, 85, 'Qual era o predador natural?', '6f39b366467d545bc34bdaf65d46c4ad', 5),
-(73, '2017-05-17 13:59:31', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/ ', 6, 13, 'Solapar', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(79, '2017-05-17 13:59:28', 26, 1, 2, 70, 'Barulho irritante ', 2, 27, 'Zuada', '8e3b5521902c39b30ed16f47a75eaabc', 5),
-(80, '2017-05-17 13:59:28', 9, 1, 2, 49, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira. ', 2, 29, 'CaÃ´', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(81, '2017-05-17 13:59:31', 22, 1, 5, 38, '22_4_1494363937.png ', 4, 73, 'Parentes do Mickey ?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(89, '2017-05-17 13:59:31', 13, 1, 5, 46, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes. ', 5, 65, 'Que foi a ExpansÃ£o MarÃ­tima ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(115, '2017-05-17 13:59:28', 10, 1, 2, 50, '10_1_1494364458.png ', 1, 31, 'Peita', '8e3b5521902c39b30ed16f47a75eaabc', 3),
-(122, '2017-05-17 13:59:31', 14, 1, 5, 53, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas. ', 5, 76, 'O que Ã© Peste BubÃ´nica ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
-(133, '2017-05-17 13:59:31', 33, 1, 5, 148, 'https://pt.wikipedia.org/wiki/Rato-preto ', 6, 54, 'EspÃ©cie ratus ratus?', '8e3b5521902c39b30ed16f47a75eaabc', 1);
+(1, '2017-05-31 17:07:49', 34, 1, 5, 11, 'O Velho Continente Ã© a Europa. ', 5, 55, 'Qual Ã© o velho continente?', '8e3b5521902c39b30ed16f47a75eaabc', 9),
+(2, '2017-05-31 17:07:49', 29, 1, 5, 48, '29_4_1494364392.png ', 4, 31, 'O que ele mais temia?', '8e3b5521902c39b30ed16f47a75eaabc', 5),
+(3, '2017-05-31 17:07:49', 16, 1, 5, 262, 'Um animal que transmite uma certa doenÃ§a, Ã© um vetor de transmissÃ£o daquela doenÃ§a. ', 5, 81, 'O que Ã© Vetor de TransmissÃ£o ?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(5, '2017-05-31 17:07:49', 25, 1, 2, 105, '25_4_1494624981.png ', 4, 26, 'Quem Ã© Slayer?', '8e3b5521902c39b30ed16f47a75eaabc', 6),
+(6, '2017-05-31 17:07:49', 21, 1, 5, 109, 'https://pt.wikipedia.org/wiki/Jerry_(Tom_and_Jerry) ', 6, 103, 'Quem Ã© Jerry?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(7, '2017-05-31 17:07:49', 30, 1, 5, 158, 'CatÃ³licos ApostÃ³licos Romanos ', 5, 39, 'Quem eram estes seguidores ?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
+(8, '2017-05-31 17:07:49', 2, 1, 5, 47, 'sofrimento fÃ­sico ou moral ', 2, 10, 'Padecimento', '8e3b5521902c39b30ed16f47a75eaabc', 8),
+(10, '2017-05-31 17:07:49', 12, 1, 2, 43, '12_4_1494364231.png ', 4, 40, 'CÃ£o dentro do pentagrama ?', '8e3b5521902c39b30ed16f47a75eaabc', 6),
+(11, '2017-05-31 17:07:49', 8, 1, 2, 145, 'Fazer uma rapida passagem em algum lugar ', 2, 44, 'Dar um pulo', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(12, '2017-05-31 17:07:49', 7, 1, 2, 81, 'Legal ', 3, 42, 'Show de bola', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(13, '2017-05-31 17:07:49', 23, 1, 2, 20, 'Se refere a uma pessoa que finge nÃ£o entender o que esta acontecendo para tirar vantagem da situaÃ§Ã£o ou para o prÃ³prio bem ', 2, 21, 'JoÃ£o sem BraÃ§o', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(17, '2017-05-31 17:07:49', 27, 1, 2, 44, 'Sumiu ', 3, 18, 'Tomou Doril ?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
+(18, '2017-05-31 17:07:49', 36, 1, 5, 63, 'Inimigos ', 2, 14, 'Desafetos', '8e3b5521902c39b30ed16f47a75eaabc', 7),
+(20, '2017-05-31 17:07:49', 1, 1, 5, 209, 'https://www.dicio.com.br/suscitar/ ', 6, 9, 'Suscitar', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(21, '2017-05-31 17:07:49', 17, 1, 5, 89, 'A Peste BubÃ´nica (portuguÃªs brasileiro) ou Peste BubÃ³nica (portuguÃªs europeu) Ã© uma doenÃ§a pulmonar ou septicÃªmica, infectocontagiosa, provocada pela bactÃ©ria Yersinia pestis, que Ã© transmitida ao homem pela pulga atravÃ©s do rato-preto. A pandemia mais conhecida da doenÃ§a ocorreu no fim da Idade MÃ©dia, ficando conhecida como Peste Negra, quando dizimou 1/4 da populaÃ§Ã£o europeia em 1347, epidemia esta que ocorreu do sÃ©culo XIV atÃ© o sÃ©culo XVII[2]. ', 5, 82, 'Que doenÃ§a?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(25, '2017-05-31 17:07:49', 20, 1, 5, 264, 'https://pt.wikipedia.org/wiki/Tom_(Tom_and_Jerry) ', 6, 102, 'Quem Ã© Tom?', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(26, '2017-05-31 17:07:49', 6, 1, 5, 99, 'Ã© uma bula que Papa GregÃ³rio IX editou e que dÃ¡ inÃ­cio Ã  InquisiÃ§Ã£o. ', 5, 22, 'O que Ã© a bula "Licet ad capiendos" ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(32, '2017-05-31 17:07:49', 31, 1, 5, 35, '31_4_1494363832.png ', 4, 43, 'Que pobres seres indefesos?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
+(35, '2017-05-31 17:07:49', 5, 1, 5, 26, 'Promulgar Ã© a aÃ§Ã£o de tornar algo de conhecimento pÃºblico, termo utilizado quando uma lei ou decreto passa a vigorar na prÃ¡tica. ', 2, 18, 'promulgou', '8e3b5521902c39b30ed16f47a75eaabc', 8),
+(40, '2017-05-31 17:07:49', 28, 1, 5, 141, 'Ã© o medo irracional de gatos ', 5, 26, 'O que Ã© Ailurofobia ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(42, '2017-05-31 17:07:49', 19, 1, 5, 240, 'Epidemia de peste bubonica (peste negra) ', 5, 91, 'Que epidemia foi essa?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(52, '2017-05-31 17:07:49', 32, 1, 5, 34, 'Os Gatos ', 5, 45, 'Que criatura?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(58, '2017-05-31 17:07:49', 3, 1, 5, 27, 'eliminaÃ§Ã£o, anulaÃ§Ã£o, desaparecimento, extinÃ§Ã£o ', 3, 11, 'ObliteraÃ§Ã£o', '6f39b366467d545bc34bdaf65d46c4ad', 3),
+(68, '2017-05-31 17:07:49', 37, 1, 2, 201, '10_1_1494364458.png', 4, 14, 'Peita?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(69, '2017-05-31 17:07:49', 15, 1, 5, 29, 'https://www.youtube.com/watch?v=b6GBzPvsjN8 ', 6, 79, 'Turma do Topo Gigio', '6f39b366467d545bc34bdaf65d46c4ad', 7),
+(70, '2017-05-31 17:07:49', 18, 1, 5, 242, '18_4_1494794302.png ', 4, 85, 'Qual era o predador natural?', '6f39b366467d545bc34bdaf65d46c4ad', 5),
+(73, '2017-05-31 17:07:49', 35, 1, 5, 68, 'https://www.dicio.com.br/solapar/ ', 6, 13, 'Solapar', '8e3b5521902c39b30ed16f47a75eaabc', 4),
+(79, '2017-05-31 17:07:49', 26, 1, 2, 70, 'Barulho irritante ', 2, 27, 'Zuada', '8e3b5521902c39b30ed16f47a75eaabc', 5),
+(80, '2017-05-31 17:07:49', 9, 1, 2, 49, 'Mentira contada com intenÃ§Ã£o de enganar, conquistar ou forma de brincadeira. ', 2, 29, 'CaÃ´', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(81, '2017-05-31 17:07:49', 22, 1, 5, 38, '22_4_1494363937.png ', 4, 73, 'Parentes do Mickey ?', '8e3b5521902c39b30ed16f47a75eaabc', 4),
+(89, '2017-05-31 17:07:49', 13, 1, 5, 46, 'A expansÃ£o ultramarina EuropÃ©ia deu inÃ­cio ao processo da RevoluÃ§Ã£o Comercial, que caracterizou os sÃ©culos XV, XVI e XVII. AtravÃ©s das Grandes NavegaÃ§Ãµes. ', 5, 65, 'Que foi a ExpansÃ£o MarÃ­tima ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(115, '2017-05-31 17:07:49', 10, 1, 2, 50, '10_1_1494364458.png ', 1, 31, 'Peita', '8e3b5521902c39b30ed16f47a75eaabc', 3),
+(122, '2017-05-31 17:07:49', 14, 1, 5, 53, 'A peste bubÃ´nica, tambÃ©m chamada de peste negra, Ã© uma doenÃ§a grave e muitas vezes fatal causada pela bactÃ©ria da peste, YersÃ­nia pestis, que Ã© transmitida por animais roedores aos seres humanos. A maioria dos indivÃ­duos nÃ£o tratados morre nas 48 horas que sucedem o inÃ­cio dos sintomas. ', 5, 76, 'O que Ã© Peste BubÃ´nica ?', '8e3b5521902c39b30ed16f47a75eaabc', 2),
+(151, '2017-05-31 17:07:49', 11, 1, 2, 23, 'http://revistameupet.uol.com.br/upload/imagens_upload/rato_gato_1.jpg ', 6, 38, 'Que Ã© Venon ?', 'd4fad35864e9382fe44b7a74fd7b9a0e', 2),
+(153, '2017-05-31 17:07:49', 4, 1, 5, 7, 'Um papa. ', 5, 17, 'Quem foi GregÃ³rio IX ?', 'd4fad35864e9382fe44b7a74fd7b9a0e', 3),
+(157, '2017-05-31 17:07:49', 33, 1, 5, 52, 'Rato Preto. ', 5, 54, 'EspÃ©cie ratus ratus?', 'd4fad35864e9382fe44b7a74fd7b9a0e', 1),
+(162, '2017-05-31 17:07:49', 24, 1, 2, 13, 'Catou ', 3, 23, 'Malocou', 'd4fad35864e9382fe44b7a74fd7b9a0e', 2);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `contents`
+--
+ALTER TABLE `contents`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contents_aggregated`
+--
+ALTER TABLE `contents_aggregated`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `segments`
+--
+ALTER TABLE `segments`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task1`
+--
+ALTER TABLE `task1`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task1_aggregated`
+--
+ALTER TABLE `task1_aggregated`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task2`
+--
+ALTER TABLE `task2`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task2_aggregated`
+--
+ALTER TABLE `task2_aggregated`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task3`
+--
+ALTER TABLE `task3`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `task3_aggregated`
+--
+ALTER TABLE `task3_aggregated`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contents`
+--
+ALTER TABLE `contents`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=540;
+--
+-- AUTO_INCREMENT for table `contents_aggregated`
+--
+ALTER TABLE `contents_aggregated`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=535;
+--
+-- AUTO_INCREMENT for table `segments`
+--
+ALTER TABLE `segments`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `task1`
+--
+ALTER TABLE `task1`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT for table `task1_aggregated`
+--
+ALTER TABLE `task1_aggregated`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT for table `task2`
+--
+ALTER TABLE `task2`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=312;
+--
+-- AUTO_INCREMENT for table `task2_aggregated`
+--
+ALTER TABLE `task2_aggregated`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=312;
+--
+-- AUTO_INCREMENT for table `task3`
+--
+ALTER TABLE `task3`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=189;
+--
+-- AUTO_INCREMENT for table `task3_aggregated`
+--
+ALTER TABLE `task3_aggregated`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=163;
