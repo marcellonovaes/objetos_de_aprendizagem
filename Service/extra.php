@@ -11,7 +11,6 @@
 
 	$sql = "SELECT * FROM `contents_aggregated`	 WHERE `video_id` = ".$video." GROUP BY  `gap_id`  ORDER BY `gap_position` ";
 
-	mysqli_set_charset($conn,"utf8");
 	$result = mysqli_query($conn,$sql) or die('Errant query:  '.$sql);
 
 	$contributions = array();
