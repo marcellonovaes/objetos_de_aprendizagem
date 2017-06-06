@@ -28,7 +28,7 @@
 			$contributions[$current]['weight'] = 1;
 		}else{
 			$match=0;
-			$s = similarity($contribution['answer'], $contributions[$current]['answer']);
+			$s = similarity(strtoupper($contribution['answer']), strtoupper($contributions[$current]['answer']));
 			foreach($s as $w){
 				$match += strlen($w);
 			}

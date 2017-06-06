@@ -26,7 +26,7 @@
 		if( $contribution['gap_id'] == $contributions[$current]['gap_id'] &&  $contribution['type'] == $contributions[$current]['type']){
 
 			$match=0;
-			$s = similarity($contribution['sugestion'], $contributions[$current]['sugestion']);
+			$s = similarity(strtoupper($contribution['sugestion']), strtoupper($contributions[$current]['sugestion']));
 			foreach($s as $w){
 				$match += strlen($w);
 			}		
